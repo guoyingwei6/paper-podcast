@@ -1,0 +1,7 @@
+feedparser
+httpx
+beautifulsoup4
+edge-tts
+pydub
+anthropic
+python-dotenv

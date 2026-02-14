@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.pyc
+output/
+temp_audio/
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.DS_Store
