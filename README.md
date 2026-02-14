@@ -18,7 +18,7 @@
 ## 技术栈
 
 - **Python** - 核心语言
-- **OpenAI 兼容 API** - 论文总结与播客脚本生成（支持 Claude、DeepSeek、GPT 等模型）
+- **OpenAI Chat Completions API** - 论文总结与播客脚本生成（通过兼容接口支持 DeepSeek、Qwen、GPT 等模型）
 - **Edge TTS** - 微软语音合成（小晓 + 云扬双声道）
 - **FFmpeg** - 音频拼接与处理
 - **feedparser** - RSS 解析
@@ -45,7 +45,7 @@ RSS 订阅源 → 抓取论文 → AI 总结 → 生成对话脚本 → TTS 语�
 
 - Python 3.10+
 - FFmpeg（用于音频处理）
-- 一个兼容 OpenAI API 的大模型服务（如 Anthropic、SiliconFlow、OpenRouter 等）
+- 一个兼容 OpenAI Chat Completions API 格式的大模型服务（如 SiliconFlow、OpenRouter 等，需支持 `/chat/completions` 端点）
 - 一个 RSS 论文订阅源（如 [ZotWatch](https://github.com/guoyingwei6/ZotWatch) 生成的 Feed）
 
 ### 安装
@@ -67,10 +67,10 @@ cp .env.example .env
 编辑 `.env` 文件：
 
 ```bash
-# AI 大模型 API 配置（兼容 OpenAI 格式）
+# 大模型 API 配置（需兼容 OpenAI Chat Completions API 格式，即 /chat/completions 端点）
 ANTHROPIC_API_KEY=your-api-key-here
-ANTHROPIC_BASE_URL=https://api.siliconflow.cn/v1   # 或其他兼容端点
-ANTHROPIC_MODEL=deepseek-ai/DeepSeek-R1-Distill-Qwen-32B  # 或 claude-sonnet-4-5-20250929 等
+ANTHROPIC_BASE_URL=https://api.siliconflow.cn       # 或其他兼容端点
+ANTHROPIC_MODEL=deepseek-ai/DeepSeek-R1-Distill-Qwen-32B  # 或其他模型
 
 # RSS 订阅源
 RSS_URL=https://example.com/rss
