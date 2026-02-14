@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper Podcast - 科研播客</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+
+    .header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .header img {
+      width: 120px;
+      height: 120px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      margin-bottom: 1rem;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f1f5f9;
+      margin-bottom: 0.5rem;
+    }
+
+    .header p {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      max-width: 480px;
+      margin: 0 auto 1rem;
+    }
+
+    .subscribe {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+
+    .subscribe:hover { border-color: #60a5fa; color: #e2e8f0; }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 1.5rem 1rem 4rem;
+    }
+
+    .episode {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .episode:hover { border-color: #475569; }
+
+    .episode-date {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-bottom: 0.5rem;
+    }
+
+    .episode-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f1f5f9;
+      margin-bottom: 0.5rem;
+    }
+
+    .episode-duration {
+      font-size: 0.75rem;
+      color: #64748b;
+      margin-bottom: 0.75rem;
+    }
+
+    .episode audio {
+      width: 100%;
+      height: 40px;
+      margin-bottom: 0.75rem;
+    }
+
+    .episode-desc {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      white-space: pre-line;
+      display: none;
+    }
+
+    .episode-desc.open { display: block; }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      color: #60a5fa;
+      font-size: 0.8rem;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .toggle-btn:hover { color: #93bbfd; }
+
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: #64748b;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 3rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="cover.jpg" alt="Paper Podcast">
+    <h1>Paper Podcast - 科研播客</h1>
+    <p>AI 生成的科研论文解读播客，由两位动物基因组学博士主持</p>
+    <a class="subscribe" href="https://guoyingwei6.github.io/paper-podcast/feed.xml" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="6.18" cy="17.82" r="2.18"/><path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/></svg>
+      RSS 订阅
+    </a>
+  </div>
+
+  <div class="container">
+    <div id="episodes" class="loading">加载中...</div>
+  </div>
+
+  <script>
+    async function loadFeed() {
+      const container = document.getElementById('episodes');
+      try {
+        const resp = await fetch('feed.xml');
+        const text = await resp.text();
+        const xml = new DOMParser().parseFromString(text, 'text/xml');
+        const items = xml.querySelectorAll('item');
+
+        if (items.length === 0) {
+          container.innerHTML = '<div class="empty">暂无播客内容</div>';
+          return;
+        }
+
+        container.innerHTML = '';
+        container.classList.remove('loading');
+
+        items.forEach((item, i) => {
+          const title = item.querySelector('title')?.textContent || '';
+          const desc = item.querySelector('description')?.textContent || '';
+          const audioUrl = item.querySelector('enclosure')?.getAttribute('url') || '';
+          const pubDate = item.querySelector('pubDate')?.textContent || '';
+          const duration = item.getElementsByTagNameNS('http://www.itunes.com/dtds/podcast-1.0.dtd', 'duration')[0]?.textContent || '';
+
+          const date = pubDate ? new Date(pubDate).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
+
+          const el = document.createElement('div');
+          el.className = 'episode';
+          el.innerHTML = `
+            <div class="episode-date">${date}</div>
+            <div class="episode-title">${title}</div>
+            <div class="episode-duration">${duration ? '时长 ' + duration : ''}</div>
+            <audio controls preload="none" src="${audioUrl}"></audio>
+            <button class="toggle-btn" onclick="toggleDesc(this)">展开详情</button>
+            <div class="episode-desc">${desc}</div>
+          `;
+          container.appendChild(el);
+        });
+      } catch (e) {
+        container.innerHTML = '<div class="empty">加载失败，请稍后重试</div>';
+      }
+    }
+
+    function toggleDesc(btn) {
+      const desc = btn.nextElementSibling;
+      const open = desc.classList.toggle('open');
+      btn.textContent = open ? '收起详情' : '展开详情';
+    }
+
+    loadFeed();
+  </script>
+</body>
+</html>
