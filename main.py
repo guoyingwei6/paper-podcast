@@ -12,7 +12,7 @@ from audio_merger import merge_audio, cleanup_temp
 def main():
     parser = argparse.ArgumentParser(description="Paper Podcast - RSS 科研播客生成工具")
     parser.add_argument("--rss", type=str, default=RSS_URL, help="RSS 订阅地址")
-    parser.add_argument("--count", type=int, default=ARTICLE_COUNT, help="处理文章数量")
+    parser.add_argument("--count", type=int, default=ARTICLE_COUNT, help="处理文章数量（0=全部）")
     parser.add_argument("--output", type=str, default=OUTPUT_DIR, help="输出目录")
     args = parser.parse_args()
 

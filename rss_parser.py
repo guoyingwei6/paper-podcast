@@ -1,17 +1,69 @@
+import re
 import feedparser
 import httpx
 from bs4 import BeautifulSoup
+
+# DOI 域名 → 期刊名映射
+JOURNAL_MAP = {
+    "nature.com": {
+        "s41588": "Nature Genetics",
+        "s41586": "Nature",
+        "s41467": "Nature Communications",
+    },
+    "genome.org": "Genome Research",
+    "mdpi.com": "Animals",
+    "biomedcentral.com": "BMC Genomics",
+}
+
+
+def _extract_journal(entry: dict) -> str:
+    """从 RSS 条目中提取期刊名。"""
+    # 优先从 summary 的 Venue 字段提取
+    summary = entry.get("summary", "")
+    venue_match = re.search(r"Venue:\s*(.+)", summary)
+    if venue_match:
+        return venue_match.group(1).strip()
+
+    # 从 DOI 链接推断
+    link = entry.get("link", "")
+    for domain, journals in JOURNAL_MAP.items():
+        if domain in link:
+            if isinstance(journals, dict):
+                for code, name in journals.items():
+                    if code in link:
+                        return name
+                return "Nature"  # fallback for nature.com
+            return journals
+
+    # 从 tags 提取
+    tags = entry.get("tags", [])
+    for tag in tags:
+        term = tag.get("term", "")
+        if term and term not in ("", "article"):
+            return term
+
+    return ""
+
+
+def _format_date(entry: dict) -> str:
+    """格式化发布日期为 YYYY-MM-DD。"""
+    parsed = entry.get("published_parsed")
+    if parsed:
+        return f"{parsed.tm_year}-{parsed.tm_mon:02d}-{parsed.tm_mday:02d}"
+    return entry.get("published", "")
 
 
 def parse_feed(rss_url: str, count: int) -> list[dict]:
     """解析 RSS feed，返回文章列表。"""
     feed = feedparser.parse(rss_url)
+    entries = feed.entries if count <= 0 else feed.entries[:count]
     articles = []
-    for entry in feed.entries[:count]:
+    for entry in entries:
         article = {
             "title": entry.get("title", ""),
             "link": entry.get("link", ""),
-            "published": entry.get("published", ""),
+            "published": _format_date(entry),
+            "journal": _extract_journal(entry),
             "summary": entry.get("summary", ""),
             "content": "",
         }
@@ -39,7 +91,6 @@ def fetch_article_content(url: str) -> str:
     if article_tag:
         text = article_tag.get_text(separator="\n", strip=True)
     else:
-        # 回退到 body
         body = soup.find("body")
         text = body.get_text(separator="\n", strip=True) if body else soup.get_text(separator="\n", strip=True)
 
@@ -48,7 +99,7 @@ def fetch_article_content(url: str) -> str:
 
 
 def get_articles(rss_url: str, count: int) -> list[dict]:
-    """获取文章列表并抓取正文。"""
+    """获取文章列表并抓取正文。count<=0 表示全部。"""
     articles = parse_feed(rss_url, count)
     print(f"从 RSS 获取到 {len(articles)} 篇文章")
 

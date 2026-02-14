@@ -1,7 +1,12 @@
 import asyncio
 import os
+import re
 import edge_tts
 from config import VOICE_FEMALE, VOICE_MALE, AUDIO_SPEED
+
+# 匹配各种格式：女: / 女：/ **女:** / **小薇**: / 小薇: 等
+FEMALE_PATTERN = re.compile(r"^[\*\s]*(?:女|小薇)[：:\s]*[\*]*\s*")
+MALE_PATTERN = re.compile(r"^[\*\s]*(?:男|老张)[：:\s]*[\*]*\s*")
 
 
 def parse_script(script: str) -> list[dict]:
@@ -9,12 +14,16 @@ def parse_script(script: str) -> list[dict]:
     lines = []
     for line in script.strip().splitlines():
         line = line.strip()
-        if line.startswith("女:") or line.startswith("女："):
-            text = line.split(":", 1)[1].strip() if ":" in line else line.split("：", 1)[1].strip()
-            lines.append({"gender": "female", "text": text})
-        elif line.startswith("男:") or line.startswith("男："):
-            text = line.split(":", 1)[1].strip() if ":" in line else line.split("：", 1)[1].strip()
-            lines.append({"gender": "male", "text": text})
+        if not line:
+            continue
+        if FEMALE_PATTERN.match(line):
+            text = FEMALE_PATTERN.sub("", line).strip()
+            if text:
+                lines.append({"gender": "female", "text": text})
+        elif MALE_PATTERN.match(line):
+            text = MALE_PATTERN.sub("", line).strip()
+            if text:
+                lines.append({"gender": "male", "text": text})
     return lines
 
 
