@@ -2,7 +2,7 @@
 
 一个基于 AI 的科研论文播客生成工具，自动从 RSS 订阅源抓取最新论文，通过 AI 生成双人对话播客脚本，并合成为音频，最终发布为可订阅的播客。
 
-订阅地址: [RSS](https://guoyingwei6.github.io/paper-podcast/feed.xml)
+在线收听: [网页播放器](https://guoyingwei6.github.io/paper-podcast) | 订阅地址: [RSS](https://guoyingwei6.github.io/paper-podcast/feed.xml)
 
 ---
 
