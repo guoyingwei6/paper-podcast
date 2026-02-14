@@ -1,6 +1,7 @@
 import argparse
 import os
 import subprocess
+import sys
 from datetime import date
 
 from config import RSS_URL, ARTICLE_COUNT, OUTPUT_DIR, GITHUB_REPO
@@ -60,7 +61,7 @@ def main():
 
     if not args.rss:
         print("错误: 请通过 --rss 参数或 .env 中的 RSS_URL 指定 RSS 地址")
-        return
+        sys.exit(1)
 
     today = date.today().isoformat()
     output_path = os.path.join(args.output, f"podcast-{today}.mp3")
@@ -72,7 +73,7 @@ def main():
     articles = get_articles(args.rss, args.count)
     if not articles:
         print("未获取到文章，退出")
-        return
+        sys.exit(1)
 
     # Step 2: AI 生成播客脚本
     print("\n🤖 AI 生成播客脚本")
