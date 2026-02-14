@@ -4,6 +4,8 @@
 
 在线收听: [网页播放器](https://guoyingwei6.github.io/paper-podcast) | 订阅地址: [RSS](https://guoyingwei6.github.io/paper-podcast/feed.xml)
 
+![paper-podcast](https://socialify.git.ci/guoyingwei6/paper-podcast/image?description=1&forks=1&name=1&owner=1&pattern=Circuit+Board&stargazers=1&theme=Auto)
+
 ---
 
 ## 主要特性
