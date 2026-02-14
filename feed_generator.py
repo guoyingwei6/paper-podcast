@@ -18,29 +18,11 @@ def _release_url(filename):
 
 
 def _get_mp3_duration(filepath):
-    """Estimate MP3 duration from file size and bitrate header."""
+    """Get MP3 duration using pydub."""
     try:
-        size = os.path.getsize(filepath)
-        with open(filepath, "rb") as f:
-            header = f.read(4096)
-        # Find first MPEG frame sync
-        for i in range(len(header) - 1):
-            if header[i] == 0xFF and (header[i + 1] & 0xE0) == 0xE0:
-                byte2 = header[i + 1]
-                byte3 = header[i + 2]
-                version = (byte2 >> 3) & 0x03
-                layer = (byte2 >> 1) & 0x03
-                bitrate_index = (byte3 >> 4) & 0x0F
-                # MPEG1 Layer3 bitrate table
-                bitrates = [0, 32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, 320, 0]
-                if version == 3 and layer == 1 and 1 <= bitrate_index <= 14:
-                    bitrate = bitrates[bitrate_index] * 1000
-                    duration_sec = int((size * 8) / bitrate)
-                    mins, secs = divmod(duration_sec, 60)
-                    return f"{mins}:{secs:02d}"
-                break
-        # Fallback: assume 64kbps
-        duration_sec = int((size * 8) / 64000)
+        from pydub import AudioSegment
+        audio = AudioSegment.from_mp3(filepath)
+        duration_sec = len(audio) // 1000
         mins, secs = divmod(duration_sec, 60)
         return f"{mins}:{secs:02d}"
     except Exception:
