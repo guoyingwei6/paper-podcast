@@ -19,3 +19,9 @@ VOICE_MALE = "zh-CN-YunyangNeural"
 
 # 输出目录
 OUTPUT_DIR = os.getenv("OUTPUT_DIR", "output")
+
+# 播客元数据
+PODCAST_TITLE = "Paper Podcast - 科研播客"
+PODCAST_DESCRIPTION = "AI 生成的科研论文解读播客，由两位动物基因组学博士主持"
+PODCAST_AUTHOR = "Paper Podcast"
+GITHUB_REPO = "guoyingwei6/paper-podcast"

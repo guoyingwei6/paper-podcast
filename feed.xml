@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" version="2.0">
+  <channel>
+    <title>Paper Podcast - 科研播客</title>
+    <description>AI 生成的科研论文解读播客，由两位动物基因组学博士主持</description>
+    <language>zh-cn</language>
+    <link>https://guoyingwei6.github.io/paper-podcast</link>
+    <itunes:author>Paper Podcast</itunes:author>
+    <itunes:summary>AI 生成的科研论文解读播客，由两位动物基因组学博士主持</itunes:summary>
+    <itunes:explicit>false</itunes:explicit>
+    <itunes:category text="Science" />
+    <itunes:image href="https://guoyingwei6.github.io/paper-podcast/cover.jpg" />
+    <item>
+      <title>科研播客 - 2026-02-14</title>
+      <description>本期讨论文章：
+- 宿主遗传因素与人类肠道微生物组成的关联研究
+- 基因组内插在猪繁殖性状GWAS中的应用
+- 莱茵-默兹河流域的狩猎采集者血统与贝娄文化扩张
+- 全基因组关联分析揭示肠道分子环境对微生物多样性的影响
+- 16种癌症类型中染色体改变和突变签名的全面分析
+- Avr基因变异解释小麦杆锈病的严重流行
+- 黑羽鸡遗传选择对生长和营养的影响
+- 评估Oxford Nanopore测序在临床应用中的可行性
+- 黑羽鸡肉用种鸡的繁殖相关基因识别
+- 用于高效分子数量性状位点映射的OmiGA工具
+- 白蚁中自私遗传元素与宿主防御的军备竞赛
+- 沙特阿拉伯基因组医学的发展
+- 西非遗传医学中心应对非洲遗传疾病挑战
+- 猪到人肾移植生理学和免疫学
+- 睡眠依赖的脑脂质清除
+- 新疆褐牛MSTN敲除与代谢组学
+- 代谢组学和脂质组学在畜禽繁殖研究中的应用
+- sRNA测序分析编码基因表达
+- 黄曲霉中lncRNA与抗真菌敏感性</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-02-14/podcast-2026-02-14.mp3" length="3318572" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-02-14</guid>
+      <pubDate>Fri, 13 Feb 2026 16:00:00 GMT</pubDate>
+      <itunes:duration>6:54</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
+  </channel>
+</rss>
