@@ -1,0 +1,38 @@
+name: Daily Podcast
+
+on:
+  schedule:
+    # 每天北京时间 7:00（UTC 23:00 前一天）
+    - cron: '0 23 * * *'
+  workflow_dispatch: # 支持手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Generate and publish podcast
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
+          ANTHROPIC_MODEL: ${{ secrets.ANTHROPIC_MODEL }}
+          RSS_URL: ${{ secrets.RSS_URL }}
+          ARTICLE_COUNT: '0'
+          AUDIO_SPEED: '+10%'
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python main.py --publish
