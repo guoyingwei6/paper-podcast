@@ -117,7 +117,7 @@ paper-podcast/
 
 ## 致谢
 
-本项目受 [Hacker Podcast](https://github.com/ccbikai/hacker-podcast) 启发，感谢以下开源项目和服务：
+本项目受 [Hacker Podcast](https://github.com/miantiao-me/hacker-podcast) 启发，感谢以下开源项目和服务：
 
 - **[Edge TTS](https://github.com/rany2/edge-tts)** - 免费高质量的微软语音合成
 - **[feedparser](https://github.com/kurtmckee/feedparser)** - RSS 解析库
