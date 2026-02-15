@@ -30,12 +30,21 @@ def _get_mp3_duration(filepath):
 
 
 def _get_episode_description(articles):
-    """Generate episode description from article list."""
+    """Generate episode description from article list (bilingual)."""
     if not articles:
         return "科研论文解读播客"
-    titles = [a.get("title", "") for a in articles if a.get("title")]
-    if titles:
-        return "本期讨论文章：\n" + "\n".join(f"- {t}" for t in titles)
+    lines = []
+    for a in articles:
+        title = a.get("title", "")
+        title_zh = a.get("title_zh", "")
+        if not title:
+            continue
+        if title_zh:
+            lines.append(f"- {title}\n  {title_zh}")
+        else:
+            lines.append(f"- {title}")
+    if lines:
+        return "本期讨论文章：\n" + "\n".join(lines)
     return "科研论文解读播客"
 
 

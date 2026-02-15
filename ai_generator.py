@@ -11,8 +11,8 @@ HEADERS = {
 }
 
 
-def _chat(prompt: str, max_tokens: int = 4096) -> str:
-    """调用 OpenAI 兼容的 chat completions API。"""
+def _chat_raw(prompt: str, max_tokens: int = 4096) -> str:
+    """调用 OpenAI 兼容的 chat completions API（仅过滤 think 标签）。"""
     payload = {
         "model": ANTHROPIC_MODEL,
         "max_tokens": max_tokens,
@@ -24,6 +24,12 @@ def _chat(prompt: str, max_tokens: int = 4096) -> str:
     text = data["choices"][0]["message"]["content"]
     # 过滤 DeepSeek-R1 的 <think>...</think> 思考过程
     text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
+    return text
+
+
+def _chat(prompt: str, max_tokens: int = 4096) -> str:
+    """调用 API 并过滤非对话内容（用于生成播客脚本）。"""
+    text = _chat_raw(prompt, max_tokens)
     # 有些蒸馏模型不输出 <think> 标签但会先输出规划文字，
     # 找到第一行 女: 或 男: 开头的内容，去掉之前的非对话内容
     lines = text.split("\n")
@@ -63,8 +69,40 @@ def generate_podcast_script(summaries: list[dict]) -> str:
     return _chat(prompt, max_tokens=8192)
 
 
+def translate_titles(articles: list[dict]) -> dict[str, str]:
+    """批量翻译文章标题为中文，返回 {英文标题: 中文标题} 字典。"""
+    titles = [a.get("title", "") for a in articles if a.get("title")]
+    if not titles:
+        return {}
+    numbered = "\n".join(f"{i+1}. {t}" for i, t in enumerate(titles))
+    prompt = (
+        "请将以下论文标题逐条翻译为中文，保持编号格式，每行一条，"
+        "只输出翻译结果，不要解释：\n\n" + numbered
+    )
+    result = _chat_raw(prompt, max_tokens=2048)
+    translations = {}
+    for line in result.strip().split("\n"):
+        line = line.strip()
+        if not line:
+            continue
+        # 去掉编号前缀如 "1. " 或 "1、"
+        cleaned = re.sub(r"^\d+[.、\s]+", "", line).strip()
+        if cleaned:
+            # 按顺序匹配
+            idx = len(translations)
+            if idx < len(titles):
+                translations[titles[idx]] = cleaned
+    return translations
+
+
 def process_articles(articles: list[dict]) -> str:
-    """完整 pipeline：逐篇总结 → 生成播客脚本。"""
+    """完整 pipeline：翻译标题 → 逐篇总结 → 生成播客脚本。"""
+    # 批量翻译标题
+    print("翻译文章标题...")
+    title_map = translate_titles(articles)
+    for article in articles:
+        article["title_zh"] = title_map.get(article.get("title", ""), "")
+
     summaries = []
     for i, article in enumerate(articles):
         print(f"  [{i+1}/{len(articles)}] AI 总结: {article['title']}")
