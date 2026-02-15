@@ -69,5 +69,55 @@
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-02-16</title>
+      <description>本期讨论文章：
+- The HUNT study identifies host genetic factors reproducibly associated with human gut microbiota composition
+  好的，用户给了我一个任务，要把20个英文论文标题翻译成中文，并且保持编号和格式，每行一条，只输出翻译结果，不需要任何解释。首先，我需要理解每个标题的含义，确保翻译准确且符合中文学术表达习惯。
+- Genome Imputation for Genome-Wide Association Study of Reproductive Traits in Chinese Duroc, Landrace, and Yorkshire Pigs: Strategy and Validation
+  我注意到这些标题主要集中在遗传学、基因组学以及相关的生物医学领域。比如，第一标题提到了“HUNT study”和“host genetic factors”，翻译时需要保留研究名称，同时准确传达研究内容。还有像“Genome Imputation”这样的术语，翻译成“基因组填洞”可能不够学术，应该使用“基因组填补”或“基因组补全”。
+- Genome-wide association analyses highlight the role of the intestinal molecular environment in human gut microbiota variation
+  第二标题涉及到猪的品种，Duroc、Landrace 和 Yorkshire 是猪的品种，翻译时应该直接音译，同时保持专业术语的一致性。第三标题中的“intestinal molecular environment”翻译成“肠道分子环境”比较准确，能够传达研究重点在肠道内的环境因素。
+- Comprehensive repertoire of the chromosomal alteration and mutational signatures across 16 cancer types
+  第7到第9标题，特别是关于肉类山羊、蜂窝器祖先对贝尔小杯扩张的影响，翻译需要准确对应术语，如“Southwest meat goats”是西南肉用山羊，确保地理和用途描述准确。
+- Allelic variation of Avr genes in highly virulent strains explains severe wheat stem rust epidemics
+  第15标题提到的是“codiversification”，应该翻译为“共进化”，学术含义更明确。其他如“Metabolomics and Lipidomics”通常译为“代谢组学和脂质组学”，符合学术术语。
+- Effects of Genetic Selection on Growth, Nutritional Value, and Amino Acid Profiles of Breast Muscle and Blood in Black-Boned Chickens
+  还有几个标题涉及基因编辑和代谢分析，如第14和第15，翻译时要注意专业术语的准确性和流畅性。比如“CRISPR/Cas12Mix”保持原文，因为这是一个技术名称，不需要翻译。
+- Genome characteristics and identification of reproduction-related genes in Southwest meat goats
+  在翻译过程中，还要注意每个标题的结构，确保主语和谓语搭配准确，避免直译导致的语句不顺。例如，第4标题中的“comprehensive repertoire”译为“全面组图谱”比较合适，既准确又符合中文表达习惯。
+- Lasting Lower Rhine–Meuse forager ancestry shaped Bell Beaker expansion
+  还有一些标题涉及疾病或 epidemics，如第5标题“severe wheat stem rust epidemics”要翻译成“严重小麦秆锈病流行”，保持原意和准确性。此外，像“Publisher Correction”和“Author Correction”这样的编辑注释，应该翻译成“出版更正”和“作者更正”，以免误解。
+- Arms races between selfish genetic elements and their host defence in termites
+  还有一些涉及到具体技术或研究方法的词汇，如“scAmp”和“CRISPR/Cas12Mix”，这些一般不需要翻译，保持原名即可，确保专业性和准确性。
+- The West African Genetic Medicine Center as a model to address the challenge of genetic disorders in Africa
+  完成翻译后，需要再次检查每个标题，确保编号对应，格式一致，不遗漏任何内容。同时，保持语句通顺，避免冗长或拗口的表达，使翻译后的标题既准确又易于理解。
+- Publisher Correction: Physiology and immunology of a pig-to-human decedent kidney xenotransplant
+  总的来说，这个翻译任务需要细致分析每个标题的专业术语和内容，确保在准确传达原意的基础上，符合中文学术写作的规范和习惯。
+- Strategies to improve on selection based on estimated breeding values
+  &lt;/think&gt;
+- Early Growth and Serum Metabolic Profiling of One-Month-Old MSTN-Knockout Xinjiang Brown Cattle via CRISPR/Cas12Mix
+  HUNT研究识别出与人类肠道 microbiota 组成稳定相关的宿主遗传因素
+- Metabolomics and Lipidomics in the Study of Reproductive Performance in Livestock
+  中国杜洛克、长大和约克shire猪繁殖性状全基因组关联分析的基因组填补策略与验证
+- Limited codiversification of the gut microbiota with humans
+  全基因组关联分析突出肠道分子环境在人类肠道微生物组变异中的作用
+- Genomic Insights into the Origins, Population Structure, and Local Adaptation of Philippine Visayan Native Cattle
+  涵盖16种癌症类型的染色体改变和突变特征的全面图谱
+- scAmp analyzes focal gene amplifications at single-cell resolution
+  致病性高的锈菌Avr基因的等位变异解释了严重小麦秆锈病流行
+- Author Correction: Inference and reconstruction of the heimdallarchaeial ancestry of eukaryotes
+  基因选择对黑骨鸡胸肌和血液生长性能及营养、氨基酸组成的影响
+- Genetic Association Analysis of Skin Traits and the TAF11 Gene in Shenxian Pigs
+  西南肉用山羊的基因组特征及繁殖相关基因的识别
+- Assessing the readiness of Oxford Nanopore sequencing for clinical genomics applications
+  持久的下莱茵-马斯河谷采集者遗传背景塑造了贝氏文化扩张</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-02-16/podcast-2026-02-16.mp3" length="1129053" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-02-16</guid>
+      <pubDate>Mon, 16 Feb 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>3:12</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
