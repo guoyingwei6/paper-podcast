@@ -173,12 +173,18 @@
         container.innerHTML = '';
         container.classList.remove('loading');
 
-        items.forEach((item, i) => {
+        // 按日期倒序，最新的在最上面
+        const sorted = [...items].sort((a, b) => {
+          const da = new Date(a.querySelector('pubDate')?.textContent || 0);
+          const db = new Date(b.querySelector('pubDate')?.textContent || 0);
+          return db - da;
+        });
+
+        sorted.forEach((item, i) => {
           const title = item.querySelector('title')?.textContent || '';
           const desc = item.querySelector('description')?.textContent || '';
           const audioUrl = item.querySelector('enclosure')?.getAttribute('url') || '';
           const pubDate = item.querySelector('pubDate')?.textContent || '';
-          const duration = item.getElementsByTagNameNS('http://www.itunes.com/dtds/podcast-1.0.dtd', 'duration')[0]?.textContent || '';
 
           const date = pubDate ? new Date(pubDate).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
 
@@ -187,12 +193,22 @@
           el.innerHTML = `
             <div class="episode-date">${date}</div>
             <div class="episode-title">${title}</div>
-            <div class="episode-duration">${duration ? '时长 ' + duration : ''}</div>
-            <audio controls preload="none" src="${audioUrl}"></audio>
+            <div class="episode-duration">时长加载中...</div>
+            <audio controls preload="metadata" src="${audioUrl}"></audio>
             <button class="toggle-btn" onclick="toggleDesc(this)">展开详情</button>
             <div class="episode-desc">${desc}</div>
           `;
           container.appendChild(el);
+
+          // 从音频文件获取真实时长
+          const audio = el.querySelector('audio');
+          const durEl = el.querySelector('.episode-duration');
+          audio.addEventListener('loadedmetadata', () => {
+            const secs = Math.floor(audio.duration);
+            const m = Math.floor(secs / 60);
+            const s = secs % 60;
+            durEl.textContent = '时长 ' + m + ':' + String(s).padStart(2, '0');
+          });
         });
       } catch (e) {
         container.innerHTML = '<div class="empty">加载失败，请稍后重试</div>';
