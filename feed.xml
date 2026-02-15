@@ -4,12 +4,12 @@
     <title>Paper Podcast - 科研播客</title>
     <description>AI 生成的科研论文解读播客，由两位动物基因组学博士主持</description>
     <language>zh-cn</language>
-    <link>https://podcast.guoyingwei.top</link>
+    <link>https://guoyingwei6.github.io/paper-podcast</link>
     <itunes:author>Paper Podcast</itunes:author>
     <itunes:summary>AI 生成的科研论文解读播客，由两位动物基因组学博士主持</itunes:summary>
     <itunes:explicit>false</itunes:explicit>
     <itunes:category text="Science" />
-    <itunes:image href="https://podcast.guoyingwei.top/cover.jpg" />
+    <itunes:image href="https://guoyingwei6.github.io/paper-podcast/cover.jpg" />
     <item>
       <title>科研播客 - 2026-02-14</title>
       <description>本期讨论文章：

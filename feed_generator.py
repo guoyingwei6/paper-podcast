@@ -9,7 +9,7 @@ from config import PODCAST_TITLE, PODCAST_DESCRIPTION, PODCAST_AUTHOR, GITHUB_RE
 
 ITUNES_NS = "http://www.itunes.com/dtds/podcast-1.0.dtd"
 FEED_PATH = os.path.join(os.path.dirname(__file__), "feed.xml")
-SITE_URL = "https://podcast.guoyingwei.top"
+SITE_URL = "https://guoyingwei6.github.io/paper-podcast"
 
 
 def _release_url(filename):
