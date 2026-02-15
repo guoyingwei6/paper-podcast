@@ -41,7 +41,27 @@
     </item>
     <item>
       <title>科研播客 - 2026-02-15</title>
-      <description>科研论文解读播客</description>
+      <description>本期讨论文章：
+- The HUNT study identifies host genetic factors reproducibly associated with human gut microbiota composition
+- Genome Imputation for Genome-Wide Association Study of Reproductive Traits in Chinese Duroc, Landrace, and Yorkshire Pigs: Strategy and Validation
+- Lasting Lower Rhine–Meuse forager ancestry shaped Bell Beaker expansion
+- Genome-wide association analyses highlight the role of the intestinal molecular environment in human gut microbiota variation
+- Comprehensive repertoire of the chromosomal alteration and mutational signatures across 16 cancer types
+- Allelic variation of Avr genes in highly virulent strains explains severe wheat stem rust epidemics
+- Author Correction: Inference and reconstruction of the heimdallarchaeial ancestry of eukaryotes
+- Assessing the readiness of Oxford Nanopore sequencing for clinical genomics applications
+- Effects of Genetic Selection on Growth, Nutritional Value, and Amino Acid Profiles of Breast Muscle and Blood in Black-Boned Chickens
+- Genome characteristics and identification of reproduction-related genes in Southwest meat goats
+- Arms races between selfish genetic elements and their host defence in termites
+- The West African Genetic Medicine Center as a model to address the challenge of genetic disorders in Africa
+- Publisher Correction: Physiology and immunology of a pig-to-human decedent kidney xenotransplant
+- Strategies to improve on selection based on estimated breeding values
+- Sleep-dependent clearance of brain lipids by peripheral blood cells
+- Early Growth and Serum Metabolic Profiling of One-Month-Old MSTN-Knockout Xinjiang Brown Cattle via CRISPR/Cas12Mix
+- Metabolomics and Lipidomics in the Study of Reproductive Performance in Livestock
+- Limited codiversification of the gut microbiota with humans
+- Genomic Insights into the Origins, Population Structure, and Local Adaptation of Philippine Visayan Native Cattle
+- Robust partitioning of cell contents by physical instabilities and biological clocks</description>
       <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-02-15/podcast-2026-02-15.mp3" length="699021" type="audio/mpeg" />
       <guid isPermaLink="false">podcast-2026-02-15</guid>
       <pubDate>Sun, 15 Feb 2026 00:00:00 GMT</pubDate>
