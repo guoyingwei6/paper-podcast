@@ -2,7 +2,7 @@ import argparse
 import os
 import subprocess
 import sys
-from datetime import date
+from datetime import datetime, timezone, timedelta
 
 from config import RSS_URL, ARTICLE_COUNT, OUTPUT_DIR, GITHUB_REPO
 from rss_parser import get_articles
@@ -63,7 +63,7 @@ def main():
         print("错误: 请通过 --rss 参数或 .env 中的 RSS_URL 指定 RSS 地址")
         sys.exit(1)
 
-    today = date.today().isoformat()
+    today = datetime.now(timezone(timedelta(hours=8))).strftime("%Y-%m-%d")
     output_path = os.path.join(args.output, f"podcast-{today}.mp3")
     script_path = os.path.join(args.output, f"script-{today}.txt")
     temp_dir = os.path.join(args.output, "temp_audio")
