@@ -12,7 +12,7 @@ from audio_merger import merge_audio, cleanup_temp
 from feed_generator import update_feed
 
 
-def publish(today, output_path, script_path):
+def publish(today, output_path, articles):
     """Upload MP3 to GitHub Releases, update feed.xml, commit and push."""
     tag = f"v{today}"
     title = f"科研播客 {today}"
@@ -36,7 +36,7 @@ def publish(today, output_path, script_path):
 
     # Update RSS feed
     print("\n📝 更新 RSS feed")
-    update_feed(today, output_path, script_path)
+    update_feed(today, output_path, articles)
 
     # Commit and push feed.xml
     print("\n📤 提交并推送 feed.xml")
@@ -101,7 +101,7 @@ def main():
 
     # Step 6: 发布（可选）
     if args.publish:
-        publish(today, output_path, script_path)
+        publish(today, output_path, articles)
 
 
 if __name__ == "__main__":

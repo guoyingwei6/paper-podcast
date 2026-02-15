@@ -29,25 +29,11 @@ def _get_mp3_duration(filepath):
         return "0:00"
 
 
-def _get_episode_description(script_path):
-    """Extract article titles from script file for episode description."""
-    if not os.path.exists(script_path):
+def _get_episode_description(articles):
+    """Generate episode description from article list."""
+    if not articles:
         return "科研论文解读播客"
-    titles = []
-    with open(script_path, "r", encoding="utf-8") as f:
-        for line in f:
-            if not line.startswith("\u5973\uff1a"):  # 女：
-                continue
-            # Extract article titles from Chinese quotes "\u201c...\u201d"
-            left = "\u201c"
-            right = "\u201d"
-            pos = line.find(left)
-            if pos != -1:
-                end = line.find(right, pos + 1)
-                if end > pos:
-                    title = line[pos + 1:end]
-                    if len(title) > 5:
-                        titles.append(title)
+    titles = [a.get("title", "") for a in articles if a.get("title")]
     if titles:
         return "本期讨论文章：\n" + "\n".join(f"- {t}" for t in titles)
     return "科研论文解读播客"
@@ -72,13 +58,13 @@ def _create_channel():
     return rss, channel
 
 
-def _add_item(channel, episode_date, mp3_path, script_path):
+def _add_item(channel, episode_date, mp3_path, articles):
     """Add an episode item to the channel."""
     filename = os.path.basename(mp3_path)
     file_size = str(os.path.getsize(mp3_path))
     audio_url = _release_url(filename)
     duration = _get_mp3_duration(mp3_path)
-    description = _get_episode_description(script_path)
+    description = _get_episode_description(articles)
     guid = f"podcast-{episode_date}"
 
     # Parse date for pubDate
@@ -100,13 +86,13 @@ def _add_item(channel, episode_date, mp3_path, script_path):
     ET.SubElement(item, f"{{{ITUNES_NS}}}explicit").text = "false"
 
 
-def update_feed(episode_date, mp3_path, script_path):
+def update_feed(episode_date, mp3_path, articles):
     """Update or create the RSS feed with a new episode.
 
     Args:
         episode_date: Date string in YYYY-MM-DD format.
         mp3_path: Path to the MP3 file.
-        script_path: Path to the script text file.
+        articles: List of article dicts with 'title' key.
     """
     ET.register_namespace("itunes", ITUNES_NS)
     ET.register_namespace("content", "http://purl.org/rss/1.0/modules/content/")
@@ -125,7 +111,7 @@ def update_feed(episode_date, mp3_path, script_path):
     else:
         rss, channel = _create_channel()
 
-    _add_item(channel, episode_date, mp3_path, script_path)
+    _add_item(channel, episode_date, mp3_path, articles)
 
     # Write with XML declaration
     tree = ET.ElementTree(rss)
