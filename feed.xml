@@ -39,5 +39,15 @@
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-02-15</title>
+      <description>科研论文解读播客</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-02-15/podcast-2026-02-15.mp3" length="699021" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-02-15</guid>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>1:54</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
