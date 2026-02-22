@@ -119,5 +119,55 @@
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-02-23</title>
+      <description>本期讨论文章：
+- Annotating genomes at increased scale and resolution
+  好的，我现在需要逐条翻译这些英文论文标题到中文，保持编号格式，每行一条，只输出翻译结果，不需要任何解释。首先，我得理解每个标题的意思，找出合适的中文翻译。
+- Spatial perturb-seq: single-cell functional genomics within intact tissue architecture
+  看第1条：“Annotating genomes at increased scale and resolution”。这里的“Annotating”是注释的意思，“genomes”是基因组，“increased scale”是更大规模，“resolution”是分辨率或清晰度。所以，翻译成“以更大规模和更高分辨率注释基因组”比较合适。
+- Laser writing in glass for dense, fast and efficient archival data storage
+  接下来第2条：“Spatial perturb-seq: single-cell functional genomics within intact tissue architecture”。这看起来是一个技术名称“Spatial perturb-seq”，以及它的应用范围是“单细胞功能基因组学，在完整的组织结构中”。所以翻译为“空间扰动测序：在完整组织结构中进行单细胞功能基因组学研究”。
+- Nonlinear genomic selection index accelerates multi-trait crop improvement
+  第3条：“Laser writing in glass for dense, fast and efficient archival data storage”。激光写入玻璃，用于高效的数据存储。这可能导致快速和密集的数据存储。翻译成“激光玻璃写入，实现密集、快速且高效的数据存档存储”。
+- Multi-species integration, alignment and annotation of single-cell RNA-seq data with CAMEX
+  第4条：“Nonlinear genomic selection index accelerates multi-trait crop improvement”。这里有“非线性基因组选择指数”，加速多性状作物改良。翻译为“非线性基因组选择指数加速多性状作物改良”。
+- Refining selection signals in dairy sheep using high-density genotyping data
+  第5条：“Multi-species integration, alignment and annotation of single-cell RNA-seq data with CAMEX”。这是关于跨物种的整合、比对和单细胞RNA测序数据注释，使用的工具是CAMEX。翻译为“多物种单细胞RNA测序数据的整合、比对与注释（使用CAMEX）”。
+- Nallo: a Nextflow pipeline for comprehensive human long-read genome analysis
+  第6条：“Refining selection signals in dairy sheep using high-density genotyping data”。用高密度基因分型数据优化乳羊的选择信号。翻译为“利用高密度基因分型数据优化乳羊的选择信号”。
+- An agentic system for rare disease diagnosis with traceable reasoning
+  第7条：“Nallo: a Nextflow pipeline for comprehensive human long-read genome analysis”。Nallo是一个Nextflow管道，用于全面的长读基因组分析。翻译为“Nallo：用于全面人类长读本基因组分析的Nextflow流程”。
+- Single- and Multi-Trait Genome-Wide Association Analyses Identify the Genetic Loci and Candidate Genes for Growth Traits in Plecoglossus altivelis
+  第8条：“An agentic system for rare disease diagnosis with traceable reasoning”。这是一个用于罕见病诊断的系统，具有可追溯推理能力。翻译为“用于罕见病诊断并具备可追踪推理能力的智能系统”。
+- Environmental and geographic drivers of global bat phylogenetic diversity
+  第9条：“Single- and Multi-Trait Genome-Wide Association Analyses Identify the Genetic Loci and Candidate Genes for Growth Traits in Plecoglossus altivelis”。这涉及单个和多个性状的全基因组关联分析，确定某种鱼的生长性状的基因位点和候选基因。翻译为“单性状和多性状全基因组关联分析揭示花斑裸尻gid鱼生长性状相关基因位点和候选基因”。
+- Tumor cell villages define the co-dependency of tumor and microenvironment in liver cancer
+  第10条：“Environmental and geographic drivers of global bat phylogenetic diversity”。环境和地理因素驱动全球蝙蝠系统发育多样性。翻译为“全球蝙蝠系统发育多样性的环境与地理驱动因素”。
+- Gut Microbiome Signatures of Aging Associated with Intramuscular Fat Deposition in Tan Sheep
+  第11条：“Tumor cell villages define the co-dependency of tumor and microenvironment in liver cancer”。肿瘤细胞群落定义肝癌中肿瘤与微环境的相互依赖。翻译为“肿瘤细胞群落勾画肝癌中肿瘤与微环境的相互依存关系”。
+- Identification of ephrin-A1–EphA2 signalling as a potential target for fracture prevention
+  第12条：“Gut Microbiome Signatures of Aging Associated with Intramuscular Fat Deposition in Tan Sheep”。肠道微生物群的老化特征与滩羊的肌内脂肪沉积相关。翻译为“与滩羊肌内脂肪沉积相关的肠道菌群衰老特征”。
+- Multi-ancestry GWAS of age-related hearing loss identifies 140 loci and key cellular mechanisms
+  第13条：“Identification of ephrin-A1–EphA2 signalling as a potential target for fracture prevention”。鉴定ephin-A1- EphA2信号通路作为骨折预防的潜在靶点。翻译为“鉴定Ephrin-A1–EphA2信号通路为骨折预防的潜在靶点”。
+- Investigating the topological motifs of inversions in pangenome graphs
+  第14条：“Multi-ancestry GWAS of age-related hearing loss identifies 140 loci and key cellular mechanisms”。多祖先全基因组关联研究揭示了年龄相关听力损失的140个位点和关键细胞机制。翻译为“多祖先全基因组关联研究揭示了年龄相关听力损失的140个位点和关键细胞机制”。
+- Causal variant capture in genotype discovery approaches drives polygenic prediction performance across traits and populations
+  第15条：“Investigating the topological motifs of inversions in pangenome graphs”。研究泛基因组图中倒置的拓扑模式。翻译为“探究泛基因组图中倒置的拓扑模式”。
+- Evolutionary causes and consequences of gene duplication
+  第16条：“Causal variant capture in genotype discovery approaches drives polygenic prediction performance across traits and populations”。在基因型发现方法中捕获因果变异，推动多基因预测在性状和人群中的表现。翻译为“基因型发现方法中的因果变异捕获提升多基因预测在性状和人群中的性能”。
+- Ancient co-option of LTR retrotransposons as yeast centromeres
+  第17条：“Evolutionary causes and consequences of gene duplication”。基因重复的进化原因和后果。翻译为“基因重复的进化原因与后果”。
+- Author Correction: Genotyping sequence-resolved copy number variation using pangenomes reveals paralog-specific global diversity and expression divergence of duplicated genes
+  第18条：“Ancient co-option of LTR retrotransposons as yeast centromeres”。长末端重复反转录转座子被长久利用为酵母着丝粒。翻译为“长末端重复反转录转座子在酵母中长期充当着丝粒”。
+- Reduced cyclin D3 expression in erythroid cells protects against malaria
+  第19条：“Author Correction: Genotyping sequence-resolved copy number variation using pangenomes reveals paralog-specific global diversity and expression divergence of duplicated genes”。作者更正部分，使用泛基因组解析序列明确的拷贝数变异，揭示了重复基因的同源特异性全球多样性及表达差异。翻译为“作者更正：借助泛基因组解析序列明确的拷贝数变异 揭示重复基因的同源特异性全球多样性及表达差异”。</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-02-23/podcast-2026-02-23.mp3" length="4224981" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-02-23</guid>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>12:11</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
