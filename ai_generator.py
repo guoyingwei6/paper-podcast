@@ -1,7 +1,7 @@
 import re
 import httpx
 from config import ANTHROPIC_API_KEY, ANTHROPIC_BASE_URL, ANTHROPIC_MODEL
-from prompts import SUMMARIZE_ARTICLE_PROMPT, GENERATE_PODCAST_PROMPT
+from prompts import SUMMARIZE_ARTICLE_PROMPT, GENERATE_PODCAST_BATCH_PROMPT
 
 # 使用 OpenAI 兼容 API 格式（支持 SiliconFlow、OpenRouter 等）
 API_URL = f"{ANTHROPIC_BASE_URL.rstrip('/')}/chat/completions"
@@ -53,11 +53,10 @@ def summarize_article(article: dict) -> str:
     return _chat_raw(prompt, max_tokens=1024)
 
 
-def generate_podcast_script(summaries: list[dict]) -> str:
-    """根据文章总结生成播客对话脚本。"""
-    summaries_text = ""
-    for i, s in enumerate(summaries, 1):
-        # 优先用预先翻译好的中文标题，确保与 feed 描述一致
+def _build_summaries_text(summaries: list[dict], start_idx: int) -> str:
+    """将 summaries 列表转换为提示词文本。"""
+    text = ""
+    for i, s in enumerate(summaries, start_idx + 1):
         title_zh = s.get("title_zh", "")
         if title_zh:
             meta = f"中文标题：{title_zh}\n英文标题：{s['title']}"
@@ -67,11 +66,41 @@ def generate_podcast_script(summaries: list[dict]) -> str:
             meta += f"\n发表时间：{s['published']}"
         if s.get("journal"):
             meta += f"\n期刊：{s['journal']}"
-        summaries_text += f"### 文章 {i}\n{meta}\n\n{s['summary']}\n\n"
+        text += f"### 文章 {i}\n{meta}\n\n{s['summary']}\n\n"
+    return text
 
-    prompt = GENERATE_PODCAST_PROMPT.format(summaries=summaries_text)
-    # 20篇文章需要更长的输出
-    return _chat(prompt, max_tokens=8192)
+
+def generate_podcast_script(summaries: list[dict]) -> str:
+    """分批生成播客对话脚本，每批 5 篇，确保所有文章都被覆盖。"""
+    BATCH_SIZE = 5
+    total = len(summaries)
+    script_parts = []
+
+    for batch_start in range(0, total, BATCH_SIZE):
+        batch = summaries[batch_start:batch_start + BATCH_SIZE]
+        is_first = batch_start == 0
+        is_last = batch_start + len(batch) >= total
+
+        if is_first and is_last:
+            role = "这是本期播客的全部内容，需要有完整的开场白和结尾道别。"
+        elif is_first:
+            role = "这是本期播客的开始部分，需要有完整的开场白。结尾不要道别，因为后面还有更多文章。"
+        elif is_last:
+            role = "这是本期播客的最后部分，直接从文章讨论开始（不要重复开场白）。最后加一句简短的道别。"
+        else:
+            role = "这是本期播客的中间部分，直接从文章讨论开始（不要重复开场白）。结尾不要道别，后面还有更多文章。"
+
+        summaries_text = _build_summaries_text(batch, batch_start)
+        prompt = GENERATE_PODCAST_BATCH_PROMPT.format(
+            role=role,
+            summaries=summaries_text,
+        )
+        batch_end = batch_start + len(batch)
+        print(f"  生成脚本片段（第 {batch_start + 1}-{batch_end}/{total} 篇）...")
+        part = _chat(prompt, max_tokens=4096)
+        script_parts.append(part)
+
+    return "\n".join(script_parts)
 
 
 def translate_titles(articles: list[dict]) -> dict[str, str]:
