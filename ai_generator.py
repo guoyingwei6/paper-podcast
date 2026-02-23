@@ -53,21 +53,16 @@ def summarize_article(article: dict) -> str:
     return _chat_raw(prompt, max_tokens=1024)
 
 
-_THINKING_PARA_RE = re.compile(
-    r"^(好的[，,！!]|首先[，,]|接下来[，,]|然后[，,]|最后[，,]|我(需要|要|来)|让我|下面(是|我))"
-)
-
 
 def _strip_highlights_thinking(text: str) -> str:
-    """过滤模型在亮点简介前输出的规划/思考段落（含孤立 </think> 标签）。"""
-    # 去掉孤立的 </think>（模型有时只输出结束标签而无开头标签）
+    """过滤模型在亮点简介前输出的规划/思考段落（含孤立 </think> 标签）。
+    策略：模型的实际简介始终是最后一段，直接取最后一段。
+    """
     text = re.sub(r"</think>", "", text).strip()
     paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
-    for i, para in enumerate(paragraphs):
-        first_line = para.split("\n")[0].strip()
-        if not _THINKING_PARA_RE.match(first_line):
-            return "\n\n".join(paragraphs[i:]).strip()
-    return text.strip()
+    if paragraphs:
+        return paragraphs[-1]
+    return text
 
 
 _FAREWELL_RE = re.compile(
@@ -146,22 +141,28 @@ def translate_titles(articles: list[dict]) -> dict[str, str]:
         return {}
     numbered = "\n".join(f"{i+1}. {t}" for i, t in enumerate(titles))
     prompt = (
-        "请将以下论文标题逐条翻译为中文，保持编号格式，每行一条，"
-        "只输出翻译结果，不要解释：\n\n" + numbered
+        "请将以下论文标题逐条翻译为中文，保持编号格式，每行一条，只输出翻译结果，不要解释。"
+        "要求：按英文字面意思直译，不要根据记忆联想已知的中文论文标题来替换。\n\n"
+        + numbered
     )
     result = _chat_raw(prompt, max_tokens=2048)
+
+    # 从第一个 "1." 开头的行开始解析，跳过可能的思考/前言段落
+    list_match = re.search(r"(?m)^1[.、]", result)
+    if list_match:
+        result = result[list_match.start():]
+
     translations = {}
     for line in result.strip().split("\n"):
         line = line.strip()
         if not line:
             continue
-        # 解析编号前缀，如 "1. " 或 "1、"，按编号映射而不是按顺序计数
-        # 这样即使 AI 多输出了额外文字，翻译也不会错位
         m = re.match(r"^(\d+)[.、\s]+(.+)$", line)
         if m:
             idx = int(m.group(1)) - 1
             translation = m.group(2).strip()
-            if 0 <= idx < len(titles) and translation:
+            # 只取每个编号的第一次出现，防止模型在结尾"总结"时覆盖正确翻译
+            if 0 <= idx < len(titles) and translation and titles[idx] not in translations:
                 translations[titles[idx]] = translation
     return translations
 
