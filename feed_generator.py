@@ -39,19 +39,16 @@ def _get_episode_description(articles):
         title_zh = a.get("title_zh", "")
         journal = a.get("journal", "")
         published = a.get("published", "")
-        authors = a.get("authors", "")
 
         if not title:
             continue
 
-        # 构建元信息行（期刊、日期、作者）
+        # 构建元信息行（期刊、日期）
         meta_parts = []
         if journal:
             meta_parts.append(journal)
         if published:
             meta_parts.append(published)
-        if authors:
-            meta_parts.append(authors)
 
         meta_line = ", ".join(meta_parts) if meta_parts else ""
 
