@@ -53,6 +53,23 @@ def summarize_article(article: dict) -> str:
     return _chat_raw(prompt, max_tokens=1024)
 
 
+_FAREWELL_RE = re.compile(
+    r"(再见|下期|下次见|感谢收听|本期播客|就到这里|拜拜|今天就聊到|以上就是今天|好了今天|好，今天)"
+)
+
+
+def _strip_farewell(text: str) -> str:
+    """删除非末尾批次里尾部出现的道别/结束语行。"""
+    lines = text.split("\n")
+    while lines:
+        last = lines[-1].strip()
+        if last and _FAREWELL_RE.search(last):
+            lines.pop()
+        else:
+            break
+    return "\n".join(lines)
+
+
 def _build_summaries_text(summaries: list[dict], start_idx: int) -> str:
     """将 summaries 列表转换为提示词文本。"""
     text = ""
@@ -98,6 +115,8 @@ def generate_podcast_script(summaries: list[dict]) -> str:
         batch_end = batch_start + len(batch)
         print(f"  生成脚本片段（第 {batch_start + 1}-{batch_end}/{total} 篇）...")
         part = _chat(prompt, max_tokens=4096)
+        if not is_last:
+            part = _strip_farewell(part)
         script_parts.append(part)
 
     return "\n".join(script_parts)
