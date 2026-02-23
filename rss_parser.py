@@ -53,6 +53,26 @@ def _format_date(entry: dict) -> str:
     return entry.get("published", "")
 
 
+def _extract_authors(entry: dict) -> str:
+    """从 RSS 条目中提取作者信息。"""
+    # 尝试从 authors 列表获取
+    authors_list = entry.get("authors", [])
+    if authors_list:
+        author_names = [a.get("name", "") for a in authors_list if a.get("name")]
+        if author_names:
+            # 如果作者超过3个，只显示前3个加 et al.
+            if len(author_names) > 3:
+                return ", ".join(author_names[:3]) + " et al."
+            return ", ".join(author_names)
+
+    # 尝试从 author 字段获取
+    author = entry.get("author", "")
+    if author:
+        return author
+
+    return ""
+
+
 def parse_feed(rss_url: str, count: int) -> list[dict]:
     """解析 RSS feed，返回文章列表。"""
     feed = feedparser.parse(rss_url)
@@ -64,6 +84,7 @@ def parse_feed(rss_url: str, count: int) -> list[dict]:
             "link": entry.get("link", ""),
             "published": _format_date(entry),
             "journal": _extract_journal(entry),
+            "authors": _extract_authors(entry),
             "summary": entry.get("summary", ""),
             "content": "",
         }

@@ -37,14 +37,37 @@ def _get_episode_description(articles):
     for a in articles:
         title = a.get("title", "")
         title_zh = a.get("title_zh", "")
+        journal = a.get("journal", "")
+        published = a.get("published", "")
+        authors = a.get("authors", "")
+
         if not title:
             continue
+
+        # 构建元信息行（期刊、日期、作者）
+        meta_parts = []
+        if journal:
+            meta_parts.append(journal)
+        if published:
+            meta_parts.append(published)
+        if authors:
+            meta_parts.append(authors)
+
+        meta_line = ", ".join(meta_parts) if meta_parts else ""
+
+        # 组装格式：元信息 + 英文标题 + 中文翻译
+        article_lines = []
+        if meta_line:
+            article_lines.append(meta_line)
+        article_lines.append(title)
         if title_zh:
-            lines.append(f"- {title}\n  {title_zh}")
-        else:
-            lines.append(f"- {title}")
+            article_lines.append(title_zh)
+
+        # 添加到总列表，每篇文章之间空一行
+        lines.append("\n".join(article_lines))
+
     if lines:
-        return "本期讨论文章：\n" + "\n".join(lines)
+        return "本期讨论文章：\n\n" + "\n\n".join(lines)
     return "科研论文解读播客"
 
 
