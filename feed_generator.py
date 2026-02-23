@@ -115,7 +115,7 @@ def _add_item(channel, episode_date, mp3_path, articles):
     ET.SubElement(item, f"{{{ITUNES_NS}}}explicit").text = "false"
 
 
-def update_feed(episode_date, mp3_path, articles, keep_episodes: int = 10):
+def update_feed(episode_date, mp3_path, articles, keep_episodes: int = 5):
     """Update or create the RSS feed with a new episode.
 
     Args:
