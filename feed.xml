@@ -92,5 +92,97 @@
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-02-23</title>
+      <description>本期播客将探讨一系列前沿科学研究，涵盖基因组研究、生物技术、罕见病诊断和作物改良等领域。内容包括基因组的高分辨率注释、单细胞功能基因组学与空间扰动测序技术、激光写入玻璃数据存储的创新应用，以及基因组选择指数在加速多性状作物改良中的
+
+本期讨论文章：
+
+Nature Reviews Genetics, 2026-02-17
+Annotating genomes at increased scale and resolution
+基因组的规模化和高分辨率注释
+
+Nature Communications, 2026-02-21
+Spatial perturb-seq: single-cell functional genomics within intact tissue architecture
+空间扰动测序：完整组织结构中的单细胞功能基因组学
+
+Nature, 2026-02-18
+Laser writing in glass for dense, fast and efficient archival data storage
+用于密集、快速且高效档案数据存储的激光写入玻璃技术
+
+Nature Communications, 2026-02-20
+Nonlinear genomic selection index accelerates multi-trait crop improvement
+非线性基因组选择指数加速多性状作物改良
+
+Nature Communications, 2026-02-21
+Multi-species integration, alignment and annotation of single-cell RNA-seq data with CAMEX
+利用CAMEX对单细胞RNA测序数据进行多物种整合、比对和注释
+
+Journal of Animal Science, 2026-02-19
+Refining selection signals in dairy sheep using high-density genotyping data
+利用高密度基因分型数据细化绵羊作种选择信号
+
+Bioinformatics, 2026-02-19
+Nallo: a Nextflow pipeline for comprehensive human long-read genome analysis
+Nallo：用于全面人类长读长基因组分析的Nextflow工作流
+
+Nature, 2026-02-18
+An agentic system for rare disease diagnosis with traceable reasoning
+带有可追踪推理机制的罕见病诊断智能系统
+
+Animals, 2026-02-20
+Single- and Multi-Trait Genome-Wide Association Analyses Identify the Genetic Loci and Candidate Genes for Growth Traits in Plecoglossus altivelis
+单性状与多性状全基因组关联分析鉴定真鲷生长性状的遗传位点及候选基因
+
+biorxiv, 2026-02-19
+Environmental and geographic drivers of global bat phylogenetic diversity
+全球蝙蝠系统发育多样性的影响因素分析
+
+Nature Communications, 2026-02-21
+Tumor cell villages define the co-dependency of tumor and microenvironment in liver cancer
+肿瘤细胞簇定义肝癌中肿瘤与微环境的相互依存关系
+
+Animals, 2026-02-19
+Gut Microbiome Signatures of Aging Associated with Intramuscular Fat Deposition in Tan Sheep
+与滩羊肌内脂肪沉积相关的肠道微生物组特征
+
+Nature Communications, 2026-02-21
+Identification of ephrin-A1–EphA2 signalling as a potential target for fracture prevention
+Eph受体A2和配基A1信号通路作为骨折预防潜在靶点的识别研究
+
+Nature Communications, 2026-02-21
+Multi-ancestry GWAS of age-related hearing loss identifies 140 loci and key cellular mechanisms
+年龄相关性听力损失的多祖先全基因组关联研究揭示了140个位点和关键细胞机制
+
+biorxiv, 2026-02-19
+Investigating the topological motifs of inversions in pangenome graphs
+泛基因组图谱中倒位拓扑基序的特征研究
+
+biorxiv, 2026-02-19
+Causal variant capture in genotype discovery approaches drives polygenic prediction performance across traits and populations
+基因型发现方法中因果变异的捕获驱动跨性状与人群的多基因预测性能
+
+Nature Reviews Genetics, 2026-02-16
+Evolutionary causes and consequences of gene duplication
+基因重复的进化原因及其后果分析
+
+Nature, 2026-02-18
+Ancient co-option of LTR retrotransposons as yeast centromeres
+长末端重复逆转录转座子在酵母染色体中心粒中的古共选择
+
+Nature Genetics, 2026-02-16
+Author Correction: Genotyping sequence-resolved copy number variation using pangenomes reveals paralog-specific global diversity and expression divergence of duplicated genes
+利用泛基因组分型解析基因组序列相关的拷贝数变异，揭示重复基因的种群特异性和表达分化
+
+Nature, 2026-02-18
+Reduced cyclin D3 expression in erythroid cells protects against malaria
+红系细胞中cyclin D3表达降低可保护机体免受疟疾侵害</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-02-23/podcast-2026-02-23.mp3" length="7243461" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-02-23</guid>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>19:41</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
