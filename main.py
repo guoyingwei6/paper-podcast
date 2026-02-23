@@ -6,13 +6,13 @@ from datetime import datetime, timezone, timedelta
 
 from config import RSS_URL, ARTICLE_COUNT, OUTPUT_DIR, GITHUB_REPO
 from rss_parser import get_articles
-from ai_generator import process_articles
+from ai_generator import process_articles, generate_episode_highlights
 from tts_engine import run_tts
 from audio_merger import merge_audio, cleanup_temp
 from feed_generator import update_feed
 
 
-def publish(today, output_path, articles):
+def publish(today, output_path, articles, highlights=""):
     """Upload MP3 to GitHub Releases, update feed.xml, commit and push."""
     tag = f"v{today}"
     title = f"科研播客 {today}"
@@ -36,7 +36,7 @@ def publish(today, output_path, articles):
 
     # Update RSS feed
     print("\n📝 更新 RSS feed")
-    update_feed(today, output_path, articles)
+    update_feed(today, output_path, articles, highlights)
 
     # Commit and push feed.xml
     print("\n📤 提交并推送 feed.xml")
@@ -80,6 +80,10 @@ def main():
     script = process_articles(articles)
     print(f"\n--- 播客脚本预览 ---\n{script[:500]}...\n")
 
+    # 生成本期亮点简介
+    print("\n✨ 生成本期亮点简介")
+    highlights = generate_episode_highlights(articles)
+
     # 保存脚本到文件
     os.makedirs(args.output, exist_ok=True)
     with open(script_path, "w", encoding="utf-8") as f:
@@ -101,7 +105,7 @@ def main():
 
     # Step 6: 发布（可选）
     if args.publish:
-        publish(today, output_path, articles)
+        publish(today, output_path, articles, highlights)
 
 
 if __name__ == "__main__":

@@ -149,6 +149,31 @@ def translate_titles(articles: list[dict]) -> dict[str, str]:
     return translations
 
 
+def generate_episode_highlights(articles: list[dict]) -> str:
+    """根据文章摘要生成本期节目亮点简介（2-3句，吸引听众）。"""
+    overview = ""
+    for a in articles:
+        title = a.get("title_zh") or a.get("title", "")
+        journal = a.get("journal", "")
+        summary = a.get("summary_zh", "")
+        if not title:
+            continue
+        line = f"- {title}"
+        if journal:
+            line += f"（{journal}）"
+        if summary:
+            line += f"：{summary[:120]}"
+        overview += line + "\n"
+
+    prompt = (
+        "请根据以下科研文章列表，用2-3句话写一段本期播客的亮点简介。"
+        "要有吸引力，让听众想要继续听，语气轻松自然，像节目预告一样。"
+        "直接输出段落文字，不要用列表、标题或任何格式符号。\n\n"
+        f"文章列表：\n{overview}"
+    )
+    return _chat_raw(prompt, max_tokens=256)
+
+
 def process_articles(articles: list[dict]) -> str:
     """完整 pipeline：翻译标题 → 逐篇总结 → 生成播客脚本。"""
     # 批量翻译标题
@@ -161,6 +186,7 @@ def process_articles(articles: list[dict]) -> str:
     for i, article in enumerate(articles):
         print(f"  [{i+1}/{len(articles)}] AI 总结: {article['title']}")
         summary = summarize_article(article)
+        article["summary_zh"] = summary  # 存回 article 供亮点生成使用
         summaries.append({
             "title": article["title"],
             "title_zh": article.get("title_zh", ""),

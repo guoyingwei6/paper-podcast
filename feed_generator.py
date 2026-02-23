@@ -29,7 +29,7 @@ def _get_mp3_duration(filepath):
         return "0:00"
 
 
-def _get_episode_description(articles):
+def _get_episode_description(articles, highlights=""):
     """Generate episode description from article list (bilingual)."""
     if not articles:
         return "科研论文解读播客"
@@ -64,7 +64,10 @@ def _get_episode_description(articles):
         lines.append("\n".join(article_lines))
 
     if lines:
-        return "本期讨论文章：\n\n" + "\n\n".join(lines)
+        article_list = "本期讨论文章：\n\n" + "\n\n".join(lines)
+        if highlights:
+            return f"{highlights}\n\n{article_list}"
+        return article_list
     return "科研论文解读播客"
 
 
@@ -87,13 +90,13 @@ def _create_channel():
     return rss, channel
 
 
-def _add_item(channel, episode_date, mp3_path, articles):
+def _add_item(channel, episode_date, mp3_path, articles, highlights=""):
     """Add an episode item to the channel."""
     filename = os.path.basename(mp3_path)
     file_size = str(os.path.getsize(mp3_path))
     audio_url = _release_url(filename)
     duration = _get_mp3_duration(mp3_path)
-    description = _get_episode_description(articles)
+    description = _get_episode_description(articles, highlights)
     guid = f"podcast-{episode_date}"
 
     # Parse date for pubDate
@@ -115,13 +118,14 @@ def _add_item(channel, episode_date, mp3_path, articles):
     ET.SubElement(item, f"{{{ITUNES_NS}}}explicit").text = "false"
 
 
-def update_feed(episode_date, mp3_path, articles):
+def update_feed(episode_date, mp3_path, articles, highlights=""):
     """Update or create the RSS feed with a new episode.
 
     Args:
         episode_date: Date string in YYYY-MM-DD format.
         mp3_path: Path to the MP3 file.
         articles: List of article dicts with 'title' key.
+        highlights: Optional episode highlights text to prepend to description.
     """
     ET.register_namespace("itunes", ITUNES_NS)
     ET.register_namespace("content", "http://purl.org/rss/1.0/modules/content/")
@@ -140,7 +144,7 @@ def update_feed(episode_date, mp3_path, articles):
     else:
         rss, channel = _create_channel()
 
-    _add_item(channel, episode_date, mp3_path, articles)
+    _add_item(channel, episode_date, mp3_path, articles, highlights)
 
     # Write with XML declaration
     tree = ET.ElementTree(rss)
