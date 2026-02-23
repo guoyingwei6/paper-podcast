@@ -50,14 +50,19 @@ def summarize_article(article: dict) -> str:
         title=article["title"],
         content=article["content"],
     )
-    return _chat(prompt, max_tokens=1024)
+    return _chat_raw(prompt, max_tokens=1024)
 
 
 def generate_podcast_script(summaries: list[dict]) -> str:
     """根据文章总结生成播客对话脚本。"""
     summaries_text = ""
     for i, s in enumerate(summaries, 1):
-        meta = f"标题：{s['title']}"
+        # 优先用预先翻译好的中文标题，确保与 feed 描述一致
+        title_zh = s.get("title_zh", "")
+        if title_zh:
+            meta = f"中文标题：{title_zh}\n英文标题：{s['title']}"
+        else:
+            meta = f"标题：{s['title']}"
         if s.get("published"):
             meta += f"\n发表时间：{s['published']}"
         if s.get("journal"):
@@ -85,13 +90,14 @@ def translate_titles(articles: list[dict]) -> dict[str, str]:
         line = line.strip()
         if not line:
             continue
-        # 去掉编号前缀如 "1. " 或 "1、"
-        cleaned = re.sub(r"^\d+[.、\s]+", "", line).strip()
-        if cleaned:
-            # 按顺序匹配
-            idx = len(translations)
-            if idx < len(titles):
-                translations[titles[idx]] = cleaned
+        # 解析编号前缀，如 "1. " 或 "1、"，按编号映射而不是按顺序计数
+        # 这样即使 AI 多输出了额外文字，翻译也不会错位
+        m = re.match(r"^(\d+)[.、\s]+(.+)$", line)
+        if m:
+            idx = int(m.group(1)) - 1
+            translation = m.group(2).strip()
+            if 0 <= idx < len(titles) and translation:
+                translations[titles[idx]] = translation
     return translations
 
 
@@ -109,6 +115,7 @@ def process_articles(articles: list[dict]) -> str:
         summary = summarize_article(article)
         summaries.append({
             "title": article["title"],
+            "title_zh": article.get("title_zh", ""),
             "published": article.get("published", ""),
             "journal": article.get("journal", ""),
             "summary": summary,
