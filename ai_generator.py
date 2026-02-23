@@ -59,7 +59,9 @@ _THINKING_PARA_RE = re.compile(
 
 
 def _strip_highlights_thinking(text: str) -> str:
-    """过滤模型在亮点简介前输出的规划/思考段落。"""
+    """过滤模型在亮点简介前输出的规划/思考段落（含孤立 </think> 标签）。"""
+    # 去掉孤立的 </think>（模型有时只输出结束标签而无开头标签）
+    text = re.sub(r"</think>", "", text).strip()
     paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
     for i, para in enumerate(paragraphs):
         first_line = para.split("\n")[0].strip()
