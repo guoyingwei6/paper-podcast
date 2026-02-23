@@ -115,14 +115,13 @@ def _add_item(channel, episode_date, mp3_path, articles):
     ET.SubElement(item, f"{{{ITUNES_NS}}}explicit").text = "false"
 
 
-def update_feed(episode_date, mp3_path, articles, keep_episodes: int = 5):
+def update_feed(episode_date, mp3_path, articles):
     """Update or create the RSS feed with a new episode.
 
     Args:
         episode_date: Date string in YYYY-MM-DD format.
         mp3_path: Path to the MP3 file.
         articles: List of article dicts with 'title' key.
-        keep_episodes: Maximum number of episodes to keep in the feed (default 10).
     """
     ET.register_namespace("itunes", ITUNES_NS)
     ET.register_namespace("content", "http://purl.org/rss/1.0/modules/content/")
@@ -142,12 +141,6 @@ def update_feed(episode_date, mp3_path, articles, keep_episodes: int = 5):
         rss, channel = _create_channel()
 
     _add_item(channel, episode_date, mp3_path, articles)
-
-    # Remove old episodes beyond the keep limit
-    items = channel.findall("item")
-    if len(items) > keep_episodes:
-        for old_item in items[:-keep_episodes]:
-            channel.remove(old_item)
 
     # Write with XML declaration
     tree = ET.ElementTree(rss)
