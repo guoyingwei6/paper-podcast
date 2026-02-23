@@ -53,6 +53,21 @@ def summarize_article(article: dict) -> str:
     return _chat_raw(prompt, max_tokens=1024)
 
 
+_THINKING_PARA_RE = re.compile(
+    r"^(好的[，,！!]|首先[，,]|接下来[，,]|然后[，,]|最后[，,]|我(需要|要|来)|让我|下面(是|我))"
+)
+
+
+def _strip_highlights_thinking(text: str) -> str:
+    """过滤模型在亮点简介前输出的规划/思考段落。"""
+    paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
+    for i, para in enumerate(paragraphs):
+        first_line = para.split("\n")[0].strip()
+        if not _THINKING_PARA_RE.match(first_line):
+            return "\n\n".join(paragraphs[i:]).strip()
+    return text.strip()
+
+
 _FAREWELL_RE = re.compile(
     r"(再见|下期|下次见|感谢收听|本期播客|就到这里|拜拜|今天就聊到|以上就是今天|好了今天|好，今天)"
 )
@@ -166,12 +181,13 @@ def generate_episode_highlights(articles: list[dict]) -> str:
         overview += line + "\n"
 
     prompt = (
-        "请根据以下科研文章列表，用2-3句话写一段本期播客的亮点简介。"
-        "要有吸引力，让听众想要继续听，语气轻松自然，像节目预告一样。"
-        "直接输出段落文字，不要用列表、标题或任何格式符号。\n\n"
+        "请根据以下科研文章列表，用2-3句话概括本期播客涵盖的主要研究方向和核心内容。"
+        "语气平实，简洁客观，像播客节目的一句话介绍。"
+        "不要夸张渲染，不要用"颠覆"、"黑科技"等词，直接陈述研究主题即可。"
+        "只输出最终段落文字，不要任何思考过程、列表或格式符号。\n\n"
         f"文章列表：\n{overview}"
     )
-    return _chat_raw(prompt, max_tokens=256)
+    return _strip_highlights_thinking(_chat_raw(prompt, max_tokens=512))
 
 
 def process_articles(articles: list[dict]) -> str:
