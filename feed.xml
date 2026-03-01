@@ -184,5 +184,99 @@ Reduced cyclin D3 expression in erythroid cells protects against malaria
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-03-02</title>
+      <description>本播客涵盖了包括单细胞分辨率重构、高效单倍型网络分析、结构变异与表型关联、三维基因组重构、遗传改良、物种进化分析、基因功能研究、抗寒性与资源利用率、免疫疾病风险、脑功能神经发生、系统发育树构建、内质网平衡调控、谱系追踪、酪蛋白变体的中立性、细胞层次组织识别、心脏疾病
+
+本期讨论文章：
+
+Nature Communications, 2026-02-27
+Reconstructing single-cell resolution from spatial transcriptomics with CellRefiner
+利用CellRefiner从空间转录组学重构单细胞分辨率
+
+Molecular Biology and Evolution, 2026-02-26
+HaploThread: A Scalable Desktop Tool for Efficient Haplotype Network Inference and Interactive Visualization
+HaploThread：用于高效单倍型网络推断与交互式可视化的可扩展台式机工具
+
+Genetics Selection Evolution, 2026-02-26
+Pangenome-based association testing between a structural variant located upstream of the KIT gene and head depigmentation across a diverse panel of cattle breeds
+基于泛基因组的关联测试：位于KIT基因上游的结构变异与多样化的牛种群体的头部脱色之间
+
+Nature Genetics, 2026-02-24
+Three-dimensional genome reorganization foreshadows zygotic genome activation in Drosophila
+三维基因组重构预示果蝇的合子基因组激活
+
+BMC Genomics, 2026-02-28
+Selection index for genetic improvement of beef performance in Huaxi cattle of Xinjiang, China
+用于遗传改良肉用性能的华西牛选择指数
+
+Nature, 2026-02-26
+Neanderthal dad, human mum: study reveals ancient procreation pattern
+尼安德特人父亲、人类母亲：研究揭示古代繁殖模式
+
+Nature, 2026-02-25
+Functional dissection of complex trait variants at single-nucleotide resolution
+在单核苷酸分辨率下对复杂性状变异进行功能解构
+
+Nature, 2026-02-25
+Rewiring an E3 ligase enhances cold resilience and phosphate use in maize
+重新布线E3连接酶以增强玉米的抗寒性和磷的利用率
+
+Nature Genetics, 2026-02-26
+Genome-wide association analyses of autoimmune hypothyroidism reveal autoimmune and thyroid-specific contributions and an inverse relationship with cancer risk
+全基因组关联分析揭示自身免疫性甲状腺功能减退的自身免疫和甲状腺特异性贡献及其与癌症风险的反向关系
+
+Nature, 2026-02-25
+Human hippocampal neurogenesis in adulthood, ageing and Alzheimer’s disease
+人类成年、衰老以及阿尔茨海默病中的海马神经发生
+
+Molecular Biology and Evolution, 2026-02-26
+OrthoGarden: a Pipeline for Propagating Phylogenetic Trees for Non-Model Organisms from Short Reads and
+                    &lt;i&gt;de novo&lt;/i&gt;
+                    Genome Assemblies
+OrthoGarden：用于从短读和新型基因组组装对非模式生物传播系统发育树的管道流程
+
+Nature, 2026-02-25
+CLCC1 governs ER bilayer equilibration to maintain lipid homeostasis
+CLCC1调节内质网双层平衡以维持脂质稳态
+
+Nature Reviews Genetics, 2026-02-27
+Charting single-cell lineages with synthetic and natural barcodes
+利用合成和天然条形码绘制单细胞谱系
+
+Animals, 2026-02-27
+Reproductive Neutrality of the A2 β-Casein Variant in Holstein Cows
+A2 β-酪蛋白变体在荷斯坦牛中的生殖中立性
+
+Nature Communications, 2026-02-28
+HRCHY-CytoCommunity identifies hierarchical tissue organization in cell-type spatial maps
+HRCHY-CytoCommunity工具识别细胞类型空间图中的层级组织结构
+
+Nature Communications, 2026-02-27
+Genome-wide analysis of cardiac ventricular phenotypes reveals novel loci and therapeutic targets for heart failure
+全基因组分析心脏室表型揭示心力衰竭的新位点和治疗靶点
+
+biorxiv, 2026-02-27
+Deep genomic models of allele-specific measurements
+等位基因特异性测量的深层基因组模型
+
+Nature Communications, 2026-02-26
+Gut microbiome composition and strain-sharing in multiplex autism spectrum disorder families
+多重自闭症谱系障碍家庭中的肠道菌群组成和菌株共享
+
+Nature Communications, 2026-02-28
+Conditional BCL-2 Expression in Fibroblasts Promotes Persistent Pulmonary Fibrosis which is Reversible by Therapeutic BCL-2 Inhibition
+纤维母细胞中条件性表达的BCL-2促进可逆性持续性肺纤维化，可通过治疗性BCL-2抑制逆转
+
+Bioinformatics, 2026-02-26
+Differential cell signaling testing for cell-cell communication inference from single-cell data by dominoSignal
+基于单细胞数据的差异细胞信号测试用于推断细胞间通讯的dominoSignal方法</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-03-02/podcast-2026-03-02.mp3" length="6172197" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-03-02</guid>
+      <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>16:48</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
