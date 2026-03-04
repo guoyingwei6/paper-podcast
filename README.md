@@ -43,61 +43,35 @@ RSS 订阅源 → 抓取论文 → AI 总结 → 生成对话脚本 → TTS 语�
 
 ## 快速开始
 
-### 前置要求
+### 第一步：Fork 仓库
 
-- Python 3.10+
-- FFmpeg（用于音频处理）
-- 一个兼容 OpenAI Chat Completions API 格式的大模型服务（如 SiliconFlow、OpenRouter 等，需支持 `/chat/completions` 端点）
-- 一个 RSS 论文订阅源（如 [ZotWatch](https://github.com/guoyingwei6/ZotWatch) 生成的 Feed）
+点击右上角 Fork，将本仓库复制到自己的 GitHub 账号下。
 
-### 安装
+### 第二步：配置 Secrets
 
-```bash
-git clone https://github.com/guoyingwei6/paper-podcast.git
-cd paper-podcast
-pip install -r requirements.txt
-```
+进入你 Fork 后的仓库 → **Settings → Secrets and variables → Actions → New repository secret**，添加以下四个 Secret：
 
-### 配置
+| Secret 名称 | 说明 | 示例 |
+|-------------|------|------|
+| `ANTHROPIC_API_KEY` | 大模型服务的 API 密钥 | `sk-...` |
+| `ANTHROPIC_BASE_URL` | 兼容 OpenAI 格式的接口地址 | `https://api.siliconflow.cn/v1` |
+| `ANTHROPIC_MODEL` | 使用的模型名称 | `deepseek-ai/DeepSeek-R1` |
+| `RSS_URL` | 你的论文 RSS 订阅地址 | `https://example.com/feed.xml` |
 
-复制环境变量模板并填写配置：
+> 大模型服务需支持 OpenAI Chat Completions API（`/chat/completions` 端点），推荐使用 [SiliconFlow](https://siliconflow.cn)（提供 DeepSeek、Qwen 等模型，有免费额度）。
+>
+> RSS 订阅源推荐配合 [ZotWatch](https://github.com/guoyingwei6/ZotWatch) 使用，可自动将 Zotero 文献库生成 RSS Feed。
 
-```bash
-cp .env.example .env
-```
+### 第三步：启用 GitHub Actions 和 Pages
 
-编辑 `.env` 文件：
+1. 进入仓库 → **Actions** → 启用 Workflows
+2. 进入 **Settings → Pages**，Source 选择 `Deploy from a branch`，Branch 选 `main`，目录选 `/ (root)`
 
-```bash
-# 大模型 API 配置（需兼容 OpenAI Chat Completions API 格式，即 /chat/completions 端点）
-ANTHROPIC_API_KEY=your-api-key-here
-ANTHROPIC_BASE_URL=https://api.siliconflow.cn       # 或其他兼容端点
-ANTHROPIC_MODEL=deepseek-ai/DeepSeek-R1-Distill-Qwen-32B  # 或其他模型
+### 第四步：手动触发
 
-# RSS 订阅源
-RSS_URL=https://example.com/rss
+配置完成后，进入 **Actions → Daily Podcast → Run workflow** 手动触发第一次生成。
 
-# 文章数量（0 = 处理全部）
-ARTICLE_COUNT=5
-
-# 语速调整（Edge TTS 格式）
-AUDIO_SPEED=+10%
-```
-
-### 使用
-
-```bash
-# 基本用法：生成播客音频
-python main.py
-
-# 指定 RSS 源和文章数量
-python main.py --rss https://example.com/feed.xml --count 10
-
-# 生成并发布到 GitHub Releases
-python main.py --publish
-```
-
-发布功能需要安装 [GitHub CLI](https://cli.github.com/) 并完成登录。
+之后每周一北京时间 7:00 会自动运行。
 
 ## 项目结构
 
@@ -114,7 +88,7 @@ paper-podcast/
 ├── feed.xml             # 生成的播客 RSS Feed
 ├── cover.jpg            # 播客封面
 ├── requirements.txt     # Python 依赖
-└── .env.example         # 环境变量模板
+└── .github/workflows/   # GitHub Actions 自动化流程
 ```
 
 ## 致谢
