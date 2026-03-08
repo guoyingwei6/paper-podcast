@@ -278,5 +278,97 @@ Differential cell signaling testing for cell-cell communication inference from s
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-03-09</title>
+      <description>可能的结构是先点明本期播客涵盖的研究领域，然后列举几个主要的研究方向，最后概括其应用或意义。例如：播客涵盖了基因组学、人工智能、进化生物学与精准医学等多个方向的研究，包括基因组建模、跨物种比较、新型生物技术应用以及基因组工具开发等。或者更简洁一点：本期播客探讨了基因组学、
+
+本期讨论文章：
+
+Nature, 2026-03-04
+Genome modelling and design across all domains of life with Evo 2
+基因组建模与设计：借助Evo 2跨所有生物域
+
+Nature, 2026-03-04
+Largest Silurian fish illuminates the origin of osteichthyan characters
+最大的泥盆纪鱼阐明硬骨鱼特征起源
+
+Nature Communications, 2026-03-06
+High-quality metagenome assembly from nanopore reads with nanoMDBG
+基于Nanopore读数的高质量元基因组组装：使用nanoMDBG
+
+Animals, 2026-03-05
+Whole-Genome Sequencing Reveals Breed-Specific SNPs, Indels, and Signatures of Selection in Royal White and White Dorper Sheep
+全基因组测序揭示皇家白臀绵羊与白多 perch 绵羊的特有SNP、Indel和选择标志
+
+Genome Research, 2026-03-05
+Minimizing reference bias with an imputed personalized reference
+通过推算个性化参考最小化参考偏见
+
+Nature, 2026-03-04
+Structural basis of RNA-guided transcription by a dCas12f–σE–RNAP complex
+RNA指导转录的结构基础：dCas12f–σE–RNAP复合体的作用
+
+Nature, 2026-03-04
+Bulk hexagonal diamond
+块状六方金刚石
+
+Genome Research, 2026-03-05
+Automated interpretable artificial intelligence genomic prediction with AIGP
+自动可解释人工智能基因组预测：基于AIGP工具
+
+biorxiv, 2026-03-06
+Automated Cell Type Annotation with Reference Cluster Mapping
+自动细胞类型注释：基于参考簇映射
+
+Animals, 2026-03-03
+The Genomic Landscape of Cattle: Domestication, Dispersal, and Adaptive Evolution
+牛的基因组图谱：驯化、扩散及适应性进化
+
+biorxiv, 2026-03-05
+Genetic purging of strongly deleterious mutations underlies black-necked crane's unusual escape from an extinction vortex
+遗传清除强烈有害突变：揭秘黑颈鹤摆脱灭绝旋涡之谜
+
+Genome Research, 2026-03-05
+Scalable cell-specific coexpression networks for granular regulatory pattern discovery with NeighbourNet
+可扩展的细胞特异性共表达网络：用于精细调控模式发现的NeighbourNet
+
+Nature, 2026-03-04
+The oldest articulated bony fish from the early Silurian period
+最早的泥盆纪具连接骨鱼类
+
+Nature Communications, 2026-03-05
+Segmented filamentous bacteria are worldwide human gut commensals
+分段丝状菌：全球性人类肠道共生菌
+
+Nature, 2026-03-06
+Daily briefing: Neanderthal dad, human mum was more common than the other way round
+每日简报：尼安德特人父亲与现代人母亲的结合比反之更普遍
+
+Nature Communications, 2026-03-06
+Mechanisms of PfDNMT2 inhibition and PfATP6-mediated resistance to the antimalarial candidate SC83288 in Plasmodium falciparum
+PfDNMT2抑制机制及PfATP6介导的抗疟候选药物SC83288耐药机制
+
+Nature Genetics, 2026-03-02
+Harnessing genomics for early cancer detection, risk stratification and prevention
+利用基因组学实现早期癌症检测、风险分层与预防
+
+Journal of Animal Science, 2026-03-02
+Genome wide association and integrative analysis of backfat thickness in a yorkshire pig population
+基于约克夏猪群体的背膘厚度全基因组关联分析
+
+Animals, 2026-03-05
+Structural Equation Modeling of Genetic and Residual Covariance Matrices for Multiple-Trait Evaluation in Beef Cattle
+结构方程模型：用于肉牛多性状评估的遗传与残差协方差矩阵分析
+
+Nature Communications, 2026-03-07
+Neuroimaging subtypes of adolescent sleep insufficiency stratify natural short sleepers from comorbidity or environment driven insufficiency
+神经影像亚型：青少年睡眠不足的自然短睡者与合并症或环境驱动型分类</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-03-09/podcast-2026-03-09.mp3" length="6766077" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-03-09</guid>
+      <pubDate>Mon, 09 Mar 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>18:32</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
