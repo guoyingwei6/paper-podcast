@@ -370,5 +370,99 @@ Neuroimaging subtypes of adolescent sleep insufficiency stratify natural short s
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-03-20</title>
+      <description>本期播客涵盖的主要研究方向包括基因组学、遗传学和生物技术在农业、医学和环境科学中的应用。核心内容涉及玉米株型优化以提高产量、T细胞重编程技术、基因组变异分析、脑部疾病遗传风险研究、山羊绒纤维生产调控、基因组预测偏差及其影响等，展示了这些领域的最新进展及其在基础科学和实际应用中的潜力。
+
+本期讨论文章：
+
+Nature Genetics, 2026-03-17
+Breeding ideotype maize with enhanced yield through genomics-guided pyramiding of favorable alleles
+培育理想型玉米通过基因组引导的有利等位基因堆积以提高产量
+
+Nature, 2026-03-18
+In vivo site-specific engineering to reprogram T cells
+体内定点工程学用于重编程T细胞
+
+Animals, 2026-03-16
+Exploring Genomic Variability in the Mediterranean Buffalo Breed: A Step Towards Custom SNP Array
+探索地中海 Buffalo 品种的基因组变异性：迈向定制 SNP 阵列的一步
+
+Nature Genetics, 2026-03-19
+A meta-analysis of single-nucleus expression quantitative trait loci linking genetic risk to brain disorders
+荟萃分析单核表达数量性状位点以链接遗传风险与脑部疾病
+
+Animals, 2026-03-16
+Comparative Skin Transcriptomics Reveals Key Regulators of Cashmere Fiber Production in Inner Mongolian Goats
+比较皮肤转录组学揭示内蒙古山羊山羊绒纤维生产的最关键的调节因素
+
+Animal Genetics, 2026-03-17
+Ascertainment Bias in Cattle
+                    &lt;scp&gt;SNP&lt;/scp&gt;
+                    Arrays and Implications for Multibreed Genomic Predictions
+牛肉 SNP 阵列的抽样偏差及其对多物种基因组预测的影响
+
+BMC Genomics, 2026-03-16
+Dissecting the population structure, diversity and genetic architecture of rust resistance in wild emmer wheat (Triticum turgidum subsp. dicoccoides)
+解析野生二粒小麦（Triticum turgidum 亚种 dicoccoides）锈病抗性的群体结构、多样性和遗传框架
+
+Nature, 2026-03-16
+Daily briefing: Genomes shake up the shark family tree
+每日简报：基因组研究震动鲨鱼家谱树
+
+Nature, 2026-03-18
+Global ocean heat content over the past 3 million years
+过去 300 万年的全球大洋热含量
+
+Nature, 2026-03-18
+Broadly stable atmospheric CO2 and CH4 levels over the past 3 million years
+过去 300 万年来大气 CO2 和 CH4 水平普遍稳定
+
+Animals, 2026-03-18
+Integrating Precision Livestock Farming and Genomic Tools for Heat Stress Mitigation in South African Dairy Cattle
+集成精准畜牧业与基因组工具缓解南非奶牛热应激
+
+Animals, 2026-03-17
+Shotgun Metagenomics Reveals Gut Microbiome Remodeling with Altered Taxonomic Composition and Functional Potential in Diabetic Dogs
+霰弹枪宏基因组学揭示糖尿病犬肠道微生物组重构及其分类组成和功能潜力的改变
+
+Journal of Animal Science, 2026-03-16
+Using predictivity to estimate heritabilities and genetic correlations over time for growth traits in a large genotyped Angus cattle population
+利用可预测性估计安格斯牛肉用性状遗传力及遗传相关性以及时序变化
+
+Nature Communications, 2026-03-18
+Celcomen: spatial causal disentanglement for single-cell and tissue perturbation modeling
+Celcomen：单细胞与组织扰动模型的空间因果分解
+
+Animals, 2026-03-17
+Integrated miRNAs, Transcriptome, and Metabolome Uncover Underlying Mechanisms for Breast Muscle Metabolic Regulation in Liancheng White and Cherry Valley Ducks
+集成 miRNAs、转录组和代谢组揭示连城白羽与樱桃谷鸭胸肌代谢调控的潜在机制
+
+Nature, 2026-03-18
+Genome editing that avoids immune detection to integrate large DNA sequences
+避免免疫检测的基因组编辑以整合大段 DNA 序列
+
+Nature, 2026-03-18
+Adaptive evolution of gene regulatory networks in mammalian neocortex
+哺乳动物新皮层中基因调控网络的适应性进化
+
+BMC Genomics, 2026-03-14
+Integrative transcriptomics and machine learning reveal key regulatory genes for meat quality traits in pigs
+整合转录组和机器学习发现猪肉质性状的关键调控基因
+
+Nature, 2026-03-18
+The E3 ubiquitin ligase mechanism specifying targeted microRNA degradation
+指定 microRNA 降解的 E3 泛素连接酶机制
+
+Nature, 2026-03-16
+A single course of antibiotics can cause lingering changes in gut microbes
+一疗程抗生素可引起持续的肠道微生物群变化</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-03-20/podcast-2026-03-20.mp3" length="7735365" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-03-20</guid>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>21:12</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
