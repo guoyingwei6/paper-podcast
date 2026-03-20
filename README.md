@@ -91,6 +91,45 @@ paper-podcast/
 └── .github/workflows/   # GitHub Actions 自动化流程
 ```
 
+## 更新历史
+
+### 2026-03-20
+
+- **fix(tts):** 为 Edge TTS 添加指数退避重试机制，解决 GitHub Actions 中 503 限流问题
+- **deps:** 升级 edge-tts 最低版本至 6.1.19
+
+### 2026-03-04
+
+- **docs:** 更新 README，完善 GitHub Actions Secrets 配置说明
+
+### 2026-02-23
+
+- **feat:** 新增播客单集亮点摘要，自动生成并写入 Feed 描述
+- **fix(pipeline):** 分批生成脚本，确保所有文章都被覆盖，修复文章-脚本错位和开场白截断问题
+- **fix(translate):** 防止 AI 翻译标题时产生幻觉覆盖原文
+- **fix(highlights):** 清理 AI 输出中的 `<think>` 标签，优化提示词风格
+- **fix:** 去除非最后一批脚本中的告别语，转义高亮提示词中的双引号
+- **优化:** 播客详情格式改为只保留期刊和日期，更简洁
+- **restore:** 恢复历史剧集，取消 Feed 条目数限制
+
+### 2026-02-15
+
+- **feat:** 添加中英双语文章标题到单集描述
+- **feat:** 添加网站 Favicon
+- **fix:** 修复剧集排序（最新在前），使用真实音频时长
+- **改进:** 切换为每周一北京时间 7:00 自动运行
+- **改进:** 添加自定义域名支持
+- **改进:** 网页播放器添加 GitHub 仓库链接
+
+### 2026-02-14
+
+- **初始发布:** Paper Podcast 科研播客生成工具
+- **feat:** 支持 OpenAI 兼容 API，可使用 DeepSeek、Qwen、GPT 等模型
+- **feat:** RSS Feed 生成器，支持 `--publish` 发布到 GitHub Releases
+- **feat:** 网页播放器，部署在 GitHub Pages
+- **feat:** GitHub Actions 自动化工作流
+- **fix:** 修复 MP3 时长计算、Actions 退出码等问题
+
 ## 致谢
 
 本项目受 [Hacker Podcast](https://github.com/miantiao-me/hacker-podcast) 启发，感谢以下开源项目和服务：
