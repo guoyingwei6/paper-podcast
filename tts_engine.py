@@ -27,10 +27,20 @@ def parse_script(script: str) -> list[dict]:
     return lines
 
 
-async def synthesize_line(text: str, voice: str, rate: str, output_path: str):
-    """用 Edge TTS 合成单段语音。"""
-    communicate = edge_tts.Communicate(text, voice, rate=rate)
-    await communicate.save(output_path)
+async def synthesize_line(text: str, voice: str, rate: str, output_path: str, max_retries: int = 3):
+    """用 Edge TTS 合成单段语音，带重试逻辑。"""
+    for attempt in range(max_retries):
+        try:
+            communicate = edge_tts.Communicate(text, voice, rate=rate)
+            await communicate.save(output_path)
+            return
+        except Exception as e:
+            if attempt < max_retries - 1:
+                wait = 2 ** attempt
+                print(f"  TTS 失败 (尝试 {attempt+1}/{max_retries}): {e}, {wait}s 后重试...")
+                await asyncio.sleep(wait)
+            else:
+                raise
 
 
 async def synthesize_all(script: str, temp_dir: str) -> list[str]:

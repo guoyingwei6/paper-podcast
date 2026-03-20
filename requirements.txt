@@ -1,7 +1,7 @@
 feedparser
 httpx
 beautifulsoup4
-edge-tts
+edge-tts>=6.1.19
 pydub
 anthropic
 python-dotenv
