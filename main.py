@@ -46,7 +46,12 @@ def publish(today, output_path, articles, highlights=""):
         ["git", "commit", "-m", f"Update feed.xml for {today}"],
         cwd=project_dir, capture_output=True,
     )
-    subprocess.run(["git", "push"], cwd=project_dir)
+    # Pull remote changes before push to avoid rejection
+    subprocess.run(["git", "pull", "--rebase"], cwd=project_dir)
+    result = subprocess.run(["git", "push"], cwd=project_dir, capture_output=True, text=True)
+    if result.returncode != 0:
+        print(f"推送失败: {result.stderr}")
+        return False
     print("推送完成")
     return True
 
