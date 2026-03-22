@@ -464,5 +464,99 @@ A single course of antibiotics can cause lingering changes in gut microbes
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-03-23</title>
+      <description>本期播客涵盖的主要研究方向包括基因组学、精准医疗、生物信息学以及农业科学中的遗传改良。核心内容涉及通过基因编辑技术优化T细胞用于癌症治疗，分析基因变异在神经系统疾病中的作用，利用基因组指导玉米杂交种的高产培育，以及基于纳米孔测序技术的全基因组组装与三维染色质构象分析。这些研究展示了基因组技术在精准医疗和农业改良中的广泛应用和潜力。
+
+本期讨论文章：
+
+Nature, 2026-03-18
+In vivo site-specific engineering to reprogram T cells
+In vivo site-specific engineering to reprogram T cells
+
+Nature Genetics, 2026-03-19
+A meta-analysis of single-nucleus expression quantitative trait loci linking genetic risk to brain disorders
+A meta-analysis of single-nucleus expression quantitative trait loci linking genetic risk to brain disorders
+
+Nature Genetics, 2026-03-17
+Breeding ideotype maize with enhanced yield through genomics-guided pyramiding of favorable alleles
+Breeding ideotype maize with enhanced yield through genomics-guided pyramiding of favorable alleles
+
+genomics, 2026-03-21
+Single-Platform Nanopore Sequencing Enables Diploid Telomere-to-Telomere Genome Assembly and Haplotype-Resolved 3D Chromatin Maps
+Single-Platform Nanopore Sequencing Enables Diploid Telomere-to-Telomere Genome Assembly and Haplotype-Resolved 3D Chromatin Maps
+
+Nature Genetics, 2026-03-20
+A pangenome reference and population studies link structural variants with breeding traits in Gossypium hirsutum
+A pangenome reference and population studies link structural variants with breeding traits in Gossypium hirsutum
+
+Animals, 2026-03-16
+Exploring Genomic Variability in the Mediterranean Buffalo Breed: A Step Towards Custom SNP Array
+Exploring Genomic Variability in the Mediterranean Buffalo Breed: A Step Towards Custom SNP Array
+
+bioinformatics, 2026-03-20
+SVPG: A pangenome-based structural variant detection approach and rapid augmentation of pangenome graphs with new samples
+SVPG: A pangenome-based structural variant detection approach and rapid augmentation of pangenome graphs with new samples
+
+Nature Communications, 2026-03-20
+Single-cell multiomics uncovers an endothelial mechanosensitive PIEZO1-IL-33 axis driving pulmonary fibrosis
+Single-cell multiomics uncovers an endothelial mechanosensitive PIEZO1-IL-33 axis driving pulmonary fibrosis
+
+Bioinformatics, 2026-03-21
+SA2E: spatial-aware auto-encoder for cell type deconvolution of spatial transcriptomics data
+SA2E: spatial-aware auto-encoder for cell type deconvolution of spatial transcriptomics data
+
+Animals, 2026-03-16
+Comparative Skin Transcriptomics Reveals Key Regulators of Cashmere Fiber Production in Inner Mongolian Goats
+Comparative Skin Transcriptomics Reveals Key Regulators of Cashmere Fiber Production in Inner Mongolian Goats
+
+bioinformatics, 2026-03-19
+NOHIC: A PIPELINE FOR PLANT CONTIG SCAFFOLDING USING PERSONALIZED REFERENCES FROM PANGENOME GRAPHS
+NOHIC: A PIPELINE FOR PLANT CONTIG SCAFFOLDING USING PERSONALIZED REFERENCES FROM PANGENOME GRAPHS
+
+Nature Reviews Genetics, 2026-03-20
+Author Correction: Forensic genetics in the omics era
+Author Correction: Forensic genetics in the omics era
+
+Animal Genetics, 2026-03-17
+Ascertainment Bias in Cattle
+                    &lt;scp&gt;SNP&lt;/scp&gt;
+                    Arrays and Implications for Multibreed Genomic Predictions
+Ascertainment Bias in Cattle
+
+genomics, 2026-03-20
+Extensive longevity and DNA virus-driven adaptation in nearctic Myotis bats
+Extensive longevity and DNA virus-driven adaptation in nearctic Myotis bats
+
+Animals, 2026-03-20
+Influence of Genotype on Growth Performance, Carcass Traits and Meat Quality: A Comparative Study in Male Alpine and Saanen Kids
+Influence of Genotype on Growth Performance, Carcass Traits and Meat Quality: A Comparative Study in Male Alpine and Saanen Kids
+
+Nature Communications, 2026-03-20
+Ultra-precision deconvolution of spatial transcriptomics decodes immune heterogeneity and fate-defining programs in tissues
+Ultra-precision deconvolution of spatial transcriptomics decodes immune heterogeneity and fate-defining programs in tissues
+
+bioinformatics, 2026-03-16
+An explanatory benchmark of spatial domain detection reveals key drivers of method performance
+An explanatory benchmark of spatial domain detection reveals key drivers of method performance
+
+BMC Genomics, 2026-03-16
+Dissecting the population structure, diversity and genetic architecture of rust resistance in wild emmer wheat (Triticum turgidum subsp. dicoccoides)
+Dissecting the population structure, diversity and genetic architecture of rust resistance in wild emmer wheat (Triticum turgidum subsp. dicoccoides)
+
+Bioinformatics, 2026-03-19
+Structure-Preserving Multivariate Hypothesis Testing for Mass Spectrometry Imaging and Single-Cell Data
+Structure-Preserving Multivariate Hypothesis Testing for Mass Spectrometry Imaging and Single-Cell Data
+
+Nature Communications, 2026-03-19
+Systematic identification of variant-specific RNA structure-small molecule interactions exemplified by RNA G-quadruplexes
+Systematic identification of variant-specific RNA structure-small molecule interactions exemplified by RNA G-quadruplexes</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-03-23/podcast-2026-03-23.mp3" length="7648605" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-03-23</guid>
+      <pubDate>Mon, 23 Mar 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>20:52</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
