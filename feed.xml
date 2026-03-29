@@ -558,5 +558,97 @@ Systematic identification of variant-specific RNA structure-small molecule inter
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-03-30</title>
+      <description>本期播客涵盖的主要研究方向包括遗传学与基因组学领域的前沿探索，如欧洲早期
+
+本期讨论文章：
+
+Nature, 2026-03-25
+Genomic history of early dogs in Europe
+欧洲早期狗的基因组历史
+
+Nature, 2026-03-25
+Dogs were widely distributed across western Eurasia during the Palaeolithic
+在旧石器时代，狗广泛分布于西欧亚大陆
+
+Nature Genetics, 2026-03-23
+Single-cell spatial transcriptomic analysis of human skin anatomy
+单细胞空间转录组学对人类皮肤解剖结构的分析
+
+Nature Genetics, 2026-03-27
+Exome sequencing and analysis of 44,028 British South Asians enriched for high autozygosity
+44,028名南亚血统英国人的外显子测序和分析，这些个体具有高水平的自体同源性
+
+BMC Genomics, 2026-03-27
+Genetic analysis of cold tolerance and high-altitude adaptation in Gannan indigenous Tibetan sheep through genome-wide scans
+通过全基因组扫描分析甘南藏羊的寒冷耐受性和高原适应性遗传特征
+
+Animals, 2026-03-26
+Integrated Lipidomics and Flavoromics Analyses Reveal the Flavor Differences Between Breast and Leg Muscles of Xichuan Black-Boned Chicken
+集成脂质组学和风味组学分析揭示淅川黑骨鸡胸肌与腿肌风味差异
+
+Genome Research, 2026-03-29
+Centromeric instability and chromoanasynthesis observed in nine supernumerary marker chromosomes resolved with long-read genome sequencing
+在九条额外标记染色体中观察到着丝粒不稳定性与染色质重构，通过长片段基因组测序解析
+
+Nature, 2026-03-27
+Daily briefing: Earliest known dog genome pushes genetic record back 5,000 years
+每日简报：已知最早犬类基因组将遗传记录向前推进5000年
+
+Genome Research, 2026-03-26
+High-fidelity bidirectional translation between single-cell transcriptomes and DNA methylomes with scBOND
+scBOND实现单细胞转录组与DNA甲基组之间的高保真双向翻译
+
+BMC Genomics, 2026-03-26
+Detection of short tandem repeats in the cattle genome: a comparison of bioinformatic tools
+牛基因组中短串联重复检测：生物信息学工具的比较
+
+Nature, 2026-03-25
+Dogs have deep genetic roots in ice-age Europe
+冰河时代欧洲狗的深厚遗传根源
+
+Nature Genetics, 2026-03-27
+Genomic, phenomic and geographic associations of leukocyte telomere length in the United States
+美国白细胞端粒长度的基因组、表型组和地理关联分析
+
+Genome Research, 2026-03-26
+Incorporating valuable prior knowledge to improve deep learning prediction of genetic perturbation responses
+利用有价值先验知识提高深度学习对基因扰动反应预测效果
+
+Nature Genetics, 2026-03-23
+Publisher Correction: A genetic module boosts grain yield and nitrogen use efficiency by improving nitrate transport in maize
+通过改善硝酸盐转运以提升玉米产量和氮利用效率的遗传模块——更正：
+
+Nature, 2026-03-25
+Towards end-to-end automation of AI research
+通往人工智能研究端到端自动化的探索
+
+Nature Genetics, 2026-03-25
+Strand-seq and the future of personalized genomics
+Strand-seq技术与个性化基因组学的未来
+
+Nature Communications, 2026-03-27
+Cultivar evolution underpins maize yield sensitivity to adverse climate conditions
+品种演化导致玉米对不利气候条件敏感性差异
+
+Animal Genetics, 2026-03-27
+Genetic Diversity in Dutch Sheep Breeds
+荷兰绵羊品种的遗传多样性
+
+Animal Genetics, 2026-03-26
+Genome‐Wide Association Studies for 24 Hematological Traits in Production Pigs Before and After Weaning
+断奶前后生产猪24种血液学性状的全基因组关联研究
+
+Animals, 2026-03-27
+Comparative Analysis of Meat Quality Characteristics of the Longissimus dorsi in Suffolk × Hu F1 Crossbreds and Their Parental Breeds
+苏格兰斗羊与胡羊F1杂交后代及其亲本品种的长肌内侧肌肉品质特征比较分析</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-03-30/podcast-2026-03-30.mp3" length="4458237" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-03-30</guid>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>12:23</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
