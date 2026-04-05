@@ -650,5 +650,101 @@ Comparative Analysis of Meat Quality Characteristics of the Longissimus dorsi in
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-04-06</title>
+      <description>本期播客涵盖的主要研究方向包括社会科学与行为科学研究的可重复性和分析稳健性，基因组学领域的因果变异体精细定位与基因挖掘，进化生物学中的尼安德特人基因渗入格局推测及巨藻衰退的基因组学预测，以及动物科学中的肉牛繁殖性能与微生物组研究等，全面呈现了多学科领域的前沿探索与重要发现。
+
+本期讨论文章：
+
+Nature, 2026-04-01
+Investigating the reproducibility of the social and behavioural sciences
+探究社会科学与行为科学研究的可重复性
+
+Animal Genetics, 2026-04-02
+Mining Key Genes Associated With Mature Body Size and Weight Traits in Huameng Meat Sheep Based on
+                    &lt;scp&gt;GWAS&lt;/scp&gt;
+                    and
+                    &lt;scp&gt;ROH&lt;/scp&gt;
+                    Islands Identification
+基于GWAS和ROH岛屿鉴定挖掘与华咩肉羊成年体型体重性状相关的主效基因
+
+Nature, 2026-04-01
+Investigating the analytical robustness of the social and behavioural sciences
+探究社会科学与行为科学研究的分析稳健性
+
+evolutionary biology, 2026-04-04
+The Neanderthal population history and the introgression landscape inferred from the UK Biobank
+基于UK生物银行推测尼安德特人种群历史与渗入格局
+
+Nature Genetics, 2026-03-30
+Genome-wide fine-mapping improves identification of causal variants
+全基因组精细定位提高因果变异体的识别
+
+Nature, 2026-04-01
+Expansion of outer cortical CUX2 neurons requires adaptations for DNA repair
+外皮层CUX2神经元的扩张需要DNA修复的适应
+
+evolutionary biology, 2026-04-04
+Human ancestors interbred with two distinct populations of distant relatives
+人类祖先曾经与不同种群的远亲发生杂交
+
+Animals, 2026-04-02
+Effects of Heat Stress on Semen Quality and Reproductive Performance of Crossbred Boars with Different Maternal Origins
+热应激对不同母系来源的杂交公猪精液质量和繁殖性能的影响
+
+Journal of Animal Science, 2026-04-02
+178. Comparing Microbiota Composition Within the Buccal, Rumen, and Fecal Microbiomes of Commercial Beef Heifers Developed on Varying Forage-based Diets
+比较基于不同粗饲料日粮培育的商业肉用牛kittens口腔、瘤胃和粪便微生物组的菌群组成
+
+evolutionary biology, 2026-04-04
+Genomic offsets predict observed kelp declines and suggest benefits of assisted migration in the Northeast Pacific
+基因组偏移预测观察到的海带衰退并提示辅助迁移在东北太平洋的优势
+
+Nature, 2026-04-01
+Gene regulatory landscape dissected by single-cell four-omics sequencing
+单细胞四组学测序解析基因调控景观
+
+Journal of Animal Science, 2026-04-02
+148. Non-Invasive Thermal Imaging of Unrestrained Goats in Paddocks: Identifying Optimal Regions for Accurate Body Temperature Measurement
+在 paddock 中对未束缚山羊进行无创热成像：识别适合准确测量体温的最佳区域
+
+Journal of Animal Science, 2026-04-02
+102. Software Development to Measure Ultrasonic Images in Beef Cattle
+测量肉牛超声图像的软件开发
+
+genomics, 2026-04-04
+DenMark: A Bayesian Hierarchical Model for Identifying Cell-Density Correlated Genes from Spatial Transcriptomics
+DenMark：识别空间转录组学中与细胞密度相关基因的贝叶斯分层模型
+
+BMC Genomics, 2026-04-02
+Whole transcriptome sequencing of different hair types in inner Mongolian cashmere goats
+内蒙古 cashmere 山羊不同类型的绒毛全转录组测序
+
+Journal of Animal Science, 2026-04-02
+170. A Microbial Enzymatic Comparison Between Liquid and Solid Microenvironments in the Rumen of Beef Steers
+肉用 steer 瘤胃液态与固态微环境中微生物酶的比较研究
+
+Nature, 2026-04-01
+The 1000 Chinese Pangenome empowers medical and population genetics
+千人中国泛基因组赋能医学与群体遗传学
+
+Bioinformatics, 2026-04-01
+Identification of High-Risk Cells in Single-Cell Spatially Resolved Transcriptomics Data Using DEGAS Spatial Smoothing
+利用 DEGAS 空间平滑鉴定单细胞空间分辨转录组数据中的高风险细胞
+
+Journal of Animal Science, 2026-04-02
+38. Effects of Feeding a Bacillus-based Probiotic on Nutrient Utilization and Microbiota Profile in the Rumen and Reproductive Tract of Beef Heifers Receiving a Forage-based Diet
+饲喂芽孢杆菌益生菌对饲喂粗饲料日粮肉母牛瘤胃及生殖道营养物质利用和菌群谱的影响
+
+Nature, 2026-04-01
+Reproducibility and robustness of economics and political science research
+经济学与政治学研究的可重复性和稳健性</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-04-06/podcast-2026-04-06.mp3" length="7586349" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-04-06</guid>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>21:12</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
