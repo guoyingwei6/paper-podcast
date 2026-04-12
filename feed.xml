@@ -746,5 +746,97 @@ Reproducibility and robustness of economics and political science research
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-04-13</title>
+      <description>本期播客涵盖的研究方向包括基因组学与遗传学、生物信息学、动物科学与微生物学、神经科学与发育生物学。主要研究内容涉及GLP-1受
+
+本期讨论文章：
+
+Nature, 2026-04-08
+Genetic predictors of GLP1 receptor agonist weight loss and side effects
+GLP-1 受体激动剂引起的体重减轻和副作用的遗传预测因素
+
+Molecular Biology and Evolution, 2026-04-12
+Benchmarking imputation accuracy in the presence or absence of a reference panel
+在有或无参考面板情况下评估插补准确性
+
+Nature Genetics, 2026-04-08
+Biallelic variants in the noncoding RNA gene RNU4-2 cause a recessive neurodevelopmental syndrome with distinct white matter changes
+非编码 RNA 基因 RNU4-2 中的双等位基因变异导致伴特异性白质变化的隐性神经发育综合征
+
+Journal of Animal Science and Biotechnology, 2026-04-06
+Early life treatment with Lacticaseibacillus rhamnosus strains drives reduced enteric methane emissions in dairy heifers
+利用乳酸菌种 Lacticaseibacillus rhamnosus 处理幼年奶牛以减少肠道甲烷排放
+
+bioinformatics, 2026-04-11
+A unified spatial transcriptome profiling of ten mouse organs
+统一分析十种小鼠器官的空间转录组概况
+
+Nature Communications, 2026-04-10
+RESCUE: recovery of unattributed expression patterns in spatial transcriptomics
+通过空间转录组学恢复未归因表达模式的 Rescuing（RESCUE）
+
+Nature Genetics, 2026-04-09
+High-content genetic screens identify RNA-based mechanisms to target immune evasion
+通过高内涵遗传筛选识别靶向免疫逃逸的 RNA 机制
+
+Nature, 2026-04-08
+Mapping the maternal–fetal interface through pregnancy in high resolution
+高分辨率解析整个孕期的母胎界面
+
+Journal of Animal Science and Biotechnology, 2026-04-08
+Characterizing breed-shared and breed-specific genetic regulatory effects of gene expression across three pig breeds
+跨三种猪种分析基因表达中共同和特异的遗传调控效应
+
+Frontiers in Genetics, 2026-04-09
+Unraveling quantitative trait loci (QTL) overlapping epigenomic regulatory regions associated with feeding behavior in pigs
+解析与猪 feeding 行为相关的表观基因组调控区的定量性状位点
+
+Nature, 2026-04-08
+Single-cell spatiotemporal dissection of the human maternal–fetal interface
+对人母胎界面的单细胞时空剖析
+
+genetics, 2026-04-09
+Cell-specific variant-to-gene mapping identifies conserved neural and glial regulators of sleep
+细胞特异性变异到基因映射识别保守的神经和神经胶质睡眠调控因子
+
+genetics, 2026-04-11
+Genomic landscape of the medieval Hungarian elite from the Szekesfehervar royal necropolis
+匈牙利中世纪精英阶层的基因组构成：来自 Szekesfehervar 皇家墓地的研究
+
+microbiology, 2026-04-09
+Rumen transfaunation between low- and high-methane-yielding dairy cows reveals asymmetric microbiome reconstitution patterns: a pilot study
+低甲烷排放与高甲烷排放奶牛瘤胃之间的转菌群研究：非对称菌群重建模式的试点研究
+
+Animals, 2026-04-09
+Rumen Microbiome Development in Lambs Following Maternal and Early-Life Prebiotic Mannan-Rich Fraction (MRF) Supplementation
+母体和生命早期补充富含甘露聚糖的分数（MRF）对羔羊瘤胃微生物群发育的影响
+
+Nature, 2026-04-08
+Multiomics and deep learning dissect regulatory syntax in human development
+多组学与深度学习剖析人类发育中的调控句法
+
+bioinformatics, 2026-04-09
+gbdraw: a genome diagram generator for microbes and organelles
+用于微生物和细胞器的基因组图谱生成工具：gbdraw
+
+Journal of Animal Science and Biotechnology, 2026-04-11
+Post-transport recovery trajectory of the canine gut microbiome and metabolome
+犬肠道菌群和代谢组在运输后的恢复轨迹
+
+BMC Genomics, 2026-04-10
+Global analysis of bovine milk protein variants using multi-breed DNA sequence data
+利用多品种 DNA 测序数据进行牛乳蛋白质变体的全球分析
+
+genetics, 2026-04-11
+General, orders-of-magnitude faster whole-genome analysis with genotype representation graphs
+基于基因型表示图谱实现数量级更快的全基因组分析</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-04-13/podcast-2026-04-13.mp3" length="6855141" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-04-13</guid>
+      <pubDate>Mon, 13 Apr 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>18:56</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
