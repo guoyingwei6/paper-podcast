@@ -838,5 +838,98 @@ General, orders-of-magnitude faster whole-genome analysis with genotype represen
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-04-27</title>
+      <description>从这些研究中，可以看出有几个主要的研究方向：
+1. **基因组学与遗传学**：包括基因组组装、群体重测序、基因变异、QTL分析、基因治疗等。
+2. **细胞生物学与神经科学**：涉及神经胶质细胞连接脑区、细胞与微环境的异质性、Wnt信号通路
+
+本期讨论文章：
+
+Nature Genetics, 2026-04-24
+Telomere-to-telomere genome assemblies and population resequencing of diploid and allotetraploid peanut varieties
+端粒到端粒基因组组装及二倍体和异源四倍体花生品种的群体重测序
+
+Nature, 2026-04-22
+Astrocytes connect specific brain regions through plastic networks
+神经胶质细胞通过可塑性网络连接特定脑区
+
+Nature Genetics, 2026-04-24
+Mosaic integration of spatial multi-omics with SpaMosaic
+通过SpaMosaic实现的空间多组学马赛克整合
+
+Nature Communications, 2026-04-24
+Improving genomic prediction accuracy of complex traits by integrating massive types of functional annotation information
+改善复杂性状的基因组预测准确性：通过整合大量功能注释信息
+
+bioinformatics, 2026-04-24
+Probabilistic coupling of cellular and microenvironmental heterogeneity by masked self-supervised learning
+通过蒙面自我监督学习实现细胞与微环境异质性的概率性耦合
+
+Nature Communications, 2026-04-25
+Early and late RNA eQTL are driven by different genetic mechanisms
+早期和晚期RNA eQTL由不同遗传机制驱动
+
+Nature, 2026-04-22
+Multicentre gene therapy for OTOF-related deafness followed up to 2.5 years
+针对OTOF相关听力损失的多中心基因治疗：随访研究至2.5年
+
+bioinformatics, 2026-04-24
+H2O: A Foundation Model Bridging Histopathology to Spatial Multi-Omics Profiling
+H2O：桥接组织病理学与空间多组学分析的基础模型
+
+Journal of Animal Science and Biotechnology, 2026-04-24
+Enhancing genomic prediction for key production traits in chickens through ultrasound phenotyping and multi-model comparative analysis
+通过超声表型分析和多模型比较分析，增强鸡重要生产性状的基因组预测
+
+Nature Genetics, 2026-04-23
+Publisher Correction: Biallelic variants in RNU2-2 cause the most prevalent known recessive neurodevelopmental disorder
+出版更正：RNU2-2双等位变异导致最常见的已知隐性神经发育障碍
+
+Animals, 2026-04-23
+Effects of Single-Nucleotide Polymorphisms on the Estimated Breeding Values for Feet in Holstein-Friesian Cows in Hungary
+单核苷酸多态性对匈牙利荷斯坦-弗里斯兰牛的蹄部育种值估计的影响
+
+evolutionary biology, 2026-04-24
+Adaptive coupling of chromosomal inversions with multilocus ecological, mating-bias, and hybrid-incompatibility genotypes facilitates sympatric speciation
+染色体倒位与多基因位点的生态、交配偏爱及杂交不育基因型的适应性耦合促进同域成种
+
+Nature, 2026-04-22
+Caspase 5c amplifies Wnt via APC cleavage to promote intestinal homeostasis
+Caspase 5c通过切割APC放大Wnt信号从而促进肠道稳态
+
+Nature Communications, 2026-04-24
+Integrating common and rare variants improves polygenic risk prediction across diverse populations
+整合常见和罕见变异，提升跨多个人群的多基因风险预测
+
+bioinformatics, 2026-04-24
+Verticall: A fast and robust tool for recombination detection in large-scale bacterial genomic datasets
+Verticall：用于大规模细菌基因组数据重组检测的快速稳健工具
+
+Genetics Selection Evolution, 2026-04-26
+Integrating GWAS and eQTL analysis to decipher genetic mechanisms of feed efficiency and feeding behaviors in pigs
+整合GWAS与eQTL分析，解析猪饲料效率和饲喂行为的遗传机制
+
+Nature Communications, 2026-04-23
+szKendall: spatial-structural-zero-aware dissimilarity measures for subtype discovery using single cell Hi-C data
+szKendall：基于单细胞Hi-C数据分析亚型的零感知空间结构异质性测度
+
+bioinformatics, 2026-04-24
+A De Novo Algorithm for Allele Reconstruction from Oxford Nanopore Amplicon Reads, with Application to CYP2D6
+一种从牛津纳米孔扩增子读数中进行等位基因重建的de novo算法，应用于CYP2D6基因
+
+Nature, 2026-04-22
+Specific combinations of human and viral genetic variants explain a cancer predisposition in southern China
+人类与病毒遗传变异的特定组合解释了中国南方癌症的易感性
+
+developmental biology, 2026-04-24
+A spatial mRNA profiling workflow using Rapid Amplified Multiplex-FISH (RAM-FISH)</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-04-27/podcast-2026-04-27.mp3" length="8214117" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-04-27</guid>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>22:09</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
