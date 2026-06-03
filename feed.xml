@@ -931,5 +931,97 @@ A spatial mRNA profiling workflow using Rapid Amplified Multiplex-FISH (RAM-FISH
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-06-03</title>
+      <description>本期播客涵盖了人类复杂性状遗传结构与多基因预测方法的进展，包括衰老转录组特征、代谢与屈光不正等性状的遗传关联分析，以及多基因评分在病例-父母三人组和跨祖先预测中的优化。同时，也涉及农业动物基因组选择、遗传多样性与适应性机制，以及单细胞组学、长读长测序等新技术在功能研究与临床样本中的应用。
+
+本期讨论文章：
+
+Nature, 2026-05-27
+Universal transcriptomic hallmarks of mammalian ageing and mortality
+哺乳动物衰老和死亡率的通用转录组特征
+
+Nature Genetics, 2026-06-02
+Estimation of direct and indirect polygenic effects and gene–environment interactions using polygenic scores in case–parent trio studies
+在病例-父母三人组研究中使用多基因评分估计直接和间接多基因效应及基因-环境相互作用
+
+Nature, 2026-05-27
+Distinct genetic architecture in the tails of complex traits
+复杂性状尾部的独特遗传结构
+
+Nature, 2026-05-27
+Biobank analysis reveals more than 88,000 genetic associations with metabolic traits
+生物库分析揭示了超过88,000个与代谢性状相关的遗传关联
+
+Nature Genetics, 2026-06-01
+Publisher Correction: Multi-ancestry genome-wide association analyses of refractive error augment genetic discovery and polygenic prediction
+出版商更正：多祖先全基因组关联分析对屈光不正的遗传发现和多基因预测的增强
+
+bioinformatics, 2026-06-02
+Bridging Ancestry Gaps in Genomic Risk Prediction with Tabular Foundation Models
+使用表格基础模型弥合基因组风险预测中的祖先差距
+
+Frontiers in Genetics, 2026-06-02
+Derivation of prediction error variance for non-genotyped individuals in genomic selection
+基因组选择中非基因型个体预测误差方差的推导
+
+Genome Research, 2026-05-28
+Whole-genome variant detection in long-read sequencing data from ultra-low input patient samples
+超低输入患者样本的长读长测序数据中的全基因组变异检测
+
+Frontiers in Genetics, 2026-06-01
+Accuracy of genomic prediction for milk production traits in Mehsana buffalo
+梅萨纳水牛产奶性状基因组预测的准确性
+
+Nature Genetics, 2026-06-02
+Integrative analyses elucidate transcriptional regulatory functions of risk alleles for metabolic liver disease
+整合分析阐明代谢性肝病风险等位基因的转录调控功能
+
+Molecular Biology and Evolution, 2026-05-30
+Molecular assessment of recombination processing across genetically diverse mouse strains reveals sexually dimorphic determinants of crossover distribution beyond chromosome length
+跨遗传多样小鼠品系的重组加工分子评估揭示了超越染色体长度的交叉分布性别二态性决定因素
+
+BMC Genomics, 2026-05-30
+Integrated environmental and genomic analysis reveals the drivers and genetic mechanisms of agro-climatic adaptation in geese
+综合环境与基因组分析揭示鹅农业气候适应的驱动因素和遗传机制
+
+Animals, 2026-06-02
+Research Trends and Emerging Frontiers in Racehorse Genetics: A Bibliometric Analysis
+赛马遗传学的研究趋势与新兴前沿：文献计量分析
+
+Nature Communications, 2026-06-02
+scMEDAL: interpretable single-cell transcriptomics analysis with batch effect visualization via deep mixed-effects autoencoder
+scMEDAL：通过深度混合效应自编码器进行批次效应可视化的可解释单细胞转录组学分析
+
+Animals, 2026-05-29
+Genetic Diversity and Population Structure Among Czech and Polish Goat Breeds Assessed Using Microsatellite Markers
+使用微卫星标记评估捷克和波兰山羊品种的遗传多样性与种群结构
+
+Genome Research, 2026-06-02
+Transfer learning enhances clinical utility of polygenic scores with small, phenotypically refined cohorts
+迁移学习增强了具有小型、表型精细队列的多基因评分的临床实用性
+
+Bioinformatics, 2026-05-30
+CeSpGRN: Inferring cell-specific gene regulatory networks from single cell multi-omics and spatial data
+CeSpGRN：从单细胞多组学和空间数据推断细胞特异性基因调控网络
+
+cell biology, 2026-05-30
+Vorinostat (SAHA) alters the skeletal muscle differentiation program
+伏立诺他（SAHA）改变骨骼肌分化程序
+
+Animals, 2026-05-28
+Genomic Signatures of Selection Reveal Breed-Specific and Shared Adaptive Regions in South African Beef Cattle
+选择基因组特征揭示南非肉牛品种特异性和共享适应区域
+
+Journal of Animal Science and Biotechnology, 2026-06-01
+Prediction of disease resilience of pigs using multi-omics data
+使用多组学数据预测猪的疾病抵抗力</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-06-03/podcast-2026-06-03.mp3" length="9578973" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-06-03</guid>
+      <pubDate>Wed, 03 Jun 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>25:52</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
