@@ -1023,5 +1023,102 @@ Prediction of disease resilience of pigs using multi-omics data
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-06-08</title>
+      <description>本期播客涵盖多个研究方向，包括作物遗传改良（如玉米氮同化与抗旱基因、大豆荚数QTL）、空间转录组学与多模态基础模型（GraphScrDom和SciCore-Omics）、以及家畜基因组与性状解析（牛品种分类、绵羊生长性状、牛肉品质等）。此外还涉及单细胞组学在炎症性肠病和细胞命运决定中的应用，以及基因组学工具（系谱校正、STR与阿尔茨海默病关联）和核物理研究中的短程核子配对机制。
+
+本期讨论文章：
+
+Nature, 2026-06-03
+Teosinte alleles enhance nitrogen assimilation and seed protein in maize
+大刍草等位基因增强玉米的氮同化和种子蛋白质
+
+Genome Research, 2026-06-03
+Reference-informed spatial domain detection using weak supervision for spatial transcriptomics
+利用弱监督进行空间转录组学的参考信息空间域检测
+
+Nature, 2026-06-03
+A maize gene that coordinates flowering aids drought resistance
+一个协调开花的玉米基因有助于抗旱性
+
+bioinformatics, 2026-06-04
+SciCore-Omics: a tri-modal foundation model unifying histology, spatial transcriptomics and language for spatial biology
+SciCore-Omics：一个统一组织学、空间转录组学和语言用于空间生物学的三模态基础模型
+
+Nature, 2026-06-03
+Cell-type-resolved genetic variation shapes inflammatory bowel disease risk
+细胞类型分辨的遗传变异塑造炎症性肠病风险
+
+Animals, 2026-06-05
+Whole-Genome Resequencing Reveals Deep Genomic Differentiation and Highly Differentiated Segments Between a Composite Domestic Cattle Population and Yak from the Ili River Valley and Other Xinjiang Regions
+全基因组重测序揭示复合家牛群体与来自伊犁河谷和其他新疆地区的牦牛之间的深层基因组分化和高度分化片段
+
+genetics, 2026-06-04
+PEC: a robust algorithm to reconcile pedigree and SNP-chip data on the basis of LD block, haplotype information, and Mendelian conflicts
+PEC：一种基于LD区块、单倍型信息和孟德尔冲突来调和系谱和SNP芯片数据的稳健算法
+
+Nature Communications, 2026-06-05
+Scalable Boltzmann generators for equilibrium sampling of large-scale materials
+用于大规模材料平衡采样的可扩展玻尔兹曼生成器
+
+Genetics Selection Evolution, 2026-06-03
+Interpretable machine learning for cattle breed classification and SNP prioritization
+用于牛品种分类和SNP优先级排序的可解释机器学习
+
+genetics, 2026-06-05
+Long-read RNA-seq resolves isoform-level and context-specific regulatory architecture of complex traits in cattle
+长读长RNA-seq解析牛复杂性状的异构体水平和环境特异性调控架构
+
+Nature, 2026-06-03
+Nuclear shell structure governs short-range nucleon pairing
+核壳结构支配短程核子配对
+
+Animal Genetics, 2026-06-04
+&lt;i&gt;ASIP&lt;/i&gt;
+                    Variants in Livestock: It's Not Black and White
+&lt;i&gt;ASIP&lt;/i&gt; 变异在家畜中：它不是黑与白
+
+Trends in Genetics, 2026-06-04
+Identifying fate-determining transcription factors with single-cell omics
+利用单细胞组学鉴定命运决定的转录因子
+
+Animal Genetics, 2026-06-02
+Investigation of the Relationship Between Ovine Selection Signature
+                    &lt;scp&gt;DIS3&lt;/scp&gt;
+                    Like 3′‐5′ Exoribonuclease 2 (
+                    &lt;i&gt;DIS3L2&lt;/i&gt;
+                    ) Gene and Weaning Weight and Average Daily Gain Until Weaning in Lambs
+绵羊选择信号 &lt;scp&gt;DIS3&lt;/scp&gt; 样3′-5′核糖核酸外切酶2 (&lt;i&gt;DIS3L2&lt;/i&gt;) 基因与羔羊断奶重和断奶前平均日增重之间关系的研究
+
+Nature, 2026-06-03
+Why a synthetic human genome is still worth building
+为什么合成人类基因组仍然值得构建
+
+Frontiers in Genetics, 2026-06-03
+Identification of QTL associated with pod number in soybean
+与大豆荚数相关的QTL鉴定
+
+Animals, 2026-06-04
+Dry Ageing Effect on Beef Quality Characteristics from Raramuri Criollo vs. Hereford × Angus
+干式熟成对来自Raramuri Criollo与Hereford × Angus牛肉品质特性的影响
+
+bioinformatics, 2026-06-03
+CellClick: an interactive platform for adjustable and accurate cell type annotation in single-cell and spatial omics data
+CellClick：一个用于单细胞和空间组学数据中可调节和准确细胞类型注释的交互式平台
+
+bioinformatics, 2026-06-03
+STAR Suite: Transcriptomics processing in a single binary through AI-assisted development
+STAR Suite：通过AI辅助开发在单个二进制文件中进行转录组学处理
+
+Nature Communications, 2026-06-04
+GWAS on short tandem repeats identifies genetic mechanisms in Alzheimer’s disease
+对短串联重复序列的GWAS识别阿尔茨海默病中的遗传机制</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-06-08/podcast-2026-06-08.mp3" length="11141421" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-06-08</guid>
+      <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>30:00</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
