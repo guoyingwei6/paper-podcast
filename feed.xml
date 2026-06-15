@@ -1120,5 +1120,95 @@ GWAS on short tandem repeats identifies genetic mechanisms in Alzheimer’s dise
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-06-15</title>
+      <description>本期讨论文章：
+
+Nature, 2026-06-10
+A 5.3-million-year-old deep-sea whale necropolis in the Diamantina Zone
+迪亚曼蒂纳区一个530万年前的深海鲸鱼墓地
+
+Nature, 2026-06-10
+Deep learning four decades of human migration
+深度学习四十年的人类迁徙
+
+Nature, 2026-06-10
+Gene ancestries reveal diverse microbial associations during eukaryogenesis
+基因谱系揭示真核生物起源过程中的多样化微生物关联
+
+Nature Genetics, 2026-06-10
+Linking GWAS risk genes to transcriptional features of major depressive disorder via in vivo Perturb-seq
+通过体内Perturb-seq将GWAS风险基因与重度抑郁症的转录特征联系起来
+
+Nature, 2026-06-10
+Amplified Arctic iceberg traffic reshapes benthic biodiversity
+放大的北极冰山交通重塑了底栖生物多样性
+
+Nature Genetics, 2026-06-12
+A k-mer-based genome-wide association study approach empowering gene mining in polyploids
+一种基于k-mer的全基因组关联研究方法赋能多倍体中的基因挖掘
+
+Nature, 2026-06-10
+Mutation-dependent responses to sleep and exercise in clonal haematopoiesis
+克隆性造血中对睡眠和运动的突变依赖性反应
+
+Nature, 2026-06-10
+Mitochondria directly interact with the nuclear pore complex
+线粒体直接与核孔复合体相互作用
+
+Nature Genetics, 2026-06-11
+Genomic landscape of the human vaginal microbiome is linked to host genetics and population of origin
+人类阴道微生物组的基因组景观与宿主遗传学和起源人群相关联
+
+Nature, 2026-06-10
+Lignin to adipic acid in a high-yield chemical and biological redox process
+在一个高产率的化学和生物氧化还原过程中从木质素到己二酸
+
+Animals, 2026-06-10
+An Ecological Framework for Interpreting the Canine Gut Microbiome
+一个解释犬肠道微生物组的生态框架
+
+Frontiers in Genetics, 2026-06-11
+Detection and evaluation of copy number variation using both linked-read and short-read sequencing in New Zealand dairy cattle
+在新西兰奶牛中使用连接读段和短读段测序进行拷贝数变异的检测和评估
+
+Nature Communications, 2026-06-11
+Towards robust foundation models for digital pathology
+走向数字病理学的稳健基础模型
+
+Genetics Selection Evolution, 2026-06-10
+Integrative multi-omics analysis identifies GNAZ and SLC5A4 as critical regulators of gestation length in Large White pigs
+整合多组学分析确定GNAZ和SLC5A4为大白猪妊娠长度的关键调控因子
+
+Molecular Biology and Evolution, 2026-06-10
+Bayesian Credible Sets for Phylogenetic Tree Topologies with Applications to Coverage Analysis and Cross-Model Comparison
+系统发育树拓扑的贝叶斯可信集及其在覆盖度分析和跨模型比较中的应用
+
+Nature, 2026-06-10
+Measurement of reactor neutrino oscillation with the first JUNO data
+使用首批JUNO数据测量反应堆中微子振荡
+
+bioinformatics, 2026-06-13
+Variant annotation across homologous proteins (Paralogue Annotation) identifies disease-causing missense variants with high precision, and is widely applicable across protein families
+跨同源蛋白的变异注释（旁系同源注释）以高精度识别致病变异，并广泛适用于蛋白质家族
+
+plant biology, 2026-06-10
+Multi-Trait Meta-QTL Analysis Reveals Genomic Hotspot Classes for Strategic Maize Improvement
+多性状meta-QTL分析揭示用于策略性玉米改良的基因组热点类别
+
+bioinformatics, 2026-06-12
+RSTG: Robust Generation of High Quality Spatial Transcriptomics Data using Beta Divergence Based AutoEncoder
+RSTG：使用基于Beta散度的自编码器稳健生成高质量空间转录组学数据
+
+Animals, 2026-06-10
+Dietary Gloiopeltis tenax Is Associated with Shifts in Fecal Microbiome and Serum Metabolome Profiles in Healthy Adult Dogs
+膳食角叉菜与健康成年犬粪便微生物组和血清代谢组谱的转变相关</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-06-15/podcast-2026-06-15.mp3" length="10243797" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-06-15</guid>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>27:19</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
