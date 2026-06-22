@@ -1210,5 +1210,97 @@ Dietary Gloiopeltis tenax Is Associated with Shifts in Fecal Microbiome and Seru
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-06-22</title>
+      <description>本期播客聚焦单细胞组学、农业遗传学与进化发育三大研究方向，涵盖通过单细胞RNA测序分析克罗恩病与自闭症小鼠模型、利用大规模外显子组和基因组数据挖掘巴基斯坦人群的纯合功能丧失变异，以及在小麦抗条锈病、谷子驯化、猪品系重组和栉水母胚孔组织者等课题上的遗传机制与进化创新。
+
+本期讨论文章：
+
+Nature Genetics, 2026-06-15
+Single-cell RNA sequencing of terminal ileal biopsies identifies signatures of Crohn’s disease pathogenesis
+末端回肠活检的单细胞RNA测序识别克罗恩病发病机制的特征
+
+Nature, 2026-06-17
+Analysis of 173,303 exomes and genomes in the Pakistan Genome Resource
+巴基斯坦基因组资源中173,303个外显子组和基因组的分析
+
+Nature, 2026-06-17
+A blastoporal organizer in a ctenophore
+一种栉水母中的胚孔组织者
+
+PLOS Genetics, 2026-06-18
+Genetic analysis and mapping of adult plant stripe rust resistance loci in CIMMYT wheat ‘Kijil’ under Mexican and Chinese field environments
+CIMMYT小麦‘Kijil’在墨西哥和中国田间环境下成株期条锈病抗性位点的遗传分析和定位
+
+Nature Communications, 2026-06-19
+Scalable, fast and accurate differential gene expression testing from millions of cells of multiple patients
+来自多名患者数百万细胞的可扩展、快速且准确的差异基因表达检测
+
+Animals, 2026-06-19
+The First Ancient DNA Evidence of Zebu Husbandry in Thailand During the Prehistoric Through the Historic Periods
+泰国从史前到历史时期瘤牛饲养的第一个古代DNA证据
+
+Nature, 2026-06-17
+Cortical development dynamics across autism spectrum disorder mouse models
+自闭症谱系障碍小鼠模型中的皮质发育动态
+
+bioinformatics, 2026-06-21
+Hierarchical classification of immune cell transcriptomes at population-scale
+群体规模下免疫细胞转录组的分层分类
+
+Genetics Selection Evolution, 2026-06-20
+Determining crossover count and position in two pig lines with different selection histories
+确定具有不同选择历史的两个猪品系中的交叉计数和位置
+
+Nature Communications, 2026-06-19
+A domestication gene links plant architecture and nitrogen metabolism to enhance yield in foxtail millet
+一个驯化基因连接植物结构和氮代谢以提高谷子产量
+
+Nature Reviews Genetics, 2026-06-19
+Genetic origins and constraints of evolutionary innovation
+进化创新的遗传起源和约束
+
+Nature Communications, 2026-06-19
+Single-cell RNA sequencing profiles drug activity within spatially engineered 3D cultures
+单细胞RNA测序描绘空间工程化3D培养中的药物活性
+
+bioinformatics, 2026-06-20
+The recount3 Python package for programmatic access to uniformly processed RNA-seq data
+用于程序化访问统一处理的RNA-seq数据的recount3 Python包
+
+evolutionary biology, 2026-06-19
+Joint dog and wolf genealogies reveal the evolution of the canine genome
+狗和狼的联合谱系揭示犬基因组的进化
+
+Animals, 2026-06-16
+Strategies for Reducing Antimicrobial Use in Cattle Through Gut Microbiome Modulation: A Systematic Review of Alternatives to Antibiotics
+通过肠道微生物组调节减少牛抗菌药物使用的策略：抗生素替代品的系统综述
+
+Nature Communications, 2026-06-21
+A structurally unique effector shared between vascular wilt fungi drives cotton and olive defoliation
+维管萎蔫真菌之间共享的一种结构独特的效应子导致棉花和橄榄落叶
+
+evolutionary biology, 2026-06-20
+Traits and hidden states: is self-fertilization associated with rates of diversification across mating and sexual systems?
+性状和隐藏状态：自交是否与交配和性系统多样化的速率相关？
+
+Animals, 2026-06-19
+Genome-Wide Resequencing Reveals High Connectivity and Localized Adaptive Signals in Manila Clam (Ruditapes philippinarum) Populations Along the Southeastern Coast of China
+全基因组重测序揭示中国东南沿海菲律宾蛤仔（Ruditapes philippinarum）种群的高连通性和局部适应信号
+
+Animals, 2026-06-15
+A Hypothesis-Based Framework for Chicken Meat Palatability: Proposing Indirect Roles of Arachidonic Acid and Lipid Oxidation
+基于假设的鸡肉可接受性框架：提出花生四烯酸和脂质氧化的间接作用
+
+BMC Genomics, 2026-06-15
+Bayesian fine-mapping pinpoints candidate genes and pleiotropic loci of production traits from a chicken backcrossing scheme
+贝叶斯精细定位从鸡回交方案中锁定生产性状的候选基因和多效位点</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-06-22/podcast-2026-06-22.mp3" length="8896797" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-06-22</guid>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>23:58</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
