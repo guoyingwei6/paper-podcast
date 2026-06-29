@@ -1302,5 +1302,97 @@ Bayesian fine-mapping pinpoints candidate genes and pleiotropic loci of producti
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-06-29</title>
+      <description>本期播客涵盖了古遗传学、医学基因组学、植物与动物基因组学以及计算生物学工具等多个研究方向。具体内容包括尼安德特人的种群动态与遗传多样性、近乎完美基因组测序在医学遗传学中的应用、碱基编辑揭示人类胚胎发育关键基因、单细胞转录组与空间转录组分析新方法、作物营养强化与气候变化适应、以及深度学习在心源性猝死预测和顺式调控网络重建中的进展。
+
+本期讨论文章：
+
+Nature, 2026-06-22
+Isotopic evidence for a cold and distant origin of 3I/ATLAS
+3I/ATLAS彗星寒冷且遥远起源的同位素证据
+
+Nature, 2026-06-24
+Genetic diversity of late Neanderthals in northwestern Europe
+西北欧晚期尼安德特人的遗传多样性
+
+Nature Genetics, 2026-06-26
+Near-perfect genome sequencing in medical genetics
+医学遗传学中的近乎完美基因组测序
+
+Nature, 2026-06-25
+Base editing reveals an essential role for NANOG in human embryogenesis
+碱基编辑揭示NANOG在人类胚胎发生中的必需作用
+
+Nature Communications, 2026-06-26
+SMURF: soft-segmentation for single-cell reconstruction and topological analysis of spatial transcriptomic data
+SMURF：用于空间转录组数据的单细胞重建和拓扑分析的软分割
+
+Nature Communications, 2026-06-27
+Haplotype-resolved genome assembly sheds light on the evolutionary history of autohexaploid Tripidium arundinaceum
+单倍型解析的基因组组装揭示自体六倍体Tripidium arundinaceum的进化历史
+
+bioinformatics, 2026-06-27
+scVIP: personalized modeling of single-cell transcriptomes for developmental and disease phenotypes
+scVIP：用于发育和疾病表型的单细胞转录组个性化建模
+
+Nature, 2026-06-24
+Genomic insights into the population dynamics and demise of Neanderthals
+基因组洞察尼安德特人的种群动态和灭绝
+
+Nature, 2026-06-24
+An ECG biomarker for sudden cardiac death discovered with deep learning
+通过深度学习发现的心源性猝死心电图生物标志物
+
+genomics, 2026-06-28
+A cis-regulatory variant in ASIP causes gray coat color in the donkey
+ASIP中的一个顺式调控变异导致驴的灰色毛色
+
+bioinformatics, 2026-06-25
+Bamsnap-LRS: an automated batch visualization tool for long-read sequencing alignments
+Bamsnap-LRS：用于长读长测序比对的自动批量可视化工具
+
+Genetics Selection Evolution, 2026-06-28
+Genomic partitioning and functional dissection of inbreeding depression for stature in Brown Swiss cattle
+布朗瑞士牛体型近交衰退的基因组划分和功能解析
+
+Nature Communications, 2026-06-28
+Wild tomato genome assemblies reveal structural variants and repeat content act as recombination barriers
+野生番茄基因组组装揭示结构变异和重复含量作为重组屏障
+
+Nature, 2026-06-24
+Genetic technologies to enhance crop nutritional value under climate change
+气候变化下增强作物营养价值的遗传技术
+
+bioinformatics, 2026-06-28
+Short-Read Sequencing Benchmarking with Donor-Specific Assemblies
+使用供体特异性组装的短读长测序基准测试
+
+Nature Genetics, 2026-06-26
+Three decades of cancer genetics
+癌症遗传学三十年
+
+Journal of Animal Science and Biotechnology, 2026-06-27
+A scalable framework for single-cell eQTL mapping uncovers genetic regulators of meat production traits in pigs
+一种可扩展的单细胞eQTL定位框架揭示猪肉类生产性状的遗传调控因子
+
+Nature Communications, 2026-06-26
+Stepwise emergence of recombination suppression precedes fissiparous asexuality in the planarian Schmidtea mediterranea
+重组抑制的逐步出现先于涡虫Schmidtea mediterranea的分裂无性生殖
+
+Nature Genetics, 2026-06-22
+Co-expression-based models improve eQTL predictions for transcriptome-wide association studies and highlight new schizophrenia-associated genes
+基于共表达的模型改善转录组全关联研究的eQTL预测并突出新的精神分裂症相关基因
+
+bioinformatics, 2026-06-26
+Computational reconstruction of hierarchical cis-regulatory networks reveals synergistic transcription control and disease-associated rewiring
+层次顺式调控网络的计算重建揭示协同转录控制和疾病相关重连</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-06-29/podcast-2026-06-29.mp3" length="9503445" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-06-29</guid>
+      <pubDate>Mon, 29 Jun 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>25:38</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
