@@ -3,6 +3,30 @@ import feedparser
 import httpx
 from bs4 import BeautifulSoup
 
+SECTION_HEADINGS = {
+    "abstract": "Abstract",
+    "summary": "Abstract",
+    "introduction": "Introduction",
+    "background": "Introduction",
+    "methods": "Methods",
+    "materials and methods": "Methods",
+    "results": "Results",
+    "discussion": "Discussion",
+    "conclusion": "Conclusion",
+    "conclusions": "Conclusion",
+}
+
+STOP_HEADINGS = {
+    "references",
+    "acknowledgements",
+    "acknowledgments",
+    "funding",
+    "author information",
+    "ethics declarations",
+    "supplementary information",
+    "additional information",
+}
+
 # DOI 域名 → 期刊名映射
 JOURNAL_MAP = {
     "nature.com": {
@@ -80,22 +104,54 @@ def fetch_article_content(url: str) -> str:
         print(f"  [警告] 无法抓取文章: {e}")
         return ""
 
-    soup = BeautifulSoup(resp.text, "html.parser")
+    return extract_article_text(resp.text)
 
+
+def extract_article_text(html: str, max_chars: int = 16000) -> str:
+    soup = BeautifulSoup(html, "html.parser")
     # 移除无关元素
-    for tag in soup(["script", "style", "nav", "header", "footer", "aside"]):
+    for tag in soup(["script", "style", "nav", "header", "footer", "aside", "form", "button"]):
         tag.decompose()
 
-    # 优先提取 <article> 标签
     article_tag = soup.find("article")
-    if article_tag:
-        text = article_tag.get_text(separator="\n", strip=True)
-    else:
-        body = soup.find("body")
-        text = body.get_text(separator="\n", strip=True) if body else soup.get_text(separator="\n", strip=True)
+    root = article_tag or soup.find("main") or soup.find("body") or soup
+    section_text = _extract_section_text(root)
+    if section_text:
+        return section_text[:max_chars]
 
-    # 截断过长文本（约 8000 字）
-    return text[:8000]
+    text = root.get_text(separator="\n", strip=True)
+    return _clean_lines(text)[:max_chars]
+
+
+def _extract_section_text(root) -> str:
+    chunks = []
+    active_heading = ""
+    for element in root.find_all(["h1", "h2", "h3", "h4", "p"], recursive=True):
+        name = element.name.lower()
+        text = element.get_text(" ", strip=True)
+        if not text:
+            continue
+        if name.startswith("h"):
+            normalized = _normalize_heading(text)
+            if normalized in STOP_HEADINGS:
+                active_heading = ""
+                break
+            active_heading = SECTION_HEADINGS.get(normalized, "")
+            if active_heading:
+                chunks.append(f"## {active_heading}")
+            continue
+        if active_heading:
+            chunks.append(text)
+    return _clean_lines("\n".join(chunks))
+
+
+def _normalize_heading(text: str) -> str:
+    return re.sub(r"[^a-z ]+", "", text.lower()).strip()
+
+
+def _clean_lines(text: str) -> str:
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    return "\n".join(lines)
 
 
 def get_articles(rss_url: str, count: int) -> list[dict]:

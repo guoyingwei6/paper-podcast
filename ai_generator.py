@@ -1,7 +1,8 @@
 import re
 import httpx
 from config import ANTHROPIC_API_KEY, ANTHROPIC_BASE_URL, ANTHROPIC_MODEL
-from prompts import SUMMARIZE_ARTICLE_PROMPT, GENERATE_PODCAST_BATCH_PROMPT
+from paper_analysis import PaperAnalysis, parse_paper_analysis_json
+from prompts import ANALYZE_ARTICLE_PROMPT, GENERATE_PODCAST_BATCH_PROMPT
 
 # 使用 OpenAI 兼容 API 格式（支持 SiliconFlow、OpenRouter 等）
 API_URL = f"{ANTHROPIC_BASE_URL.rstrip('/')}/chat/completions"
@@ -44,13 +45,16 @@ def _chat(prompt: str, max_tokens: int = 4096) -> str:
     return text
 
 
-def summarize_article(article: dict) -> str:
-    """用 AI 总结单篇科研文章。"""
-    prompt = SUMMARIZE_ARTICLE_PROMPT.format(
+def analyze_article(article: dict) -> PaperAnalysis:
+    prompt = ANALYZE_ARTICLE_PROMPT.format(
         title=article["title"],
         content=article["content"],
     )
-    return _chat_raw(prompt, max_tokens=1024)
+    return parse_paper_analysis_json(_chat_raw(prompt, max_tokens=2048))
+
+
+def summarize_article(article: dict) -> str:
+    return analyze_article(article).to_summary()
 
 
 
@@ -95,8 +99,52 @@ def _build_summaries_text(summaries: list[dict], start_idx: int) -> str:
             meta += f"\n发表时间：{s['published']}"
         if s.get("journal"):
             meta += f"\n期刊：{s['journal']}"
-        text += f"### 文章 {i}\n{meta}\n\n{s['summary']}\n\n"
+        analysis = s["analysis"]
+        text += f"### 文章 {i}\n{meta}\n\n{analysis.to_prompt_text()}\n\n"
     return text
+
+
+def validate_script_coverage(script: str, expected_count: int) -> None:
+    missing = []
+    weak = []
+    for article_number in range(1, expected_count + 1):
+        segment = _script_segment_for_article(script, article_number, expected_count)
+        if not segment:
+            missing.append(str(article_number))
+            continue
+        if not _contains_depth_cues(segment):
+            weak.append(str(article_number))
+
+    if missing or weak:
+        details = []
+        if missing:
+            details.append(f"missing articles: {', '.join(missing)}")
+        if weak:
+            details.append(f"weak analysis cues: {', '.join(weak)}")
+        raise ValueError("script coverage validation failed: " + "; ".join(details))
+
+
+def _script_segment_for_article(script: str, article_number: int, expected_count: int) -> str:
+    pattern = re.compile(rf"文章\s*{article_number}(?!\d)")
+    match = pattern.search(script)
+    if not match:
+        return ""
+    if article_number >= expected_count:
+        return script[match.start():]
+    next_match = re.search(rf"文章\s*{article_number + 1}(?!\d)", script[match.end():])
+    if not next_match:
+        return script[match.start():]
+    return script[match.start(): match.end() + next_match.start()]
+
+
+def _contains_depth_cues(segment: str) -> bool:
+    cue_groups = (
+        ("研究问题", "问题", "想回答", "关注"),
+        ("方法", "数据", "样本", "使用", "分析"),
+        ("结果", "发现", "显示", "提升", "降低", "揭示"),
+        ("局限", "限制", "谨慎", "不能", "未明确说明"),
+    )
+    return all(any(cue in segment for cue in group) for group in cue_groups)
 
 
 def generate_podcast_script(summaries: list[dict]) -> str:
@@ -204,16 +252,17 @@ def process_articles(articles: list[dict]) -> str:
     summaries = []
     for i, article in enumerate(articles):
         print(f"  [{i+1}/{len(articles)}] AI 总结: {article['title']}")
-        summary = summarize_article(article)
-        article["summary_zh"] = summary  # 存回 article 供亮点生成使用
+        analysis = analyze_article(article)
+        article["summary_zh"] = analysis.to_summary()  # 存回 article 供亮点生成使用
         summaries.append({
             "title": article["title"],
             "title_zh": article.get("title_zh", ""),
             "published": article.get("published", ""),
             "journal": article.get("journal", ""),
-            "summary": summary,
+            "analysis": analysis,
         })
 
     print("生成播客对话脚本...")
     script = generate_podcast_script(summaries)
+    validate_script_coverage(script, len(summaries))
     return script

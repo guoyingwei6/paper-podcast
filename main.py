@@ -41,19 +41,32 @@ def publish(today, output_path, articles, highlights=""):
     # Commit and push feed.xml
     print("\n📤 提交并推送 feed.xml")
     project_dir = os.path.dirname(os.path.abspath(__file__))
-    subprocess.run(["git", "add", "feed.xml"], cwd=project_dir)
-    subprocess.run(
+    if not _run_required(["git", "add", "feed.xml"], cwd=project_dir):
+        return False
+    if not _run_required(
         ["git", "commit", "-m", f"Update feed.xml for {today}"],
-        cwd=project_dir, capture_output=True,
-    )
-    # Pull remote changes before push to avoid rejection
-    subprocess.run(["git", "pull", "--rebase"], cwd=project_dir)
-    result = subprocess.run(["git", "push"], cwd=project_dir, capture_output=True, text=True)
-    if result.returncode != 0:
-        print(f"推送失败: {result.stderr}")
+        cwd=project_dir,
+        allow_no_changes=True,
+    ):
+        return False
+    if not _run_required(["git", "pull", "--rebase"], cwd=project_dir):
+        return False
+    if not _run_required(["git", "push"], cwd=project_dir):
         return False
     print("推送完成")
     return True
+
+
+def _run_required(cmd, cwd, allow_no_changes=False):
+    result = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
+    output = f"{getattr(result, 'stdout', '')}\n{getattr(result, 'stderr', '')}"
+    if allow_no_changes and "nothing to commit" in output:
+        print("没有新的 feed.xml 变更需要提交")
+        return True
+    if result.returncode == 0:
+        return True
+    print(f"命令失败 ({' '.join(cmd)}): {output.strip()}")
+    return False
 
 
 def main():
