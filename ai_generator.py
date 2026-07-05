@@ -259,18 +259,27 @@ def process_articles(articles: list[dict]) -> str:
     def _analyze(index_article):
         index, article = index_article
         print(f"  [{index+1}/{total}] AI 总结: {article['title']}")
-        return index, analyze_article(article)
+        try:
+            return index, analyze_article(article)
+        except Exception as e:
+            # 单篇解析失败（模型漏字段、抓取内容不足等）不应拖垮整期，跳过该篇
+            print(f"  [警告] 第 {index+1} 篇分析失败，已跳过: {e}")
+            return index, None
 
     max_workers = max(1, min(ANALYSIS_CONCURRENCY, total))
-    analyses: dict[int, PaperAnalysis] = {}
+    analyses: dict[int, PaperAnalysis | None] = {}
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         for index, analysis in executor.map(_analyze, enumerate(articles)):
             analyses[index] = analysis
 
     summaries = []
+    kept_articles = []
     for i, article in enumerate(articles):
         analysis = analyses[i]
+        if analysis is None:
+            continue
         article["summary_zh"] = analysis.to_summary()  # 存回 article 供亮点生成使用
+        kept_articles.append(article)
         summaries.append({
             "title": article["title"],
             "title_zh": article.get("title_zh", ""),
@@ -278,6 +287,16 @@ def process_articles(articles: list[dict]) -> str:
             "journal": article.get("journal", ""),
             "analysis": analysis,
         })
+
+    if not summaries:
+        raise ValueError("所有文章分析均失败，无法生成播客脚本")
+
+    skipped = total - len(summaries)
+    if skipped:
+        print(f"共 {total} 篇，{skipped} 篇分析失败已跳过，实际使用 {len(summaries)} 篇。")
+
+    # 用实际保留的文章覆盖原列表，供后续亮点简介 / RSS 描述使用
+    articles[:] = kept_articles
 
     print("生成播客对话脚本...")
     script = generate_podcast_script(summaries)
