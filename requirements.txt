@@ -2,6 +2,6 @@ feedparser
 httpx
 beautifulsoup4
 edge-tts>=6.1.19
-pydub
-anthropic
+mutagen
+imageio-ffmpeg
 python-dotenv

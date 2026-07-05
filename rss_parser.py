@@ -1,7 +1,10 @@
+import asyncio
 import re
 import feedparser
 import httpx
 from bs4 import BeautifulSoup
+
+FETCH_CONCURRENCY = 8
 
 SECTION_HEADINGS = {
     "abstract": "Abstract",
@@ -95,10 +98,10 @@ def parse_feed(rss_url: str, count: int) -> list[dict]:
     return articles
 
 
-def fetch_article_content(url: str) -> str:
-    """抓取文章正文内容。"""
+async def _fetch_article_content(client: httpx.AsyncClient, url: str) -> str:
+    """抓取文章正文内容（异步）。"""
     try:
-        resp = httpx.get(url, follow_redirects=True, timeout=30)
+        resp = await client.get(url, follow_redirects=True, timeout=30)
         resp.raise_for_status()
     except httpx.HTTPError as e:
         print(f"  [警告] 无法抓取文章: {e}")
@@ -154,17 +157,30 @@ def _clean_lines(text: str) -> str:
     return "\n".join(lines)
 
 
+async def _fetch_all_content(articles: list[dict]) -> None:
+    """并发抓取所有文章正文，回填 content 字段。"""
+    semaphore = asyncio.Semaphore(FETCH_CONCURRENCY)
+    total = len(articles)
+
+    async with httpx.AsyncClient() as client:
+        async def worker(index: int, article: dict) -> None:
+            async with semaphore:
+                print(f"  [{index + 1}/{total}] 抓取: {article['title']}")
+                content = await _fetch_article_content(client, article["link"])
+            if content:
+                article["content"] = content
+            elif article["summary"]:
+                article["content"] = article["summary"]
+
+        await asyncio.gather(*(worker(i, a) for i, a in enumerate(articles)))
+
+
 def get_articles(rss_url: str, count: int) -> list[dict]:
     """获取文章列表并抓取正文。count<=0 表示全部。"""
     articles = parse_feed(rss_url, count)
     print(f"从 RSS 获取到 {len(articles)} 篇文章")
 
-    for i, article in enumerate(articles):
-        print(f"  [{i+1}/{len(articles)}] 抓取: {article['title']}")
-        content = fetch_article_content(article["link"])
-        if content:
-            article["content"] = content
-        elif article["summary"]:
-            article["content"] = article["summary"]
+    if articles:
+        asyncio.run(_fetch_all_content(articles))
 
     return articles

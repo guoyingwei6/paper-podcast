@@ -1,4 +1,6 @@
 import re
+from concurrent.futures import ThreadPoolExecutor
+
 import httpx
 from config import ANTHROPIC_API_KEY, ANTHROPIC_BASE_URL, ANTHROPIC_MODEL
 from paper_analysis import PaperAnalysis, parse_paper_analysis_json
@@ -10,6 +12,9 @@ HEADERS = {
     "Authorization": f"Bearer {ANTHROPIC_API_KEY}",
     "Content-Type": "application/json",
 }
+
+# 逐篇 AI 分析的并发数
+ANALYSIS_CONCURRENCY = 5
 
 
 def _chat_raw(prompt: str, max_tokens: int = 4096) -> str:
@@ -249,10 +254,22 @@ def process_articles(articles: list[dict]) -> str:
     for article in articles:
         article["title_zh"] = title_map.get(article.get("title", ""), "")
 
+    total = len(articles)
+
+    def _analyze(index_article):
+        index, article = index_article
+        print(f"  [{index+1}/{total}] AI 总结: {article['title']}")
+        return index, analyze_article(article)
+
+    max_workers = max(1, min(ANALYSIS_CONCURRENCY, total))
+    analyses: dict[int, PaperAnalysis] = {}
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        for index, analysis in executor.map(_analyze, enumerate(articles)):
+            analyses[index] = analysis
+
     summaries = []
     for i, article in enumerate(articles):
-        print(f"  [{i+1}/{len(articles)}] AI 总结: {article['title']}")
-        analysis = analyze_article(article)
+        analysis = analyses[i]
         article["summary_zh"] = analysis.to_summary()  # 存回 article 供亮点生成使用
         summaries.append({
             "title": article["title"],

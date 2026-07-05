@@ -4,6 +4,9 @@ import re
 import edge_tts
 from config import VOICE_FEMALE, VOICE_MALE, AUDIO_SPEED
 
+# TTS 并发合成数
+TTS_CONCURRENCY = 6
+
 # 匹配各种格式：女: / 女：/ **女:** / **小薇**: / 小薇: 等
 FEMALE_PATTERN = re.compile(r"^[\*\s]*(?:女|小薇)[：:\s]*[\*]*\s*")
 MALE_PATTERN = re.compile(r"^[\*\s]*(?:男|老张)[：:\s]*[\*]*\s*")
@@ -44,19 +47,21 @@ async def synthesize_line(text: str, voice: str, rate: str, output_path: str, ma
 
 
 async def synthesize_all(script: str, temp_dir: str) -> list[str]:
-    """将播客脚本转为语音文件列表。"""
+    """将播客脚本转为语音文件列表（并发合成，保持顺序）。"""
     os.makedirs(temp_dir, exist_ok=True)
     lines = parse_script(script)
-    audio_files = []
+    total = len(lines)
+    semaphore = asyncio.Semaphore(TTS_CONCURRENCY)
 
-    for i, line in enumerate(lines):
+    async def worker(i: int, line: dict) -> str:
         voice = VOICE_FEMALE if line["gender"] == "female" else VOICE_MALE
         output_path = os.path.join(temp_dir, f"line_{i:04d}.mp3")
-        print(f"  [{i+1}/{len(lines)}] TTS: {line['text'][:30]}...")
-        await synthesize_line(line["text"], voice, AUDIO_SPEED, output_path)
-        audio_files.append(output_path)
+        async with semaphore:
+            print(f"  [{i+1}/{total}] TTS: {line['text'][:30]}...")
+            await synthesize_line(line["text"], voice, AUDIO_SPEED, output_path)
+        return output_path
 
-    return audio_files
+    return await asyncio.gather(*(worker(i, line) for i, line in enumerate(lines)))
 
 
 def run_tts(script: str, temp_dir: str) -> list[str]:

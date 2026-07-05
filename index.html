@@ -9,18 +9,52 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --header-grad-a: #1e293b;
+      --header-grad-b: #0f172a;
+      --border: #1e293b;
+      --heading: #f1f5f9;
+      --muted: #94a3b8;
+      --dim: #64748b;
+      --card: #1e293b;
+      --card-border: #334155;
+      --card-border-hover: #475569;
+      --accent: #60a5fa;
+      --accent-hover: #93bbfd;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f8fafc;
+        --text: #1e293b;
+        --header-grad-a: #e2e8f0;
+        --header-grad-b: #f8fafc;
+        --border: #e2e8f0;
+        --heading: #0f172a;
+        --muted: #475569;
+        --dim: #64748b;
+        --card: #ffffff;
+        --card-border: #e2e8f0;
+        --card-border-hover: #cbd5e1;
+        --accent: #2563eb;
+        --accent-hover: #1d4ed8;
+      }
+    }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
     }
 
     .header {
       text-align: center;
       padding: 3rem 1rem 2rem;
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      border-bottom: 1px solid #1e293b;
+      background: linear-gradient(135deg, var(--header-grad-a) 0%, var(--header-grad-b) 100%);
+      border-bottom: 1px solid var(--border);
     }
 
     .header img {
@@ -34,13 +68,13 @@
     .header h1 {
       font-size: 1.5rem;
       font-weight: 700;
-      color: #f1f5f9;
+      color: var(--heading);
       margin-bottom: 0.5rem;
     }
 
     .header p {
       font-size: 0.9rem;
-      color: #94a3b8;
+      color: var(--muted);
       max-width: 480px;
       margin: 0 auto 1rem;
     }
@@ -50,16 +84,16 @@
       align-items: center;
       gap: 0.5rem;
       padding: 0.5rem 1rem;
-      background: #1e293b;
-      border: 1px solid #334155;
+      background: var(--card);
+      border: 1px solid var(--card-border);
       border-radius: 8px;
-      color: #94a3b8;
+      color: var(--muted);
       font-size: 0.8rem;
       text-decoration: none;
       transition: border-color 0.2s;
     }
 
-    .subscribe:hover { border-color: #60a5fa; color: #e2e8f0; }
+    .subscribe:hover { border-color: var(--accent); color: var(--text); }
 
     .container {
       max-width: 640px;
@@ -68,32 +102,32 @@
     }
 
     .episode {
-      background: #1e293b;
-      border: 1px solid #334155;
+      background: var(--card);
+      border: 1px solid var(--card-border);
       border-radius: 12px;
       padding: 1.25rem;
       margin-bottom: 1rem;
       transition: border-color 0.2s;
     }
 
-    .episode:hover { border-color: #475569; }
+    .episode:hover { border-color: var(--card-border-hover); }
 
     .episode-date {
       font-size: 0.75rem;
-      color: #64748b;
+      color: var(--dim);
       margin-bottom: 0.5rem;
     }
 
     .episode-title {
       font-size: 1.1rem;
       font-weight: 600;
-      color: #f1f5f9;
+      color: var(--heading);
       margin-bottom: 0.5rem;
     }
 
     .episode-duration {
       font-size: 0.75rem;
-      color: #64748b;
+      color: var(--dim);
       margin-bottom: 0.75rem;
     }
 
@@ -105,7 +139,7 @@
 
     .episode-desc {
       font-size: 0.8rem;
-      color: #94a3b8;
+      color: var(--muted);
       line-height: 1.6;
       white-space: pre-line;
       display: none;
@@ -116,24 +150,24 @@
     .toggle-btn {
       background: none;
       border: none;
-      color: #60a5fa;
+      color: var(--accent);
       font-size: 0.8rem;
       cursor: pointer;
       padding: 0;
     }
 
-    .toggle-btn:hover { color: #93bbfd; }
+    .toggle-btn:hover { color: var(--accent-hover); }
 
     .loading {
       text-align: center;
       padding: 3rem;
-      color: #64748b;
+      color: var(--dim);
     }
 
     .empty {
       text-align: center;
       padding: 3rem;
-      color: #64748b;
+      color: var(--dim);
     }
   </style>
 </head>
@@ -182,35 +216,58 @@
           return db - da;
         });
 
-        sorted.forEach((item, i) => {
+        sorted.forEach((item) => {
           const title = item.querySelector('title')?.textContent || '';
           const desc = item.querySelector('description')?.textContent || '';
           const audioUrl = item.querySelector('enclosure')?.getAttribute('url') || '';
           const pubDate = item.querySelector('pubDate')?.textContent || '';
+          // feed 中已有 itunes:duration，优先使用，避免额外加载音频元数据
+          const durationTag = item.getElementsByTagName('itunes:duration')[0];
+          const feedDuration = durationTag?.textContent?.trim() || '';
 
           const date = pubDate ? new Date(pubDate).toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
 
           const el = document.createElement('div');
           el.className = 'episode';
-          el.innerHTML = `
-            <div class="episode-date">${date}</div>
-            <div class="episode-title">${title}</div>
-            <div class="episode-duration">时长加载中...</div>
-            <audio controls preload="metadata" src="${audioUrl}"></audio>
-            <button class="toggle-btn" onclick="toggleDesc(this)">展开详情</button>
-            <div class="episode-desc">${desc}</div>
-          `;
+
+          const dateEl = document.createElement('div');
+          dateEl.className = 'episode-date';
+          dateEl.textContent = date;
+
+          const titleEl = document.createElement('div');
+          titleEl.className = 'episode-title';
+          titleEl.textContent = title;
+
+          const durEl = document.createElement('div');
+          durEl.className = 'episode-duration';
+          durEl.textContent = feedDuration && feedDuration !== '0:00' ? '时长 ' + feedDuration : '时长加载中...';
+
+          const audio = document.createElement('audio');
+          audio.controls = true;
+          audio.preload = 'metadata';
+          audio.src = audioUrl;
+
+          const btn = document.createElement('button');
+          btn.className = 'toggle-btn';
+          btn.textContent = '展开详情';
+          btn.addEventListener('click', () => toggleDesc(btn));
+
+          const descEl = document.createElement('div');
+          descEl.className = 'episode-desc';
+          descEl.textContent = desc;
+
+          el.append(dateEl, titleEl, durEl, audio, btn, descEl);
           container.appendChild(el);
 
-          // 从音频文件获取真实时长
-          const audio = el.querySelector('audio');
-          const durEl = el.querySelector('.episode-duration');
-          audio.addEventListener('loadedmetadata', () => {
-            const secs = Math.floor(audio.duration);
-            const m = Math.floor(secs / 60);
-            const s = secs % 60;
-            durEl.textContent = '时长 ' + m + ':' + String(s).padStart(2, '0');
-          });
+          // feed 无时长时，回退到音频元数据
+          if (!feedDuration || feedDuration === '0:00') {
+            audio.addEventListener('loadedmetadata', () => {
+              const secs = Math.floor(audio.duration);
+              const m = Math.floor(secs / 60);
+              const s = secs % 60;
+              durEl.textContent = '时长 ' + m + ':' + String(s).padStart(2, '0');
+            });
+          }
         });
       } catch (e) {
         container.innerHTML = '<div class="empty">加载失败，请稍后重试</div>';

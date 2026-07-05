@@ -18,14 +18,14 @@ def _release_url(filename):
 
 
 def _get_mp3_duration(filepath):
-    """Get MP3 duration using pydub."""
+    """Read MP3 duration via mutagen (reads header, no full decode)."""
     try:
-        from pydub import AudioSegment
-        audio = AudioSegment.from_mp3(filepath)
-        duration_sec = len(audio) // 1000
+        from mutagen.mp3 import MP3
+        duration_sec = int(MP3(filepath).info.length)
         mins, secs = divmod(duration_sec, 60)
         return f"{mins}:{secs:02d}"
-    except Exception:
+    except Exception as e:
+        print(f"  [警告] 无法读取音频时长 ({filepath}): {e}")
         return "0:00"
 
 

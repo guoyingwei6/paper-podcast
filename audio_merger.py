@@ -19,20 +19,29 @@ def merge_audio(audio_files: list[str], output_path: str, silence_ms: int = 300)
 
     # 生成静音文件
     silence_path = os.path.join(os.path.dirname(audio_files[0]), "silence.mp3")
-    subprocess.run(
+    silence_result = subprocess.run(
         [FFMPEG_BIN, "-y", "-f", "lavfi", "-i",
-         f"anullsrc=r=24000:cl=mono", "-t", str(silence_ms / 1000),
+         "anullsrc=r=24000:cl=mono", "-t", str(silence_ms / 1000),
          "-c:a", "libmp3lame", "-q:a", "5", silence_path],
-        capture_output=True,
+        capture_output=True, text=True,
     )
+    if silence_result.returncode != 0:
+        print(f"ffmpeg 生成静音失败: {silence_result.stderr}")
+        return
 
     # 创建 concat 文件列表
     filelist_path = os.path.join(os.path.dirname(audio_files[0]), "filelist.txt")
+
+    def _concat_line(path: str) -> str:
+        # ffmpeg concat 语法：单引号内的单引号需转义为 '\''
+        escaped = os.path.abspath(path).replace("'", "'\\''")
+        return f"file '{escaped}'\n"
+
     with open(filelist_path, "w") as f:
         for i, filepath in enumerate(audio_files):
             if i > 0:
-                f.write(f"file '{os.path.abspath(silence_path)}'\n")
-            f.write(f"file '{os.path.abspath(filepath)}'\n")
+                f.write(_concat_line(silence_path))
+            f.write(_concat_line(filepath))
 
     # 用 ffmpeg concat 拼接
     result = subprocess.run(
