@@ -120,13 +120,14 @@ def validate_script_coverage(script: str, expected_count: int) -> None:
         if not _contains_depth_cues(segment):
             weak.append(str(article_number))
 
-    if missing or weak:
-        details = []
-        if missing:
-            details.append(f"missing articles: {', '.join(missing)}")
-        if weak:
-            details.append(f"weak analysis cues: {', '.join(weak)}")
-        raise ValueError("script coverage validation failed: " + "; ".join(details))
+    # weak（深度线索不足）只警告，不阻断发布：口语对话难以每篇都逐项覆盖四类线索，
+    # 且风格波动会误杀整期。missing（整篇未被讨论到）仍视为致命，保证不漏文章。
+    if weak:
+        print(f"  [警告] 以下文章深度线索不足（不阻断发布）: {', '.join(weak)}")
+    if missing:
+        raise ValueError(
+            "script coverage validation failed: missing articles: " + ", ".join(missing)
+        )
 
 
 def _script_segment_for_article(script: str, article_number: int, expected_count: int) -> str:
