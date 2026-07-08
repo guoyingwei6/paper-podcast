@@ -1394,5 +1394,97 @@ Computational reconstruction of hierarchical cis-regulatory networks reveals syn
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-07-08</title>
+      <description>本期播客涵盖动物遗传育种、植物基因组学、人类医学基因组及计算方法学等多个方向，具体包括利用全基因组关联分析研究牛、羊、马等经济性状的遗传基础，构建泛基因组和系统发育网络分析作物进化历史，以及开发深度学习模型解读顺式调控密码、空间转录组数据和基因组风险预测等内容。
+
+本期讨论文章：
+
+Frontiers in Genetics, 2026-07-06
+Genome-wide association study of the reproductive, body size, and carcass-related latent and directly measured traits in admixed beef heifers
+混杂育肥母牛中生殖、体型和胴体相关潜变量与直接测量性状的全基因组关联研究
+
+Nature Genetics, 2026-07-02
+Building up pangenome analysis block by block
+逐块构建泛基因组分析
+
+Animals, 2026-07-01
+Low-Coverage Whole-Genome Sequencing Identifies Loci Associated with Birth Weight in East Friesian × Hu Crossbred Sheep
+低覆盖度全基因组测序鉴定东弗里生×胡杂交羊中与出生体重相关的基因座
+
+Frontiers in Genetics, 2026-07-06
+Mitochondrial DNA reveals high maternal diversity within a weak breed structure in native Kazakhstani horses
+线粒体DNA揭示哈萨克斯坦本土马中弱品种结构内的高母系多样性
+
+Bioinformatics, 2026-07-07
+Phlag: scalable detection of genomics regions with unexplained phylogenetic heterogeneity
+Phlag：可扩展的具有未解释系统发育异质性的基因组区域检测
+
+Bioinformatics, 2026-07-07
+Diffusion-based representation integration for foundation models improves spatial transcriptomics analysis
+基于扩散的表示集成用于基础模型改善空间转录组学分析
+
+Bioinformatics, 2026-07-07
+Amaranth: enhanced single-cell transcript assembly via discriminative modelling of UMI reads and internal reads
+Amaranth：通过对UMI读段和内部读段的判别性建模增强单细胞转录本组装
+
+Bioinformatics, 2026-07-07
+Likelihood-based optimization enables accurate copy number estimation for paralogous genes using exome data
+基于似然的优化使得利用外显子组数据对旁系同源基因进行准确拷贝数估计成为可能
+
+Nature Communications, 2026-07-04
+Positional interpretation of cis-regulatory code and nucleosome organization with deep learning models
+利用深度学习模型对顺式调控密码和核小体组织进行位置解释
+
+Animals, 2026-07-06
+Differences of PPARD Expression in the Liver of Cattle with Different Marbling Grades
+不同大理石花纹等级牛肝脏中PPARD表达的差异
+
+Nature, 2026-07-01
+Harmonizing standards and resources for the medical genome
+协调医学基因组的标准与资源
+
+Bioinformatics, 2026-07-07
+Bridging ancestry gaps in genomic risk prediction with tabular foundation models
+利用表格基础模型弥合基因组风险预测中的祖先差异
+
+genetics, 2026-07-06
+Enhancing predictive accuracy of yield traits in cassava through multi-trait genomic prediction
+通过多性状基因组预测提高木薯产量性状的预测准确性
+
+Bioinformatics, 2026-07-07
+R4ST: a reference-guided graph-generative model for robust reconstruction of spatial transcriptomic profiles
+R4ST：一种用于稳健重建空间转录组图谱的参考引导图生成模型
+
+Bioinformatics, 2026-07-07
+CAMUS: scalable phylogenetic network estimation
+CAMUS：可扩展的系统发育网络估计
+
+Animal Genetics, 2026-07-07
+Genetic Indicators of Performance Resilience in Barrel Racing Quarter Horses
+桶赛夸特马中表现恢复力的遗传指标
+
+Nature Communications, 2026-07-07
+Prognostic RNA-splicing archetypes in breast cancer identified by extended pre-training of histopathology foundation models
+通过扩展预训练的组织病理学基础模型鉴定的乳腺癌中预后RNA剪接原型
+
+BMC Genomics, 2026-07-04
+Comparative transcriptome analysis to reveal key drought stress-responsive genes in sorghum (Sorghum bicolor (L.) Moench)
+比较转录组分析揭示高粱（Sorghum bicolor (L.) Moench）中关键的干旱胁迫响应基因
+
+Food Chemistry: X, 2026-07-01
+A lipidomic and flavoromic approach to map the lipid profile and related volatile flavor compounds in the fresh breast meat of chickens fed curcumin
+一种脂质组学和风味组学方法用于绘制饲喂姜黄素的鸡新鲜胸肉中的脂质谱和相关挥发性风味化合物
+
+Genetics Selection Evolution, 2026-07-05
+Genomic dissection of hoof and leg conformation in Swiss dairy cattle populations reveals polygenic architecture and a recessive HYAL1 nonsense variant affecting longevity in Holstein cattle
+瑞士奶牛群体中蹄和腿构象的基因组解析揭示多基因架构以及影响荷斯坦牛长寿性的隐性HYAL1无义变异</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-07-08/podcast-2026-07-08.mp3" length="11288372" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-07-08</guid>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>30:12</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
