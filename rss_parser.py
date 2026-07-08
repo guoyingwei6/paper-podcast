@@ -6,6 +6,20 @@ from bs4 import BeautifulSoup
 
 FETCH_CONCURRENCY = 8
 
+# 许多出版商（MDPI、OUP、bioRxiv 等）会对默认 httpx UA 返回 403，
+# 使用浏览器 UA 头可显著提升正文抓取成功率。
+BROWSER_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36"
+    ),
+    "Accept": (
+        "text/html,application/xhtml+xml,application/xml;q=0.9,"
+        "image/avif,image/webp,*/*;q=0.8"
+    ),
+    "Accept-Language": "en-US,en;q=0.9",
+}
+
 SECTION_HEADINGS = {
     "abstract": "Abstract",
     "summary": "Abstract",
@@ -162,7 +176,7 @@ async def _fetch_all_content(articles: list[dict]) -> None:
     semaphore = asyncio.Semaphore(FETCH_CONCURRENCY)
     total = len(articles)
 
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(headers=BROWSER_HEADERS) as client:
         async def worker(index: int, article: dict) -> None:
             async with semaphore:
                 print(f"  [{index + 1}/{total}] 抓取: {article['title']}")

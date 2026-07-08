@@ -251,12 +251,22 @@ def generate_podcast_script(summaries: list[dict]) -> str:
         else:
             role = "这是本期播客的中间部分，直接从文章讨论开始（不要重复开场白）。结尾不要道别，后面还有更多文章。"
 
+        batch_end = batch_start + len(batch)
+        # 明确告知模型本批文章的全局编号范围，避免跨批独立调用时从"文章 1"重新编号
+        if len(batch) == 1:
+            number_note = f"本批只包含【文章 {batch_end}】（全期共 {total} 篇），必须使用编号 {batch_end}，不要从 1 重新编号。"
+        else:
+            number_note = (
+                f"本批包含【文章 {batch_start + 1} 到 文章 {batch_end}】（全期共 {total} 篇），"
+                f"必须严格使用这些全局编号，不要从 1 重新编号。"
+            )
+        role = f"{role} {number_note}"
+
         summaries_text = _build_summaries_text(batch, batch_start)
         prompt = GENERATE_PODCAST_BATCH_PROMPT.format(
             role=role,
             summaries=summaries_text,
         )
-        batch_end = batch_start + len(batch)
         print(f"  生成脚本片段（第 {batch_start + 1}-{batch_end}/{total} 篇）...")
         part = _chat(prompt, max_tokens=4096)
         if not is_last:
