@@ -109,7 +109,36 @@ def _build_summaries_text(summaries: list[dict], start_idx: int) -> str:
     return text
 
 
-def validate_script_coverage(script: str, expected_count: int) -> None:
+def validate_script_coverage(script: str, expected_count) -> None:
+    """校验脚本是否覆盖了每篇文章。
+
+    summaries 传入 summaries 列表时，用文章标题关键词判断是否被讨论到（对口语脚本鲁棒，
+    不依赖模型逐字写"文章 N"）；传入 int 时退回旧的"文章 N"字面标记检测（供既有测试使用）。
+    missing（整篇未被提及）视为致命，保证不漏文章；weak（深度线索不足）仅警告，不阻断发布。
+    """
+    if isinstance(expected_count, int):
+        _validate_by_markers(script, expected_count)
+        return
+
+    summaries = expected_count
+    missing = []
+    weak = []
+    for i, summary in enumerate(summaries, 1):
+        if not _script_covers_article(script, summary):
+            missing.append(str(i))
+        elif not _contains_depth_cues(script):
+            weak.append(str(i))
+
+    if weak:
+        print(f"  [警告] 以下文章深度线索不足（不阻断发布）: {', '.join(weak)}")
+    if missing:
+        raise ValueError(
+            "script coverage validation failed: missing articles: " + ", ".join(missing)
+        )
+
+
+def _validate_by_markers(script: str, expected_count: int) -> None:
+    """旧版基于"文章 N"字面标记的覆盖校验（保留以兼容既有测试）。"""
     missing = []
     weak = []
     for article_number in range(1, expected_count + 1):
@@ -120,14 +149,63 @@ def validate_script_coverage(script: str, expected_count: int) -> None:
         if not _contains_depth_cues(segment):
             weak.append(str(article_number))
 
-    # weak（深度线索不足）只警告，不阻断发布：口语对话难以每篇都逐项覆盖四类线索，
-    # 且风格波动会误杀整期。missing（整篇未被讨论到）仍视为致命，保证不漏文章。
     if weak:
         print(f"  [警告] 以下文章深度线索不足（不阻断发布）: {', '.join(weak)}")
     if missing:
         raise ValueError(
             "script coverage validation failed: missing articles: " + ", ".join(missing)
         )
+
+
+_EN_STOPWORDS = {
+    "using", "these", "their", "based", "which", "with", "from", "into",
+    "analysis", "analyses", "study", "studies", "reveals", "reveal", "across",
+    "large", "scale", "identifies", "associated", "enables", "approach",
+}
+
+
+def _zh_ngrams(title_zh: str, n: int = 3) -> set[str]:
+    """把中文标题的连续中文字符切成 n-gram 集合，用于口语脚本覆盖检测。"""
+    ngrams: set[str] = set()
+    for frag in re.findall(r"[\u4e00-\u9fff]+", title_zh):
+        if len(frag) < n:
+            if len(frag) >= 2:
+                ngrams.add(frag)
+            continue
+        for i in range(len(frag) - n + 1):
+            ngrams.add(frag[i:i + n])
+    return ngrams
+
+
+def _en_keywords(title_en: str) -> list[str]:
+    """英文标题里的实义长词（去停用词）。"""
+    words = []
+    for word in re.findall(r"[A-Za-z]{5,}", title_en):
+        if word.lower() not in _EN_STOPWORDS:
+            words.append(word)
+    return words
+
+
+def _script_covers_article(script: str, summary: dict) -> bool:
+    """脚本是否覆盖到该文章：命中>=2个中文标题 n-gram，或>=2个英文关键词。"""
+    zh_ngrams = _zh_ngrams(summary.get("title_zh", "") or "")
+    if zh_ngrams:
+        zh_hits = sum(1 for g in zh_ngrams if g in script)
+        if zh_hits >= 2:
+            return True
+
+    en_keywords = _en_keywords(summary.get("title", "") or "")
+    if en_keywords:
+        script_lower = script.lower()
+        en_hits = sum(1 for k in en_keywords if k.lower() in script_lower)
+        if en_hits >= 2:
+            return True
+
+    # 完全没有可用标题信息时保守视为已覆盖，避免误杀
+    if not zh_ngrams and not en_keywords:
+        return True
+
+    return False
 
 
 def _script_segment_for_article(script: str, article_number: int, expected_count: int) -> str:
@@ -301,5 +379,5 @@ def process_articles(articles: list[dict]) -> str:
 
     print("生成播客对话脚本...")
     script = generate_podcast_script(summaries)
-    validate_script_coverage(script, len(summaries))
+    validate_script_coverage(script, summaries)
     return script
