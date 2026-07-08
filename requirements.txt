@@ -1,6 +1,7 @@
 feedparser
 httpx
 beautifulsoup4
+lxml
 edge-tts>=6.1.19
 mutagen
 imageio-ffmpeg

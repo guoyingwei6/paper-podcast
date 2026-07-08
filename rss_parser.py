@@ -1,10 +1,14 @@
 import asyncio
 import re
+
 import feedparser
 import httpx
 from bs4 import BeautifulSoup
 
+from article_sources import extract_doi, fetch_open_article_content
+
 FETCH_CONCURRENCY = 8
+MAX_CONTENT_CHARS = 16000
 
 # 许多出版商（MDPI、OUP、bioRxiv 等）会对默认 httpx UA 返回 403，
 # 使用浏览器 UA 头可显著提升正文抓取成功率。
@@ -112,19 +116,31 @@ def parse_feed(rss_url: str, count: int) -> list[dict]:
     return articles
 
 
-async def _fetch_article_content(client: httpx.AsyncClient, url: str) -> str:
-    """抓取文章正文内容（异步）。"""
+async def _fetch_article_content(client: httpx.AsyncClient, article: dict) -> str:
+    url = article["link"]
     try:
         resp = await client.get(url, follow_redirects=True, timeout=30)
         resp.raise_for_status()
     except httpx.HTTPError as e:
         print(f"  [警告] 无法抓取文章: {e}")
+    else:
+        content = extract_article_text(resp.text)
+        if content:
+            return content
+
+    doi = extract_doi(article.get("link", ""), article.get("summary", ""))
+    if not doi:
         return ""
 
-    return extract_article_text(resp.text)
+    content, source = await fetch_open_article_content(client, doi)
+    if content:
+        print(f"  [信息] {source} 兜底成功: {doi}")
+        return content
+
+    return ""
 
 
-def extract_article_text(html: str, max_chars: int = 16000) -> str:
+def extract_article_text(html: str, max_chars: int = MAX_CONTENT_CHARS) -> str:
     soup = BeautifulSoup(html, "html.parser")
     # 移除无关元素
     for tag in soup(["script", "style", "nav", "header", "footer", "aside", "form", "button"]):
@@ -180,7 +196,7 @@ async def _fetch_all_content(articles: list[dict]) -> None:
         async def worker(index: int, article: dict) -> None:
             async with semaphore:
                 print(f"  [{index + 1}/{total}] 抓取: {article['title']}")
-                content = await _fetch_article_content(client, article["link"])
+                content = await _fetch_article_content(client, article)
             if content:
                 article["content"] = content
             elif article["summary"]:
