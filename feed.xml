@@ -1486,5 +1486,97 @@ Genomic dissection of hoof and leg conformation in Swiss dairy cattle population
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-07-13</title>
+      <description>本期播客涵盖基因组学与遗传学创新方法、癌症与疾病机制解析、以及农业与生态遗传学应用三大方向。具体涉及泛基因组、单细胞多组学、长读长测序、GWAS等新技术，以及癌症共突变、EMT、炎症性肠病、骨骼疾病等疾病研究，同时包括亚马逊生物文化遗产、家畜育种优化、植物瞬时转化等应用议题。
+
+本期讨论文章：
+
+Nature, 2026-07-08
+The forest of knowledge under global change
+全球变化下的知识森林
+
+Nature, 2026-07-08
+Large language models can predict the results of social science experiments
+大型语言模型可以预测社会科学实验的结果
+
+Nature Genetics, 2026-07-10
+Graph-based pan-genome reveals structural variations associated with agronomic traits in mung bean
+基于图的泛基因组揭示了与绿豆农艺性状相关的结构变异
+
+Nature Genetics, 2026-07-10
+Multiscale analysis and functional validation of the cellular and genetic determinants of skeletal disease
+骨骼疾病的细胞和遗传决定因素的多尺度分析和功能验证
+
+Nature Genetics, 2026-07-10
+A call to action for an equitable global genomic system
+为公平的全球基因组系统采取行动的呼吁
+
+Nature Genetics, 2026-07-08
+A blended genome and exome sequencing method captures genetic variation in an unbiased and cost-effective manner
+一种混合的全基因组和外显子组测序方法以无偏和成本有效的方式捕获遗传变异
+
+Nature Genetics, 2026-07-10
+Evolving patterns of co-mutations from tumor initiation to metastatic progression
+从肿瘤起始到转移进展的共突变演化模式
+
+BMC Genomics, 2026-07-10
+Genome-wide DNA methylation analysis in pigs using long-read sequencing unveils high-altitude adaptation and allele-specific regulation
+使用长读长测序对猪进行全基因组DNA甲基化分析揭示高海拔适应和等位基因特异性调控
+
+Nature Communications, 2026-07-11
+Invas: an inversion-aware method for transcriptome assembly
+Invas：一种用于转录组组装的倒位感知方法
+
+Nature Genetics, 2026-07-10
+Quantifying gene importance with SIGnature
+使用SIGnature量化基因重要性
+
+Frontiers in Genetics, 2026-07-06
+Genome-wide association study of the reproductive, body size, and carcass-related latent and directly measured traits in admixed beef heifers
+混合肉用母牛中生殖、体型和胴体相关潜在及直接测量性状的全基因组关联研究
+
+Nature Communications, 2026-07-09
+Deep Learning Predicts Dissimilar DNA-DNA Binding and Engineers Hyperconnected Networks
+深度学习预测不相似的DNA-DNA结合并工程化超连接网络
+
+plant biology, 2026-07-10
+AgroGem: A Rapid and Scalable Transient Transformation System for Functional Genetics in Multiple Plant Species
+AgroGem：一种用于多种植物物种功能遗传学的快速且可扩展的瞬时转化系统
+
+Animals, 2026-07-08
+Genetic Diversity and Candidate Selection Signatures in Hungarian and Romanian Carpathian Water Buffalo Inferred from Cross-Species SNP-Array Genotyping
+从跨物种SNP芯片基因分型推断匈牙利和罗马尼亚喀尔巴阡水牛的遗传多样性和候选选择特征
+
+bioinformatics, 2026-07-09
+Rectangle: robust and scalable multiscale deconvolution informed by single-cell RNA sequencing data
+Rectangle：由单细胞RNA测序数据驱动的稳健且可扩展的多尺度反卷积
+
+bioinformatics, 2026-07-11
+scDiagnostics: systematic assessment of cell type annotation in single-cell transcriptomics data
+scDiagnostics：单细胞转录组学数据中细胞类型注释的系统评估
+
+Nature Genetics, 2026-07-10
+Interpreting the genetic basis of inflammatory bowel disease
+解读炎症性肠病的遗传基础
+
+Genetics Selection Evolution, 2026-07-09
+Optimisation of selection for methane mitigation by integrating production traits with ruminal microbiome-driven breeding in beef cattle
+通过整合生产性状与瘤胃微生物组驱动的育种优化牛肉牛甲烷减排选择
+
+cancer biology, 2026-07-10
+Spatial immune architecture and tumor lineage programs jointly shape clinical outcomes in advanced pancreatic ductal adenocarcinoma
+空间免疫架构和肿瘤谱系程序共同塑造晚期胰腺导管腺癌的临床结果
+
+Nature Communications, 2026-07-11
+Single cell multiomics unravel the transcription networks controlling the different EMT tumor states
+单细胞多组学揭示控制不同EMT肿瘤状态的转录网络</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-07-13/podcast-2026-07-13.mp3" length="15194564" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-07-13</guid>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>40:23</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
