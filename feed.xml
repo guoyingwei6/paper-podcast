@@ -1578,5 +1578,99 @@ Single cell multiomics unravel the transcription networks controlling the differ
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-07-20</title>
+      <description>本期播客涵盖动物遗传育种、人类疾病机制、进化生物学和基因组学方法等多个研究方向，具体包括西藏山羊与河西牛的遗传多样性及适应性状、罗马尼亚奶牛产奶性状的遗传参数估计、真社会性哺乳动物的化学生殖抑制机制、阿尔茨海默病跨人群细胞类型特征、黏连蛋白引导三维基因组组织的机制，以及增强子-基因调控相互作用图谱等。
+
+本期讨论文章：
+
+Animal Genetics, 2026-07-17
+Genome‐Wide Resequencing Reveals Genetic Diversity and Selection Signatures in Two Indigenous Goat Populations From Xizang
+全基因组重测序揭示西藏两个本地山羊种群的遗传多样性和选择特征
+
+Animals, 2026-07-17
+Genetic Parameter Estimation and Accuracy of Selection for Milk Production Traits in Romanian Black and White Cattle: A Bayesian Multi-Trait Animal Model Using MCMCglmm
+罗马尼亚黑白花奶牛产奶性状的遗传参数估计与选择准确性：使用MCMCglmm的贝叶斯多性状动物模型
+
+Nature, 2026-07-15
+A queen odour mediates reproductive suppression in a eusocial mammal
+一种女王气味介导了一种真社会性哺乳动物的生殖抑制
+
+Animals, 2026-07-17
+Genetic Ancestry and Genome-Wide Association Study Combined with Functional Enrichment Analyses Reveal Candidate Genes for Body Conformation Traits in Hexi Cattle
+遗传祖先和全基因组关联研究结合功能富集分析揭示河西牛体型性状的候选基因
+
+Nature, 2026-07-15
+Cell-type signatures of Alzheimer’s disease shared across population groups
+跨人群共享的阿尔茨海默病细胞类型特征
+
+Nature Genetics, 2026-07-16
+Pioneer transcription factors direct tissue-specific cohesin chromatin entry and three-dimensional genome organization
+先锋转录因子指导组织特异性黏连蛋白染色质进入和三维基因组组织
+
+Nature, 2026-07-15
+An encyclopedia of human enhancer–gene regulatory interactions
+人类增强子-基因调控相互作用百科全书
+
+Journal of Animal Science and Biotechnology, 2026-07-16
+Single-nucleus RNA sequencing reveals cell type-specific responses to heat stress in bovine mammary gland
+单核RNA测序揭示牛乳腺中细胞类型特异性对热应激的反应
+
+Molecular Biology and Evolution, 2026-07-16
+What has population genomics told us about the dynamics of selection and plant adaptation?
+群体基因组学告诉了我们关于选择和植物适应动态的什么？
+
+bioinformatics, 2026-07-17
+Mapping Tumor-Microenvironment dependencies with TMEformer: A spatial foundation framework enabling in silico perturbation
+用TMEformer绘制肿瘤-微环境依赖性：一个实现计算机扰动的空间基础框架
+
+Nature Communications, 2026-07-18
+Convergent genomic trajectories shape adaptation to life on land across animal lineages
+趋同的基因组轨迹塑造了动物谱系对陆地生活的适应
+
+BMC Genomics, 2026-07-16
+SorghumHub: featuring the next phase for the KBCommons web portal with new molecular biology features
+SorghumHub：以新的分子生物学功能展示KBCommons门户网站的下一阶段
+
+Animal Genetics, 2026-07-17
+Untangling the Copy Number Variation at the Basis of Belted Phenotypes in Cattle Using Long‐Read Sequencing
+使用长读长测序解析牛带状表型基础的拷贝数变异
+
+evolutionary biology, 2026-07-17
+Ancient whole genomes reveal regional selection during adaptation to Neolithic lifestyle in Western Eurasia
+古代全基因组揭示欧亚西部新石器时代生活方式适应期间的区域选择
+
+Genome Research, 2026-07-16
+Genome-wide crossover analysis in the holocentric pantry moth reveals strong crossover assurance and interference during spermatogenesis
+全基因组交叉分析在holocentric pantry moth中揭示精子发生过程中的强交叉保证和干扰
+
+Genome Research, 2026-07-17
+ComicGTN infers disease-associated rare cell states from single-cell multiomic data using DNA sequence–augmented graph transformer networks
+ComicGTN使用DNA序列增强的图变换网络从单细胞多组学数据推断疾病相关的稀有细胞状态
+
+Animal Genetics, 2026-07-17
+The Mottling Phenotype in Chickens Shows Genetic Heterogeneity and Is Caused by Mutations at the
+                    &lt;i&gt;EDNRB2&lt;/i&gt;
+                    Locus
+鸡的斑驳表型显示遗传异质性，并由&lt;i&gt;EDNRB2&lt;/i&gt;位点的突变引起
+
+Animals, 2026-07-14
+Comprehensive Statistical Assessment of Post-Thaw Semen Quality in Two Conserved Norwegian Rooster Lines
+两个保护挪威公鸡品系解冻后精液质量的综合统计评估
+
+evolutionary biology, 2026-07-17
+Temporal seascape genomics identifies evolutionarily significant units in a highly exploited marine resource, the wedge clam Donax trunculus.
+时间海景基因组学识别高度开发海洋资源——楔形蛤Donax trunculus中的进化重要单元
+
+BMC Genomics, 2026-07-17
+Development and application of whole genome SNP markers in mango
+芒果全基因组SNP标记的开发与应用</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-07-20/podcast-2026-07-20.mp3" length="12887300" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-07-20</guid>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>34:38</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
