@@ -1672,5 +1672,97 @@ Development and application of whole genome SNP markers in mango
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-07-27</title>
+      <description>本期播客涵盖了遗传学与基因组学的前沿进展，包括边缘型人格障碍与精神疾病共享遗传风险的GWAS研究、个性化基因疗法在重症癫痫患者中的应用，以及四倍体小麦泛基因组揭示的驯化与育种多样性。此外，还讨论了空间转录组学分析工具、跨祖先人群的遗传关联分析方法、可传播癌症的发现、肿瘤进化受遗传背景影响的实验证据，以及多项面向大规模基因组数据的生物信息学算法和深度学习工具。
+
+本期讨论文章：
+
+Nature Genetics, 2026-07-20
+Genome-wide association analyses of borderline personality disorder identify 11 loci and highlight shared risk with mental and somatic disorders
+全基因组关联分析识别出11个边缘型人格障碍位点并强调与精神和躯体疾病的共同风险
+
+Nature, 2026-07-24
+Personalized gene therapy relieves severe epilepsy in two boys
+个性化基因疗法缓解两名男孩的严重癫痫
+
+Nature Genetics, 2026-07-22
+A pangenome of tetraploid wheat reveals the genetic architecture underlying domestication and genomic diversity for breeding
+四倍体小麦的泛基因组揭示了驯化下的遗传结构和育种的基因组多样性
+
+bioinformatics, 2026-07-24
+Orchestrating Spatial Transcriptomics Analysis with Bioconductor
+使用Bioconductor协调空间转录组学分析
+
+Nature Genetics, 2026-07-20
+Extending genome-wide association studies to admixed cohorts with high degrees of relatedness
+将全基因组关联研究扩展到具有高度相关性的混合群体
+
+Nature Genetics, 2026-07-24
+Nanoparticle-enriched mass spectrometry proteomics in British South Asians identifies links between genetic variants, plasma protein levels and disease risk
+英国南亚裔的纳米颗粒富集质谱蛋白质组学识别出遗传变异、血浆蛋白水平和疾病风险之间的联系
+
+Nature Communications, 2026-07-25
+Scalable high resolution ancestry deconvolution for genomic data
+基因组数据的可扩展高分辨率祖先解卷积
+
+Nature Communications, 2026-07-23
+cellGeometry: ultra-fast single-cell deconvolution of bulk RNA-Seq using a geometric solution
+cellGeometry：使用几何解决方案对bulk RNA-Seq进行超快速单细胞解卷积
+
+Nature Genetics, 2026-07-22
+A tetraploid wheat pangenome reveals genomic variation and domestication footprints
+四倍体小麦泛基因组揭示基因组变异和驯化足迹
+
+genetics, 2026-07-23
+Widely used GWAS methods can be poorly suited to SNP-level localization under diffuse polygenic architecture in livestock
+广泛使用的GWAS方法在牲畜扩散多基因结构下可能不适合SNP水平定位
+
+Genome Research, 2026-07-24
+Fast and memory efficient partial order alignment with minipoa
+使用minipoa进行快速且内存高效的局部比对
+
+Bioinformatics, 2026-07-23
+PRISM: Prior-enhanced Inference for Spatial Transcriptomic Cell Type Mapping
+PRISM：用于空间转录组细胞类型映射的先验增强推理
+
+Nature Reviews Genetics, 2026-07-23
+Human genetics across levels of biological organization
+跨生物组织层次的人类遗传学
+
+BMC Genomics, 2026-07-24
+GenVarLoader: an accelerated dataloader for applying deep learning to personalized genomics
+GenVarLoader：用于将深度学习应用于个性化基因组学的加速数据加载器
+
+Nature, 2026-07-22
+Brown bullhead catfish melanoma represents a novel transmissible cancer
+棕色牛头鲶黑色素瘤代表一种新型可传播癌症
+
+Nature, 2026-07-22
+Genetic background sets the trajectory of experimental cancer evolution
+遗传背景设定实验性癌症进化的轨迹
+
+bioinformatics, 2026-07-23
+A tailored variant filtering procedure for multi-breed and multi-species unbalanced animal SNP collections
+针对多品种和多物种不平衡动物SNP集合的定制变异过滤流程
+
+Nature Communications, 2026-07-24
+Transcript-aware rare genetic variant association analyses of cardiopulmonary traits in participants from the All of Us Research Program
+来自All of Us研究计划参与者的心肺特征的转录本感知罕见遗传变异关联分析
+
+Bioinformatics, 2026-07-24
+BCAR: A fast and indel-tolerant barcode-sequence mapper
+BCAR：一种快速且能容忍插入缺失的条形码序列比对器
+
+Genome Research, 2026-07-24
+Knowledge-driven interpretable neural networks for mechanistic insight
+知识驱动的可解释神经网络用于机制洞察</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-07-27/podcast-2026-07-27.mp3" length="14583092" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-07-27</guid>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>39:04</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
