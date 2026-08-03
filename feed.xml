@@ -1764,5 +1764,95 @@ Knowledge-driven interpretable neural networks for mechanistic insight
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-08-03</title>
+      <description>本期播客涵盖多个前沿基因组学研究方向，包括利用祖先重组图与古DNA解析人类演化与疾病历史、通过单细胞与空间组学揭示器官发育和癌症机制，以及将多组学方法应用于农业动物经济性状的遗传改良与预测。内容还涉及海洋古基因组学在渔业保护中的应用、宏基因组测序优化、真菌数据库更新及量子计算纠错等领域，体现了从基础生物学到应用育种和交叉技术的广泛研究视角。
+
+本期讨论文章：
+
+Science, 2026-07-30
+Recovering signatures of archaic hominin introgression using ancestral recombination graphs
+使用祖先重组图恢复古老人类基因渗入的特征
+
+Science, 2026-07-30
+A 10-million-year biogeographic holding pen primed the Great American Biotic Interchange
+一个一千万年的生物地理学围栏为伟大的美洲生物交流做好了准备
+
+Science, 2026-07-30
+The genomic identity of early smallpox in South America
+南美洲早期天花的基因组身份
+
+Science, 2026-07-30
+X-chromosome inactivation draws L1 mutagenesis to the human X chromosome
+X染色体失活将L1诱变吸引到人类X染色体上
+
+Journal of Animal Science, 2026-07-30
+Impact of reducing metagenomic sequencing depth on phenotypic prediction accuracy of feed intake and average daily gain in beef cattle
+减少宏基因组测序深度对肉牛采食量和平均日增重表型预测准确性的影响
+
+Genetics Selection Evolution, 2026-07-30
+Genetic parameters and genome-wide association analysis of service sire effects on litter size and its relationship with boar semen quality in three terminal sire lines
+三个终端父系品系中服务公猪效应对窝仔数的遗传参数和全基因组关联分析及其与公猪精液质量的关系
+
+Science, 2026-07-30
+Calcium isotopes link ocean acidification to Aptian–Albian foraminiferal extinctions
+钙同位素将海洋酸化与阿普第期–阿尔布期有孔虫灭绝联系起来
+
+Science, 2026-07-30
+Beyond the scales: Marine archaeogenomics for the conservation and restoration of fisheries
+超越鳞片：用于渔业保护和恢复的海洋古基因组学
+
+Genome Research, 2026-07-30
+Cross-species variant-to-function analyses implicate
+                    &lt;i&gt;MEIS1&lt;/i&gt;
+                    in conferring sleep abnormalities and impaired cerebellar development
+跨物种变异到功能分析暗示&lt;i&gt;MEIS1&lt;/i&gt;在导致睡眠异常和小脑发育受损中的作用
+
+genetics, 2026-07-30
+The Candida Genome Database: New Interface and New Tools
+念珠菌基因组数据库：新界面和新工具
+
+Journal of Animal Science and Biotechnology, 2026-07-31
+Transcriptomic and regulatory landscape of liver tissue associated with meat and carcass quality traits in cattle
+与牛肉类和胴体品质性状相关的肝脏组织转录组和调控景观
+
+Nature, 2026-07-29
+Weight-four parity checks in a spin-shuttling architecture
+自旋穿梭架构中的权重四奇偶校验
+
+Nature Genetics, 2026-07-30
+Single-cell spatial mapping of human kidney development implicates the microenvironment in guiding cell fate decisions
+人类肾脏发育的单细胞空间图谱暗示微环境在指导细胞命运决定中的作用
+
+Nature Genetics, 2026-07-31
+Gene mutant dosage is associated with prognosis and metastatic tropism in 60,000 clinical cancer samples
+基因突变剂量与60,000例临床癌症样本中的预后和转移趋向性相关
+
+microbiology, 2026-07-30
+Genomic insights into the human gut commensal Megasphaera elsdenii: Relatedness and metabolic potential compared to animal isolates
+人类肠道共生菌埃氏巨球形菌的基因组见解：与动物分离株相比的亲缘关系和代谢潜力
+
+Animals, 2026-07-31
+Integrative Multi-Omics Analysis Reveals the Genetic Architecture Landscape of the Blood Metabolome in Jersey Cattle
+整合多组学分析揭示泽西牛血液代谢组的遗传架构景观
+
+Nature Genetics, 2026-07-30
+Mediators of cell fate decisions in human fetal kidney development identified using spatial transcriptomics
+使用空间转录组学鉴定的人类胎儿肾脏发育中细胞命运决定的介质
+
+Nature, 2026-07-30
+Somatic mutations reveal the ontogeny of microglia in human aging
+体细胞突变揭示人类衰老过程中小胶质细胞的个体发育
+
+bioinformatics, 2026-08-01
+Pangenome Graph Node-Phenotype Association shows GWAS-like quality results with only few individuals
+泛基因组图节点-表型关联显示仅用少数个体即可获得类似GWAS质量的结果</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-08-03/podcast-2026-08-03.mp3" length="21371828" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-08-03</guid>
+      <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>57:05</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
