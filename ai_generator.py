@@ -15,6 +15,13 @@ HEADERS = {
 
 # 逐篇 AI 分析的并发数
 ANALYSIS_CONCURRENCY = 5
+# 单篇分析返回非 JSON 时再重试一次，避免偶发的模型格式问题直接丢弃文章。
+ANALYSIS_MAX_ATTEMPTS = 2
+
+# 批量脚本不宜一次塞入太多文章；较小批次能降低输出被截断或漏项的概率。
+SCRIPT_BATCH_SIZE = 3
+# 脚本批次缺文章时自动重写，最终仍保留硬性校验，避免发布不完整节目。
+SCRIPT_BATCH_MAX_ATTEMPTS = 3
 
 
 def _chat_raw(prompt: str, max_tokens: int = 4096) -> str:
@@ -121,19 +128,18 @@ def validate_script_coverage(script: str, expected_count) -> None:
         return
 
     summaries = expected_count
-    missing = []
+    missing = find_missing_article_numbers(script, summaries)
     weak = []
     for i, summary in enumerate(summaries, 1):
-        if not _script_covers_article(script, summary):
-            missing.append(str(i))
-        elif not _contains_depth_cues(script):
+        if i not in missing and not _contains_depth_cues(script):
             weak.append(str(i))
 
     if weak:
         print(f"  [警告] 以下文章深度线索不足（不阻断发布）: {', '.join(weak)}")
     if missing:
         raise ValueError(
-            "script coverage validation failed: missing articles: " + ", ".join(missing)
+            "script coverage validation failed: missing articles: "
+            + ", ".join(str(i) for i in missing)
         )
 
 
@@ -153,7 +159,8 @@ def _validate_by_markers(script: str, expected_count: int) -> None:
         print(f"  [警告] 以下文章深度线索不足（不阻断发布）: {', '.join(weak)}")
     if missing:
         raise ValueError(
-            "script coverage validation failed: missing articles: " + ", ".join(missing)
+            "script coverage validation failed: missing articles: "
+            + ", ".join(missing)
         )
 
 
@@ -186,8 +193,15 @@ def _en_keywords(title_en: str) -> list[str]:
     return words
 
 
-def _script_covers_article(script: str, summary: dict) -> bool:
-    """脚本是否覆盖到该文章：命中>=2个中文标题 n-gram，或>=2个英文关键词。"""
+def _script_covers_article(
+    script: str, summary: dict, article_number: int | None = None
+) -> bool:
+    """判断脚本是否覆盖文章，优先使用全局文章编号，再用标题关键词兜底。"""
+    if article_number is not None:
+        marker = re.search(rf"(?<!\d)文章\s*{article_number}(?!\d)", script)
+        if marker:
+            return True
+
     zh_ngrams = _zh_ngrams(summary.get("title_zh", "") or "")
     if zh_ngrams:
         zh_hits = sum(1 for g in zh_ngrams if g in script)
@@ -206,6 +220,19 @@ def _script_covers_article(script: str, summary: dict) -> bool:
         return True
 
     return False
+
+
+def find_missing_article_numbers(
+    script: str, summaries: list[dict], start_index: int = 0
+) -> list[int]:
+    """返回脚本中未覆盖的全局文章编号，用于批次内重试和最终校验。"""
+    return [
+        start_index + index + 1
+        for index, summary in enumerate(summaries)
+        if not _script_covers_article(
+            script, summary, article_number=start_index + index + 1
+        )
+    ]
 
 
 def _script_segment_for_article(script: str, article_number: int, expected_count: int) -> str:
@@ -231,14 +258,55 @@ def _contains_depth_cues(segment: str) -> bool:
     return all(any(cue in segment for cue in group) for group in cue_groups)
 
 
+def _generate_validated_script_batch(
+    prompt: str, batch: list[dict], batch_start: int
+) -> str:
+    """生成一个批次；发现漏文时自动重写，仍失败则安全终止发布。"""
+    missing = []
+    for attempt in range(1, SCRIPT_BATCH_MAX_ATTEMPTS + 1):
+        attempt_prompt = prompt
+        if attempt > 1:
+            missing_text = ", ".join(str(i) for i in missing)
+            attempt_prompt += (
+                "\n\n【必须修复上一版的问题】\n"
+                f"上一版遗漏了文章 {missing_text}。请完整重写本批脚本，必须逐篇讨论这些文章，"
+                "并在每篇第一次出现时明确说出对应的‘文章 N’。不要省略、合并或新增文章。"
+            )
+            print(
+                f"  [重试] 脚本批次第 {batch_start + 1}-{batch_start + len(batch)} "
+                f"（第 {attempt}/{SCRIPT_BATCH_MAX_ATTEMPTS} 次，缺少文章 {missing_text}）..."
+            )
+        else:
+            print(
+                f"  生成脚本片段（第 {batch_start + 1}-{batch_start + len(batch)} 篇）..."
+            )
+
+        part = _chat(attempt_prompt, max_tokens=4096)
+        missing = find_missing_article_numbers(part, batch, batch_start)
+        if not missing:
+            return part
+
+        if attempt < SCRIPT_BATCH_MAX_ATTEMPTS:
+            print(
+                "  [警告] 当前脚本批次缺少文章 "
+                + ", ".join(str(i) for i in missing)
+                + "，准备自动重试"
+            )
+
+    raise ValueError(
+        "script batch validation failed after retries: missing articles: "
+        + ", ".join(str(i) for i in missing)
+    )
+
+
 def generate_podcast_script(summaries: list[dict]) -> str:
-    """分批生成播客对话脚本，每批 5 篇，确保所有文章都被覆盖。"""
-    BATCH_SIZE = 5
+    """分批生成播客对话脚本，并在批次级别校验和重试。"""
+    batch_size = SCRIPT_BATCH_SIZE
     total = len(summaries)
     script_parts = []
 
-    for batch_start in range(0, total, BATCH_SIZE):
-        batch = summaries[batch_start:batch_start + BATCH_SIZE]
+    for batch_start in range(0, total, batch_size):
+        batch = summaries[batch_start:batch_start + batch_size]
         is_first = batch_start == 0
         is_last = batch_start + len(batch) >= total
 
@@ -267,8 +335,7 @@ def generate_podcast_script(summaries: list[dict]) -> str:
             role=role,
             summaries=summaries_text,
         )
-        print(f"  生成脚本片段（第 {batch_start + 1}-{batch_end}/{total} 篇）...")
-        part = _chat(prompt, max_tokens=4096)
+        part = _generate_validated_script_batch(prompt, batch, batch_start)
         if not is_last:
             part = _strip_farewell(part)
         script_parts.append(part)
@@ -348,12 +415,20 @@ def process_articles(articles: list[dict]) -> str:
     def _analyze(index_article):
         index, article = index_article
         print(f"  [{index+1}/{total}] AI 总结: {article['title']}")
-        try:
-            return index, analyze_article(article)
-        except Exception as e:
-            # 单篇解析失败（模型漏字段、抓取内容不足等）不应拖垮整期，跳过该篇
-            print(f"  [警告] 第 {index+1} 篇分析失败，已跳过: {e}")
-            return index, None
+        last_error = None
+        for attempt in range(1, ANALYSIS_MAX_ATTEMPTS + 1):
+            try:
+                return index, analyze_article(article)
+            except Exception as e:
+                last_error = e
+                if attempt < ANALYSIS_MAX_ATTEMPTS:
+                    print(
+                        f"  [重试] 第 {index+1} 篇分析返回异常，"
+                        f"准备第 {attempt + 1}/{ANALYSIS_MAX_ATTEMPTS} 次: {e}"
+                    )
+        # 单篇持续失败（模型漏字段、抓取内容不足等）不应拖垮整期，跳过该篇
+        print(f"  [警告] 第 {index+1} 篇分析失败，已跳过: {last_error}")
+        return index, None
 
     max_workers = max(1, min(ANALYSIS_CONCURRENCY, total))
     analyses: dict[int, PaperAnalysis | None] = {}
