@@ -1942,5 +1942,99 @@ Identifying crossovers in a cattle pangenome containing haplotype-resolved assem
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-08-17</title>
+      <description>本期播客涵盖多项研究，涉及古气候与森林生态、遗传关联分析、单细胞与空间转录组学方法、作物抗病育种、高血压跨器官机制、非法捕捞市场以及核物理中的重子数问题等方向，同时包括多篇围绕基因组结构变异、进化动态和生物信息学工具开发的研究。内容以方法创新和跨尺度数据整合为主，兼顾基础生物学与农业、医学应用。
+
+本期讨论文章：
+
+Science, 2026-08-13
+Forest canopy decline under elevated CO
+                    &lt;sub&gt;2&lt;/sub&gt;
+                    during the Paleocene-Eocene Thermal Maximum
+古新世-始新世极热期间森林冠层在CO2升高下的衰退
+
+Nature Genetics, 2026-08-13
+Correlations between causal effect sizes of proximal SNPs vary with functional annotations and implicate stabilizing selection
+近端SNP因果效应大小之间的相关性随功能注释变化并暗示稳定选择
+
+Genome Research, 2026-08-13
+Detecting somatic mutations in rare clones using single-cell multiomics
+使用单细胞多组学检测稀有克隆中的体细胞突变
+
+Nature Genetics, 2026-08-14
+SpatialVista as a unified ecosystem for high-performance visualization and exploration of 3D spatial transcriptomics data
+SpatialVista作为用于3D空间转录组数据高性能可视化和探索的统一生态系统
+
+Proceedings of the National Academy of Sciences, 2026-08-10
+Casting light on the workings of illegal fishing markets
+照亮非法捕鱼市场的运作
+
+Genetics Selection Evolution, 2026-08-16
+Functional genomic dissection and prediction of body size traits in pigs
+猪体型性状的功能基因组解析和预测
+
+Nature Communications, 2026-08-15
+Estimating genetic correlation jointly using individual-level and summary-level GWAS data
+使用个体水平和汇总水平GWAS数据联合估计遗传相关
+
+bioinformatics, 2026-08-15
+Detection of Spatially Aberrant Cells in Spatial Transcriptomics Data by Conformal Prediction
+通过保形预测检测空间转录组数据中的空间异常细胞
+
+Nature Communications, 2026-08-15
+Unveiling centromeric retrotransposon dynamics through a high-quality rye genome assembly
+通过高质量的黑麦基因组组装揭示着丝粒反转录转座子动态
+
+PLOS Genetics, 2026-08-13
+New biologically relevant resistance to bacterial wilt in heat-stressed tomato revealed by two-reference Genome Wide Association
+通过双参考全基因组关联揭示热胁迫番茄中对青枯病的新的生物学相关抗性
+
+Science, 2026-08-13
+A cross-organ single-cell analysis of hypertension
+高血压的跨器官单细胞分析
+
+Genome Research, 2026-08-13
+A pangenome framework uncovers the role of deletions in repeated evolution of cave-derived traits
+一个泛基因组框架揭示了缺失在洞穴衍生性状重复进化中的作用
+
+Nature Communications, 2026-08-13
+MuSpAn: a toolbox for multiscale spatial analysis
+MuSpAn：用于多尺度空间分析的工具箱
+
+evolutionary biology, 2026-08-14
+Coalescent-Based Time-Stratified Statistics Reveal Population Structure Dynamics using the Ancestral Recombination Graph
+基于溯祖的时间分层统计使用祖先重组图揭示种群结构动态
+
+bioinformatics, 2026-08-13
+RobustCell: A Model Attack-Defense Framework for Robust Transcriptomic Data Analysis
+RobustCell：用于稳健转录组数据分析的模型攻防框架
+
+BMC Genomics, 2026-08-13
+A liquid capture SNP panel enables standardized genetic monitoring and validates breeding histories in laboratory miniature pigs
+液体捕获SNP面板实现标准化遗传监测并验证实验微型猪的育种历史
+
+Science, 2026-08-13
+Tracking the baryon number with nuclear collisions
+用核碰撞追踪重子数
+
+Nature Communications, 2026-08-13
+Multi-ancestry genetic architecture of heart failure subtypes
+心力衰竭亚型的多祖先遗传结构
+
+Animals, 2026-08-13
+Population-Level Lambing Interval Patterns and Evaluation of Three Previously Reported Candidate SNPs in Hu and Tan Sheep
+湖羊和滩羊种群水平产羔间隔模式及三个先前报道的候选SNP的评估
+
+genomics, 2026-08-14
+An Integrated Atlas of the Human Kidney Spanning Health and Diseases
+跨越健康和疾病的人肾脏综合图谱</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-08-17/podcast-2026-08-17.mp3" length="23064692" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-08-17</guid>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>61:26</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
