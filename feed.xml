@@ -2036,5 +2036,93 @@ An Integrated Atlas of the Human Kidney Spanning Health and Diseases
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-08-24</title>
+      <description>本期播客涵盖多个前沿科研方向，包括大脑类器官长期成熟、太阳能扩张对鸟类多样性的影响、人工智能在科学工具设计中的角色，以及绵羊和猪的饲料效率相关候选基因鉴定。此外还涉及长读长测序在重复扩增疾病中的应用、空间组学转录调控因子推断、致幻剂对大脑活动的影响，以及帕金森病、精神疾病和癌症相关的基因组与转录组研究，并讨论了泛基因组参考、生态适应和莱姆病风险等主题。
+
+本期讨论文章：
+
+Nature, 2026-08-19
+Human brain organoids record the passage of time over multiple years
+人类大脑类器官记录多年时间的流逝
+
+Science, 2026-08-20
+China’s solar expansion policy reduces bird diversity
+中国的太阳能扩张政策减少了鸟类多样性
+
+Nature, 2026-08-17
+Why AI systems are most useful as designers of new scientific tools
+为什么人工智能系统作为新科学工具的设计者最为有用
+
+Animals, 2026-08-20
+Multi-Breed Genome-Wide Association Analysis Reveals Candidate Genes for Growth and Body Conformation Traits in Four Populations of Native and Crossbred Chinese Sheep
+多品种全基因组关联分析揭示了四个中国本地和杂交绵羊群体的生长和体型性状候选基因
+
+Nature Genetics, 2026-08-20
+Toward the clinical application of long-read sequencing in repeat-expansion disorders
+长读长测序在重复扩增疾病中的临床应用进展
+
+bioinformatics, 2026-08-20
+BART-spatial unravels biologically significant transcriptional regulators from spatial omics data
+BART-spatial 从空间组学数据中揭示具有生物学意义的转录调控因子
+
+Nature, 2026-08-19
+Psychedelics align brain activity with context
+致幻剂使大脑活动与情境对齐
+
+Frontiers in Genetics, 2026-08-20
+Genome-wide cis-expression Quantitative Trait Loci (eQTL) and transcriptomic signals reveal distinct molecular regulation across correlated feed efficiency traits
+全基因组顺式表达数量性状位点（eQTL）和转录组信号揭示了相关饲料效率性状中不同的分子调控
+
+Animal Genetics, 2026-08-20
+Whole‐Genome Resequencing of 299 Large White Pigs Identifies
+                    &lt;scp&gt;RASAL&lt;/scp&gt;
+                    2 as a Candidate Gene for Feed Efficiency Traits
+299头大白猪的全基因组重测序鉴定出 RASAL2 作为饲料效率性状的候选基因
+
+neuroscience, 2026-08-21
+Parietal Cortex Transcriptomics Refines Parkinson Disease GWAS Nomination and Highlights STAT3 as a Putative Upstream Glial Regulator
+顶叶皮层转录组学完善帕金森病 GWAS 提名并突出 STAT3 作为推测的上游胶质细胞调控因子
+
+bioinformatics, 2026-08-21
+IUPAC Consensus References Improve Short-Read Variant Detection in Clinically Challenging Regions: A Stratified Benchmarking Study with BurdenBench
+IUPAC 共识参考序列改善临床挑战区域中的短读长变异检测：使用 BurdenBench 进行的分层基准研究
+
+Nature Genetics, 2026-08-20
+Distinguishing different psychiatric disorders using DDx-PRS
+使用 DDx-PRS 区分不同的精神疾病
+
+Nature, 2026-08-19
+An Icelandic pangenome reference
+冰岛泛基因组参考
+
+Molecular Biology and Evolution, 2026-08-22
+Adaptation to seasonal drought in
+                    &lt;i&gt;Arabis alpina&lt;/i&gt;
+                    is linked to the demographic history and climatic changes since the last glacial maximum
+高山南芥对季节性干旱的适应与末次盛冰期以来的种群历史和气候变化有关
+
+Proceedings of the National Academy of Sciences, 2026-08-17
+The ecology of Lyme disease: Long-term data, surprises, and a synthesis
+莱姆病的生态学：长期数据、意外发现和综合
+
+Nature Communications, 2026-08-21
+Molecular heterogeneity and clonal origin of CCR8+ effector regulatory T cells in human cancer
+人类癌症中 CCR8+ 效应调节性 T 细胞的分子异质性和克隆起源
+
+Animals, 2026-08-21
+N6-Methyladenosine (m6A)-circHECA Recruiting FUS Promotes Differentiation of SHF Stem Cells into Hair Follicle Lineages Through Stabilizing FOXM1 mRNA to Activate NOTCH Pathway in Cashmere Goats
+N6-甲基腺苷（m6A）-circHECA 通过稳定 FOXM1 mRNA 激活 NOTCH 通路，在绒山羊中促进 SHF 干细胞向毛囊谱系分化（招募 FUS）
+
+Molecular Biology and Evolution, 2026-08-20
+Phylogenomic subsampling and upsampling for efficient evolutionary analyses of big data
+用于大数据高效进化分析的系统发育基因组亚采样和上采样</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-08-24/podcast-2026-08-24.mp3" length="20173676" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-08-24</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>53:39</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
