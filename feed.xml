@@ -2124,5 +2124,89 @@ Phylogenomic subsampling and upsampling for efficient evolutionary analyses of b
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-08-31</title>
+      <description>本期播客涵盖基因组学、遗传学、进化生物学与医学和农业生物技术等多个研究方向，涉及ENSO变化、阿尔茨海默病多基因风险、性染色体进化、RNA设计、自闭症突变机制、单细胞转录组分析、基因编辑应用及动物气候适应性等主题。内容兼顾基础机制解析与育种、疾病诊疗等应用研究。
+
+本期讨论文章：
+
+Science, 2026-08-27
+Recent strengthening of eastern Pacific ENSO in the last millennium paleorecord
+末次千年古记录中热带东太平洋ENSO的近期增强
+
+Nature Genetics, 2026-08-27
+A multiancestry polygenic risk score for Alzheimer’s disease is associated with cognitive decline and neuropathological hallmarks in diverse populations
+阿尔茨海默病多祖先多基因风险评分与不同人群认知衰退和神经病理学标志相关
+
+Science, 2026-08-27
+Genomic predisposition is associated with the direction of sex chromosome evolution
+基因组易感性与性染色体进化方向相关
+
+Science, 2026-08-27
+De novo design of RNA pseudoknots with deep learning
+利用深度学习从头设计RNA假结
+
+Science, 2026-08-27
+Autism mutations rewire protein interaction networks to drive neurodevelopmental pathology
+自闭症突变重塑蛋白质相互作用网络以驱动神经发育病理
+
+Nature, 2026-08-26
+Ultrafast and reference-free sequence discovery in single-cell data
+单细胞数据中无需参考的超快速序列发现
+
+Nature Reviews Genetics, 2026-08-28
+Bridging precision agriculture and human medicine through comparative genetics
+通过比较遗传学连接精准农业与人类医学
+
+Animals, 2026-08-25
+Landscape Genomics Reveals Divergent Adaptation Modes and Predicts Climate Vulnerability in Xinjiang Indigenous Sheep
+景观基因组学揭示新疆本土绵羊的趋异适应模式并预测气候脆弱性
+
+Animals, 2026-08-27
+Integrative mRNA and lncRNA Transcriptome Analysis of Skin Tissues with Different Coat Types in Cashmere Goats Across Stages of Hair Follicle Development
+绒山羊不同被毛类型皮肤组织在毛囊发育各阶段的整合mRNA和lncRNA转录组分析
+
+Nature Communications, 2026-08-27
+Integration of GWAS and single-cell analysis for psoriasis identifies disease-associated cell subtypes and therapeutic targets
+GWAS与单细胞分析整合鉴定银屑病相关疾病细胞亚型和治疗靶点
+
+plant biology, 2026-08-28
+Application of AI-Designed OpenCRISPR-1 for Highly Efficient Gene Editing in Soybean and Nicotiana benthamiana
+AI设计的OpenCRISPR-1在大豆和本氏烟草中高效基因编辑的应用
+
+Nature, 2026-08-26
+Insights into longevity and virus-driven adaptation from Myotis bat genomes
+从鼠耳蝠基因组洞察长寿和病毒驱动的适应
+
+neuroscience, 2026-08-28
+Shank3 mutation disrupts the molecular signature of sleepiness across development
+Shank3突变破坏发育过程中睡眠特征的分子印记
+
+Genome Research, 2026-08-28
+Quartet-based species tree methods enable fast and consistent tree of blobs reconstruction under the network multispecies coalescent
+基于四重奏的物种树方法在网络多物种溯祖模型下实现快速且一致的块状树重建
+
+Nature, 2026-08-26
+Cell-type-specific eQTLs underlie the genetic architecture of complex traits
+细胞类型特异性eQTL构成复杂性状遗传结构的基础
+
+Nature, 2026-08-27
+Animal-microbe partnerships date back to the dawn of complex life
+动物-微生物伙伴关系可追溯至复杂生命的黎明时期
+
+Science, 2026-08-27
+A tripartite genetic conflict system controls hybrid sterility in rice
+三方遗传冲突系统控制水稻杂种不育
+
+Bioinformatics, 2026-08-25
+DeepPathway: Predicting Pathway Expression from Histopathology Images
+DeepPathway：从组织病理学图像预测通路表达</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-08-31/podcast-2026-08-31.mp3" length="21668564" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-08-31</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>58:18</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
