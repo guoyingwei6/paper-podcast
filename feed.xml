@@ -2208,5 +2208,80 @@ DeepPathway：从组织病理学图像预测通路表达</description>
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-09-07</title>
+      <description>本期播客涵盖多个前沿研究方向，包括人格遗传关联的稳健性、裸盖菇素对化疗神经病变的预防作用、司美格鲁肽延缓衰老、肿瘤抗氧化机制、空间多组学整合与长读长测序在罕见病诊断中的应用等。此外，内容还涉及动物遗传育种中的基因组预测与系谱重建、墨西哥人群基因组多样性，以及科学文献阅读方法等主题。整体上，节目聚焦遗传学、基因组学与生物医学交叉领域的最新研究进展。
+
+本期讨论文章：
+
+Nature, 2026-09-02
+Robust inference and correlates from genetic associations with personality
+
+Science, 2026-09-03
+Psilocybin prevents chemotherapy-induced peripheral neuropathy through mitochondrial trafficking preservation
+
+Nature, 2026-09-02
+Late-life semaglutide treatment slows ageing and extends lifespan in female mice
+
+PLOS One, 2026-09-03
+Whole-genome sequencing reveals divergent and shared selection signatures of heat stress adaptation in indigenous Ethiopian zebu cattle from dry-hot and humid-hot environments
+
+Nature Communications, 2026-09-04
+Cost-efficient long-read trio-barcoded adaptive sequencing improves rare disease diagnosis
+
+Science, 2026-09-03
+Early-life colonization with
+                    &lt;i&gt;Clostridioides difficile&lt;/i&gt;
+                    remodels the developing gut
+
+Animals, 2026-09-02
+Systematic Approach for Compound Angus Populations Revealing Positional Candidate Genes and Improving Prediction Accuracy in Carcass Traits
+
+Science, 2026-09-03
+Tumor-derived antioxidants suppress immunity by depriving T cells of reactive oxygen species
+
+Animals, 2026-09-04
+Microsatellites Versus Genome-Wide SNPs Data for Pedigree Reconstruction in Twin Simmental Crossbred Cattle
+
+Nature Genetics, 2026-09-03
+Scalable, generalizable and uncertainty-aware integration of spatial multiomics across diverse modalities and platforms with SCIGMA
+
+Genome Research, 2026-09-04
+T2T genomes of
+                    &lt;i&gt;Caenorhabditis nigoni&lt;/i&gt;
+                    and
+                    &lt;i&gt;Caenorhabditis briggsae&lt;/i&gt;
+                    reveal divergence in satellite DNA abundance
+
+bioinformatics, 2026-09-05
+platpy: A spatial-first framework for multi-layer spatial transcriptomic analysis
+
+Nature Communications, 2026-09-05
+Whole genome sequencing of 1427 Mexican individuals from the oriGen cohort
+
+Science, 2026-09-03
+In Science Journals
+
+Nature Genetics, 2026-09-01
+OmicsPred as a centralized resource for genetic prediction of multi-omic traits
+
+genetics, 2026-09-05
+Genomic prediction models based on a large-scale recombinant population allow rapid breeding of desired genotypes
+
+Science, 2026-09-03
+Longitudinal dynamics of gene expression and metabolomics in an aging population cohort
+
+Nature Reviews Genetics, 2026-09-02
+Species-dense genomics through natural history collections
+
+Nature, 2026-09-01
+My four-step workflow for reading scientific papers (without trying to read them all)</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-09-07/podcast-2026-09-07.mp3" length="28094348" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-09-07</guid>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
+      <itunes:duration>75:04</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
