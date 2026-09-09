@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from ai_generator import generate_podcast_script, validate_script_coverage
+from ai_generator import generate_podcast_script, translate_titles, validate_script_coverage
 
 
 class FakeAnalysis:
@@ -61,6 +61,44 @@ class ScriptCoverageTests(unittest.TestCase):
 
         self.assertEqual(process_articles(articles), "女: 文章 1 测试。")
         self.assertEqual(analyze.call_count, 2)
+
+
+class TranslateTitlesTests(unittest.TestCase):
+    def test_retries_when_translation_is_incomplete(self):
+        truncated = "1. 甲基因组研究\n2. 乙基因组研究"
+        full = "1. 甲基因组研究\n2. 乙基因组研究\n3. 丙基因组研究"
+        articles = [
+            {"title": "Alpha genome study"},
+            {"title": "Beta genome study"},
+            {"title": "Gamma genome study"},
+        ]
+
+        with patch("ai_generator._chat_raw", side_effect=[truncated, full]) as chat:
+            result = translate_titles(articles)
+
+        self.assertEqual(chat.call_count, 2)
+        self.assertEqual(result["Gamma genome study"], "丙基因组研究")
+
+    def test_returns_partial_result_after_exhausting_retries(self):
+        truncated = "1. 甲基因组研究"
+        articles = [
+            {"title": "Alpha genome study"},
+            {"title": "Beta genome study"},
+        ]
+
+        with patch("ai_generator._chat_raw", return_value=truncated):
+            result = translate_titles(articles)
+
+        self.assertEqual(result, {"Alpha genome study": "甲基因组研究"})
+
+    def test_strips_leading_thinking_paragraph(self):
+        raw = "好的，我来翻译。\n1. 甲基因组研究\n2. 乙基因组研究"
+        articles = [{"title": "Alpha"}, {"title": "Beta"}]
+
+        with patch("ai_generator._chat_raw", return_value=raw):
+            result = translate_titles(articles)
+
+        self.assertEqual(result, {"Alpha": "甲基因组研究", "Beta": "乙基因组研究"})
 
 
 if __name__ == "__main__":

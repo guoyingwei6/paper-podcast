@@ -147,6 +147,14 @@
 
     .episode-desc.open { display: block; }
 
+    .episode-desc a {
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .episode-desc a:hover { color: var(--accent-hover); text-decoration: underline; }
+
     .toggle-btn {
       background: none;
       border: none;
@@ -254,7 +262,7 @@
 
           const descEl = document.createElement('div');
           descEl.className = 'episode-desc';
-          descEl.textContent = desc;
+          renderDescription(descEl, desc);
 
           el.append(dateEl, titleEl, durEl, audio, btn, descEl);
           container.appendChild(el);
@@ -278,6 +286,30 @@
       const desc = btn.nextElementSibling;
       const open = desc.classList.toggle('open');
       btn.textContent = open ? '收起详情' : '展开详情';
+    }
+
+    // 把描述里的 DOI/URL 渲染成可点击链接，其余部分仍按纯文本插入
+    function renderDescription(el, text) {
+      el.textContent = '';
+      const urlPattern = /https?:\/\/[^\s<>"']+/g;
+      let lastIndex = 0;
+      let match;
+      while ((match = urlPattern.exec(text)) !== null) {
+        const url = match[0].replace(/[.,;)]+$/, '');
+        if (match.index > lastIndex) {
+          el.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+        }
+        const link = document.createElement('a');
+        link.href = url;
+        link.textContent = url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        el.appendChild(link);
+        lastIndex = match.index + url.length;
+      }
+      if (lastIndex < text.length) {
+        el.appendChild(document.createTextNode(text.slice(lastIndex)));
+      }
     }
 
     loadFeed();

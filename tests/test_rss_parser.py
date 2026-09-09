@@ -6,7 +6,7 @@ from article_sources import (
     extract_doi,
     extract_europe_pmc_xml_text,
 )
-from rss_parser import extract_article_text
+from rss_parser import clean_title, extract_article_text
 
 
 class ArticleTextExtractionTests(unittest.TestCase):
@@ -73,6 +73,66 @@ class ArticleTextExtractionTests(unittest.TestCase):
         self.assertIn("Open abstract text.", text)
         self.assertIn("## Results", text)
         self.assertNotIn("Should not appear.", text)
+
+
+class CleanTitleTests(unittest.TestCase):
+    def test_strips_italic_tags_and_collapses_newlines(self):
+        raw = (
+            "Early-life colonization with\n"
+            "                    <i>Clostridioides difficile</i>\n"
+            "                    remodels the developing gut"
+        )
+
+        self.assertEqual(
+            clean_title(raw),
+            "Early-life colonization with Clostridioides difficile remodels the developing gut",
+        )
+
+    def test_unescapes_entities(self):
+        self.assertEqual(clean_title("Wnt&amp;Notch signalling"), "Wnt&Notch signalling")
+
+    def test_keeps_subscript_and_gene_numbers_attached(self):
+        raw = (
+            "Forest canopy decline under elevated CO\n"
+            "                    <sub>2</sub>\n"
+            "                    during the Paleocene-Eocene Thermal Maximum"
+        )
+
+        self.assertEqual(
+            clean_title(raw),
+            "Forest canopy decline under elevated CO2 during the Paleocene-Eocene Thermal Maximum",
+        )
+
+    def test_keeps_trailing_digit_attached_to_gene_symbol(self):
+        raw = (
+            "Resequencing Identifies\n"
+            "                    <scp>RASAL</scp>\n"
+            "                    2 as a Candidate Gene"
+        )
+
+        self.assertEqual(clean_title(raw), "Resequencing Identifies RASAL2 as a Candidate Gene")
+
+    def test_tightens_parentheses_around_stripped_tags(self):
+        raw = (
+            "Exoribonuclease 2 (\n"
+            "                    <i>DIS3L2</i>\n"
+            "                    ) Gene and Weaning Weight"
+        )
+
+        self.assertEqual(clean_title(raw), "Exoribonuclease 2 (DIS3L2) Gene and Weaning Weight")
+
+    def test_keeps_real_spaces_between_words(self):
+        raw = "Ascertainment Bias in Cattle <scp>SNP</scp> Arrays and Implications"
+
+        self.assertEqual(
+            clean_title(raw),
+            "Ascertainment Bias in Cattle SNP Arrays and Implications",
+        )
+
+    def test_leaves_plain_title_unchanged(self):
+        title = "Whole genome sequencing of 1427 Mexican individuals"
+
+        self.assertEqual(clean_title(title), title)
 
 
 if __name__ == "__main__":

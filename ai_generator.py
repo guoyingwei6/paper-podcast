@@ -18,6 +18,9 @@ ANALYSIS_CONCURRENCY = 5
 # 单篇分析返回非 JSON 时再重试一次，避免偶发的模型格式问题直接丢弃文章。
 ANALYSIS_MAX_ATTEMPTS = 2
 
+# 批量标题翻译失败（截断、解析不到）时重试，避免整期节目缺失中文标题。
+TRANSLATE_MAX_ATTEMPTS = 3
+
 # 批量脚本不宜一次塞入太多文章；较小批次能降低输出被截断或漏项的概率。
 SCRIPT_BATCH_SIZE = 3
 # 脚本批次缺文章时自动重写，最终仍保留硬性校验，避免发布不完整节目。
@@ -354,25 +357,42 @@ def translate_titles(articles: list[dict]) -> dict[str, str]:
         "要求：按英文字面意思直译，不要根据记忆联想已知的中文论文标题来替换。\n\n"
         + numbered
     )
-    result = _chat_raw(prompt, max_tokens=2048)
+    translations: dict[str, str] = {}
+    for attempt in range(1, TRANSLATE_MAX_ATTEMPTS + 1):
+        # 文章较多时 2048 tokens 容易把输出截断，预留余量
+        result = _chat_raw(prompt, max_tokens=4096)
 
-    # 从第一个 "1." 开头的行开始解析，跳过可能的思考/前言段落
-    list_match = re.search(r"(?m)^1[.、]", result)
-    if list_match:
-        result = result[list_match.start():]
+        # 从第一个 "1." 开头的行开始解析，跳过可能的思考/前言段落
+        list_match = re.search(r"(?m)^1[.、]", result)
+        if list_match:
+            result = result[list_match.start():]
 
-    translations = {}
-    for line in result.strip().split("\n"):
-        line = line.strip()
-        if not line:
-            continue
-        m = re.match(r"^(\d+)[.、\s]+(.+)$", line)
-        if m:
-            idx = int(m.group(1)) - 1
-            translation = m.group(2).strip()
-            # 只取每个编号的第一次出现，防止模型在结尾"总结"时覆盖正确翻译
-            if 0 <= idx < len(titles) and translation and titles[idx] not in translations:
-                translations[titles[idx]] = translation
+        translations = {}
+        for line in result.strip().split("\n"):
+            line = line.strip()
+            if not line:
+                continue
+            m = re.match(r"^(\d+)[.、\s]+(.+)$", line)
+            if m:
+                idx = int(m.group(1)) - 1
+                translation = m.group(2).strip()
+                # 只取每个编号的第一次出现，防止模型在结尾"总结"时覆盖正确翻译
+                if 0 <= idx < len(titles) and translation and titles[idx] not in translations:
+                    translations[titles[idx]] = translation
+
+        missing = [t for t in titles if t not in translations]
+        if not missing:
+            return translations
+        if attempt < TRANSLATE_MAX_ATTEMPTS:
+            print(
+                f"  [重试] 标题翻译不完整（{len(missing)}/{len(titles)} 条缺失），"
+                f"第 {attempt + 1}/{TRANSLATE_MAX_ATTEMPTS} 次..."
+            )
+
+    print(
+        f"  [警告] 标题翻译重试 {TRANSLATE_MAX_ATTEMPTS} 次后仍有 "
+        f"{len(missing)}/{len(titles)} 条缺失，本期这些文章将只显示英文标题"
+    )
     return translations
 
 

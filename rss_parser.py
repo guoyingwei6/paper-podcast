@@ -1,4 +1,5 @@
 import asyncio
+import html
 import re
 
 import feedparser
@@ -98,6 +99,34 @@ def _format_date(entry: dict) -> str:
     return entry.get("published", "")
 
 
+_TITLE_TAG_RE = re.compile(r"</?[a-zA-Z][^>]*>")
+# 标签移除后留下的占位符，用来区分"原文空格"和"XML 换行缩进带来的空格"
+_TAG_MARK = "\x00"
+
+
+def clean_title(title: str) -> str:
+    """清理 RSS 标题：去掉 <i>/<sub>/<scp> 等标签，并把换行缩进压成单行。
+
+    部分出版商（Science、Wiley、Genome Research 等）的 RSS 标题带排版标签，
+    且被 XML 缩进换行切断，直接写入 feed 会在播客客户端和网页上显示成字面
+    标签文本。标签两侧的换行是排版产物而非真实空格，因此下标、基因编号和
+    括号需要在移除标签后重新贴合，避免出现 "CO 2"、"RASAL 2"、"( DIS3L2 )"。
+    """
+    if not title:
+        return ""
+    text = _TITLE_TAG_RE.sub(_TAG_MARK, html.unescape(title))
+    text = re.sub(r"\s+", " ", text).strip()
+
+    m = re.escape(_TAG_MARK)
+    text = re.sub(r"(?<=[A-Za-z]) (?=" + m + r"\d)", "", text)            # CO <sub>2</sub>
+    text = re.sub(r"(?<=[A-Za-z0-9])" + m + r" (?=\d)", _TAG_MARK, text)  # <scp>RASAL</scp> 2
+    text = re.sub(r"(?<=[(\[]) (?=" + m + r")", "", text)                 # ( <i>X</i>
+    text = re.sub(r"(?<=" + m + r") (?=[)\]},.;:%])", "", text)           # <i>X</i> )
+
+    text = text.replace(_TAG_MARK, "")
+    return re.sub(r"\s+", " ", text).strip()
+
+
 def parse_feed(rss_url: str, count: int) -> list[dict]:
     """解析 RSS feed，返回文章列表。"""
     feed = feedparser.parse(rss_url)
@@ -105,11 +134,12 @@ def parse_feed(rss_url: str, count: int) -> list[dict]:
     articles = []
     for entry in entries:
         article = {
-            "title": entry.get("title", ""),
+            "title": clean_title(entry.get("title", "")),
             "link": entry.get("link", ""),
             "published": _format_date(entry),
             "journal": _extract_journal(entry),
             "summary": entry.get("summary", ""),
+            "doi": extract_doi(entry.get("link", ""), entry.get("summary", "")),
             "content": "",
         }
         articles.append(article)

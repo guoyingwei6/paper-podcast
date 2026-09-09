@@ -59,6 +59,9 @@ def _get_episode_description(articles, highlights=""):
         article_lines.append(title)
         if title_zh:
             article_lines.append(title_zh)
+        doi = a.get("doi", "")
+        if doi:
+            article_lines.append(f"https://doi.org/{doi}")
 
         # 添加到总列表，每篇文章之间空一行
         lines.append("\n".join(article_lines))
