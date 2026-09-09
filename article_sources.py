@@ -119,7 +119,7 @@ def extract_europe_pmc_xml_text(xml: str, max_chars: int = MAX_CONTENT_CHARS) ->
     if body:
         chunks.extend(_extract_jats_sections(body))
 
-    return _clean_lines("\n".join(chunks))[:max_chars]
+    return clean_lines("\n".join(chunks))[:max_chars]
 
 
 def _first_europe_pmc_result(data: dict) -> dict:
@@ -138,7 +138,7 @@ def _extract_biorxiv_abstract(data: dict) -> str:
 
 
 def _format_abstract_text(text: str) -> str:
-    cleaned = _clean_lines(text)
+    cleaned = clean_lines(text)
     if not cleaned:
         return ""
     return f"## Abstract\n{cleaned}"
@@ -149,9 +149,9 @@ def _extract_jats_sections(body) -> list[str]:
     for section in body.find_all("sec", recursive=False):
         title_tag = section.find("title", recursive=False)
         title = title_tag.get_text(" ", strip=True) if title_tag else ""
-        normalized = _normalize_heading(title)
+        normalized = normalize_heading(title)
         if normalized in STOP_HEADINGS:
-            break
+            continue
 
         heading = SECTION_HEADINGS.get(normalized, title)
         if heading:
@@ -164,10 +164,10 @@ def _extract_jats_sections(body) -> list[str]:
     return chunks
 
 
-def _normalize_heading(text: str) -> str:
+def normalize_heading(text: str) -> str:
     return re.sub(r"[^a-z ]+", "", text.lower()).strip()
 
 
-def _clean_lines(text: str) -> str:
+def clean_lines(text: str) -> str:
     lines = [line.strip() for line in text.splitlines() if line.strip()]
     return "\n".join(lines)

@@ -1,4 +1,6 @@
 import unittest
+from contextlib import redirect_stdout
+from io import StringIO
 from unittest.mock import patch
 
 from ai_generator import generate_podcast_script, translate_titles, validate_script_coverage
@@ -32,6 +34,23 @@ class ScriptCoverageTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_script_coverage(script, expected_count=2)
 
+    def test_validate_script_coverage_warns_per_article_without_depth(self):
+        summaries = [
+            {"title": "Alpha genome study", "title_zh": "甲基因组研究"},
+            {"title": "Beta genome study", "title_zh": "乙基因组研究"},
+        ]
+        script = (
+            "女: 文章 1 的研究问题很清楚，使用了大样本数据分析，结果显示提升明显，"
+            "不过也有局限。\n男: 文章 2。"
+        )
+
+        output = StringIO()
+        with redirect_stdout(output):
+            validate_script_coverage(script, summaries)
+
+        self.assertIn("文章深度线索不足", output.getvalue())
+        self.assertIn("2", output.getvalue())
+
     def test_generate_podcast_script_retries_a_batch_with_missing_article(self):
         summaries = [
             {"title": "Alpha genome study", "title_zh": "甲基因组研究", "analysis": FakeAnalysis()},
@@ -61,6 +80,19 @@ class ScriptCoverageTests(unittest.TestCase):
 
         self.assertEqual(process_articles(articles), "女: 文章 1 测试。")
         self.assertEqual(analyze.call_count, 2)
+
+    @patch("ai_generator.generate_podcast_script", return_value="女: 文章 1 测试。")
+    @patch("ai_generator.translate_titles", return_value={})
+    @patch("ai_generator.analyze_article")
+    def test_process_articles_skips_empty_content(self, analyze, _translate, _script):
+        articles = [{"title": "Alpha genome study", "content": ""}]
+
+        with self.assertRaises(ValueError):
+            from ai_generator import process_articles
+
+            process_articles(articles)
+
+        analyze.assert_not_called()
 
 
 class TranslateTitlesTests(unittest.TestCase):

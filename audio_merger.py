@@ -12,10 +12,13 @@ except ImportError:
 def merge_audio(audio_files: list[str], output_path: str, silence_ms: int = 300):
     """将多个 MP3 文件拼接为一个，对话间插入静音（使用 ffmpeg concat）。"""
     if not audio_files:
-        print("没有音频文件可拼接")
-        return
+        raise ValueError("没有音频文件可拼接")
 
     os.makedirs(os.path.dirname(output_path) or ".", exist_ok=True)
+    try:
+        os.remove(output_path)
+    except FileNotFoundError:
+        pass
 
     # 生成静音文件
     silence_path = os.path.join(os.path.dirname(audio_files[0]), "silence.mp3")
@@ -26,8 +29,7 @@ def merge_audio(audio_files: list[str], output_path: str, silence_ms: int = 300)
         capture_output=True, text=True,
     )
     if silence_result.returncode != 0:
-        print(f"ffmpeg 生成静音失败: {silence_result.stderr}")
-        return
+        raise RuntimeError(f"ffmpeg 生成静音失败: {silence_result.stderr}")
 
     # 创建 concat 文件列表
     filelist_path = os.path.join(os.path.dirname(audio_files[0]), "filelist.txt")
@@ -50,8 +52,7 @@ def merge_audio(audio_files: list[str], output_path: str, silence_ms: int = 300)
         capture_output=True, text=True,
     )
     if result.returncode != 0:
-        print(f"ffmpeg 错误: {result.stderr}")
-        return
+        raise RuntimeError(f"ffmpeg 错误: {result.stderr}")
 
     print(f"音频已保存: {output_path}")
 

@@ -6,7 +6,7 @@ from article_sources import (
     extract_doi,
     extract_europe_pmc_xml_text,
 )
-from rss_parser import clean_title, extract_article_text
+from rss_parser import _extract_journal, clean_title, extract_article_text
 
 
 class ArticleTextExtractionTests(unittest.TestCase):
@@ -35,6 +35,13 @@ class ArticleTextExtractionTests(unittest.TestCase):
         doi = extract_doi("https://doi.org/10.1101/2026.06.29.735168?rss=1")
 
         self.assertEqual("10.1101/2026.06.29.735168", doi)
+
+    def test_journal_from_venue_strips_markup_and_authors(self):
+        journal = _extract_journal(
+            {"summary": "Venue: <b>Nature Genetics</b><br/>Authors: X", "link": ""}
+        )
+
+        self.assertEqual("Nature Genetics", journal)
 
     def test_first_europe_pmc_result_returns_empty_dict_when_absent(self):
         result = _first_europe_pmc_result({"resultList": {"result": []}})

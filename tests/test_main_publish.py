@@ -28,6 +28,27 @@ class PublishTests(unittest.TestCase):
         self.assertFalse(ok)
         self.assertNotIn(["git", "push"], calls)
 
+    def test_publish_uploads_asset_when_release_already_exists(self):
+        with tempfile.NamedTemporaryFile(suffix=".mp3") as audio:
+            audio.write(b"fake audio")
+            audio.flush()
+
+            calls = []
+
+            def fake_run(cmd, **kwargs):
+                calls.append(cmd)
+                if cmd[:3] == ["gh", "release", "create"]:
+                    return type("Result", (), {"returncode": 1, "stderr": "Release already exists"})()
+                return type("Result", (), {"returncode": 0, "stderr": ""})()
+
+            with patch("main.update_feed"), patch(
+                "main.subprocess.run", side_effect=fake_run
+            ):
+                ok = publish("2026-06-30", audio.name, [], "")
+
+        self.assertTrue(ok)
+        self.assertIn(["gh", "release", "upload", "v2026-06-30", audio.name, "--clobber"], calls)
+
 
 if __name__ == "__main__":
     unittest.main()

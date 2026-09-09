@@ -2,8 +2,8 @@
 
 import os
 import xml.etree.ElementTree as ET
-from datetime import datetime
-from email.utils import formatdate
+from datetime import datetime, timedelta, timezone
+from email.utils import format_datetime
 
 from config import PODCAST_TITLE, PODCAST_DESCRIPTION, PODCAST_AUTHOR, GITHUB_REPO
 
@@ -22,7 +22,10 @@ def _get_mp3_duration(filepath):
     try:
         from mutagen.mp3 import MP3
         duration_sec = int(MP3(filepath).info.length)
-        mins, secs = divmod(duration_sec, 60)
+        hours, remainder = divmod(duration_sec, 3600)
+        mins, secs = divmod(remainder, 60)
+        if hours:
+            return f"{hours}:{mins:02d}:{secs:02d}"
         return f"{mins}:{secs:02d}"
     except Exception as e:
         print(f"  [警告] 无法读取音频时长 ({filepath}): {e}")
@@ -102,9 +105,10 @@ def _add_item(channel, episode_date, mp3_path, articles, highlights=""):
     description = _get_episode_description(articles, highlights)
     guid = f"podcast-{episode_date}"
 
-    # Parse date for pubDate
+    # Episode dates are Beijing dates; make the RSS instant explicit and stable.
     dt = datetime.strptime(episode_date, "%Y-%m-%d")
-    pub_date = formatdate(dt.timestamp(), usegmt=True)
+    dt = dt.replace(tzinfo=timezone(timedelta(hours=8)))
+    pub_date = format_datetime(dt)
 
     item = ET.SubElement(channel, "item")
     ET.SubElement(item, "title").text = f"科研播客 - {episode_date}"

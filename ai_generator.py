@@ -1,4 +1,5 @@
 import re
+import time
 from concurrent.futures import ThreadPoolExecutor
 
 import httpx
@@ -6,12 +7,23 @@ from config import ANTHROPIC_API_KEY, ANTHROPIC_BASE_URL, ANTHROPIC_MODEL
 from paper_analysis import PaperAnalysis, parse_paper_analysis_json
 from prompts import ANALYZE_ARTICLE_PROMPT, GENERATE_PODCAST_BATCH_PROMPT
 
-# 使用 OpenAI 兼容 API 格式（支持 SiliconFlow、OpenRouter 等）
-API_URL = f"{ANTHROPIC_BASE_URL.rstrip('/')}/chat/completions"
-HEADERS = {
-    "Authorization": f"Bearer {ANTHROPIC_API_KEY}",
-    "Content-Type": "application/json",
-}
+# api.anthropic.com 只接受 Messages API；其他地址按 OpenAI 兼容网关处理。
+_ANTHROPIC_NATIVE = "api.anthropic.com" in ANTHROPIC_BASE_URL
+API_URL = ANTHROPIC_BASE_URL.rstrip("/") + (
+    "/v1/messages" if _ANTHROPIC_NATIVE else "/chat/completions"
+)
+HEADERS = (
+    {
+        "x-api-key": ANTHROPIC_API_KEY,
+        "anthropic-version": "2023-06-01",
+        "Content-Type": "application/json",
+    }
+    if _ANTHROPIC_NATIVE
+    else {
+        "Authorization": f"Bearer {ANTHROPIC_API_KEY}",
+        "Content-Type": "application/json",
+    }
+)
 
 # 逐篇 AI 分析的并发数
 ANALYSIS_CONCURRENCY = 5
@@ -25,19 +37,69 @@ TRANSLATE_MAX_ATTEMPTS = 3
 SCRIPT_BATCH_SIZE = 3
 # 脚本批次缺文章时自动重写，最终仍保留硬性校验，避免发布不完整节目。
 SCRIPT_BATCH_MAX_ATTEMPTS = 3
+# 网络和上游限流/服务端错误重试，避免单次抖动让整期生成失败。
+CHAT_MAX_ATTEMPTS = 3
+CHAT_RETRY_STATUS = {429, 500, 502, 503, 504}
 
 
 def _chat_raw(prompt: str, max_tokens: int = 4096) -> str:
-    """调用 OpenAI 兼容的 chat completions API（仅过滤 think 标签）。"""
+    """调用模型 API，仅过滤 think 标签；截断必须显式失败。"""
     payload = {
         "model": ANTHROPIC_MODEL,
         "max_tokens": max_tokens,
         "messages": [{"role": "user", "content": prompt}],
     }
-    resp = httpx.post(API_URL, json=payload, headers=HEADERS, timeout=120)
-    resp.raise_for_status()
-    data = resp.json()
-    text = data["choices"][0]["message"]["content"]
+
+    last_error = None
+    for attempt in range(1, CHAT_MAX_ATTEMPTS + 1):
+        try:
+            resp = httpx.post(API_URL, json=payload, headers=HEADERS, timeout=120)
+            resp.raise_for_status()
+            data = resp.json()
+            break
+        except (httpx.TimeoutException, httpx.TransportError) as e:
+            last_error = e
+        except httpx.HTTPStatusError as e:
+            if e.response.status_code not in CHAT_RETRY_STATUS:
+                raise
+            last_error = e
+            retry_after = e.response.headers.get("Retry-After", "")
+            try:
+                wait = max(1.0, min(float(retry_after), 30.0))
+            except ValueError:
+                wait = min(2 ** (attempt - 1), 8)
+            if attempt < CHAT_MAX_ATTEMPTS:
+                print(f"  [重试] 模型 API 暂时失败，{wait:g}s 后重试: {e}")
+                time.sleep(wait)
+                continue
+        else:
+            last_error = None
+            break
+
+        if attempt < CHAT_MAX_ATTEMPTS:
+            wait = min(2 ** (attempt - 1), 8)
+            print(f"  [重试] 模型 API 暂时失败，{wait}s 后重试: {last_error}")
+            time.sleep(wait)
+
+    if last_error is not None:
+        raise last_error
+
+    if _ANTHROPIC_NATIVE:
+        text = "".join(
+            block.get("text", "")
+            for block in data.get("content", [])
+            if isinstance(block, dict) and block.get("type") == "text"
+        )
+        stop_reason = data.get("stop_reason")
+    else:
+        text = data["choices"][0]["message"]["content"]
+        stop_reason = data["choices"][0].get("finish_reason")
+
+    if stop_reason == "length" or stop_reason == "max_tokens":
+        raise ValueError(
+            f"模型响应被截断 (finish_reason={stop_reason}, max_tokens={max_tokens})"
+        )
+
     # 过滤 DeepSeek-R1 的 <think>...</think> 思考过程
     text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL).strip()
     return text
@@ -134,7 +196,8 @@ def validate_script_coverage(script: str, expected_count) -> None:
     missing = find_missing_article_numbers(script, summaries)
     weak = []
     for i, summary in enumerate(summaries, 1):
-        if i not in missing and not _contains_depth_cues(script):
+        segment = _script_segment_for_article(script, i, len(summaries))
+        if segment and not _contains_depth_cues(segment):
             weak.append(str(i))
 
     if weak:
@@ -434,6 +497,9 @@ def process_articles(articles: list[dict]) -> str:
 
     def _analyze(index_article):
         index, article = index_article
+        if not article.get("content", "").strip():
+            print(f"  [警告] 第 {index+1} 篇没有可用正文，已跳过，避免凭标题编造结果")
+            return index, None
         print(f"  [{index+1}/{total}] AI 总结: {article['title']}")
         last_error = None
         for attempt in range(1, ANALYSIS_MAX_ATTEMPTS + 1):

@@ -210,6 +210,7 @@
         const items = xml.querySelectorAll('item');
 
         if (items.length === 0) {
+          container.classList.remove('loading');
           container.innerHTML = '<div class="empty">暂无播客内容</div>';
           return;
         }
@@ -252,7 +253,7 @@
 
           const audio = document.createElement('audio');
           audio.controls = true;
-          audio.preload = 'metadata';
+          audio.preload = feedDuration && feedDuration !== '0:00' ? 'none' : 'metadata';
           audio.src = audioUrl;
 
           const btn = document.createElement('button');
@@ -278,6 +279,7 @@
           }
         });
       } catch (e) {
+        container.classList.remove('loading');
         container.innerHTML = '<div class="empty">加载失败，请稍后重试</div>';
       }
     }

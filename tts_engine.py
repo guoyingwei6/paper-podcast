@@ -8,8 +8,8 @@ from config import VOICE_FEMALE, VOICE_MALE, AUDIO_SPEED
 TTS_CONCURRENCY = 6
 
 # 匹配各种格式：女: / 女：/ **女:** / **小薇**: / 小薇: 等
-FEMALE_PATTERN = re.compile(r"^[\*\s]*(?:女|小薇)[：:\s]*[\*]*\s*")
-MALE_PATTERN = re.compile(r"^[\*\s]*(?:男|老张)[：:\s]*[\*]*\s*")
+FEMALE_PATTERN = re.compile(r"^[\*\s]*(?:女|小薇)[\*\s]*[：:][\*\s]*")
+MALE_PATTERN = re.compile(r"^[\*\s]*(?:男|老张)[\*\s]*[：:][\*\s]*")
 
 
 def parse_script(script: str) -> list[dict]:

@@ -3,9 +3,9 @@ from __future__ import annotations
 import json
 import re
 from dataclasses import dataclass
-from typing import TypeAlias
+from typing import Any, TypeAlias
 
-JsonValue: TypeAlias = str | list[str]
+JsonValue: TypeAlias = Any
 
 REQUIRED_FIELDS = (
     "research_question",
@@ -106,17 +106,36 @@ def _has_content(value: JsonValue | None) -> bool:
     if isinstance(value, str):
         return bool(value.strip())
     if isinstance(value, list):
-        return any(isinstance(item, str) and item.strip() for item in value)
-    return False
+        return any(_coerce_text(item) for item in value)
+    return bool(_coerce_text(value))
 
 
 def _as_text(value: JsonValue) -> str:
-    if isinstance(value, str):
-        return value.strip()
-    return "；".join(item.strip() for item in value if isinstance(item, str) and item.strip())
+    if isinstance(value, list):
+        return "；".join(
+            text
+            for text in (_coerce_text(item) for item in value)
+            if text
+        )
+    return _coerce_text(value)
 
 
 def _as_text_tuple(value: JsonValue) -> tuple[str, ...]:
     if isinstance(value, str):
         return (value.strip(),)
-    return tuple(item.strip() for item in value if isinstance(item, str) and item.strip())
+    return tuple(
+        text
+        for text in (_coerce_text(item) for item in value or [])
+        if text
+    )
+
+
+def _coerce_text(value: JsonValue) -> str:
+    """温和地把模型返回的数字、对象等字段值转成可朗读的文本。"""
+    if value is None:
+        return ""
+    if isinstance(value, str):
+        return value.strip()
+    if isinstance(value, (dict, list)):
+        return json.dumps(value, ensure_ascii=False).strip()
+    return str(value).strip()

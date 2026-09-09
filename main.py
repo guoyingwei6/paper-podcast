@@ -4,7 +4,7 @@ import subprocess
 import sys
 from datetime import datetime, timezone, timedelta
 
-from config import RSS_URL, ARTICLE_COUNT, OUTPUT_DIR, GITHUB_REPO
+from config import ANTHROPIC_API_KEY, RSS_URL, ARTICLE_COUNT, OUTPUT_DIR, GITHUB_REPO
 from rss_parser import get_articles
 from ai_generator import process_articles, generate_episode_highlights
 from tts_engine import run_tts
@@ -27,7 +27,14 @@ def publish(today, output_path, articles, highlights=""):
     )
     if result.returncode != 0:
         if "already exists" in result.stderr:
-            print(f"Release {tag} 已存在，跳过上传")
+            print(f"Release {tag} 已存在，上传并覆盖音频资产")
+            upload_result = subprocess.run(
+                ["gh", "release", "upload", tag, output_path, "--clobber"],
+                capture_output=True, text=True,
+            )
+            if upload_result.returncode != 0:
+                print(f"Release 音频上传失败: {upload_result.stderr}")
+                return False
         else:
             print(f"Release 创建失败: {result.stderr}")
             return False
@@ -77,6 +84,9 @@ def main():
     parser.add_argument("--publish", action="store_true", help="上传到 GitHub Releases 并更新 RSS feed")
     args = parser.parse_args()
 
+    if not ANTHROPIC_API_KEY:
+        print("错误: 请通过 .env 或环境变量 ANTHROPIC_API_KEY 指定模型 API 密钥")
+        sys.exit(1)
     if not args.rss:
         print("错误: 请通过 --rss 参数或 .env 中的 RSS_URL 指定 RSS 地址")
         sys.exit(1)
@@ -123,7 +133,8 @@ def main():
 
     # Step 6: 发布（可选）
     if args.publish:
-        publish(today, output_path, articles, highlights)
+        if not publish(today, output_path, articles, highlights):
+            sys.exit(1)
 
 
 if __name__ == "__main__":

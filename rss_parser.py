@@ -6,10 +6,17 @@ import feedparser
 import httpx
 from bs4 import BeautifulSoup
 
-from article_sources import extract_doi, fetch_open_article_content
+from article_sources import (
+    MAX_CONTENT_CHARS,
+    SECTION_HEADINGS,
+    STOP_HEADINGS,
+    clean_lines,
+    extract_doi,
+    fetch_open_article_content,
+    normalize_heading,
+)
 
 FETCH_CONCURRENCY = 8
-MAX_CONTENT_CHARS = 16000
 
 # 许多出版商（MDPI、OUP、bioRxiv 等）会对默认 httpx UA 返回 403，
 # 使用浏览器 UA 头可显著提升正文抓取成功率。
@@ -23,30 +30,6 @@ BROWSER_HEADERS = {
         "image/avif,image/webp,*/*;q=0.8"
     ),
     "Accept-Language": "en-US,en;q=0.9",
-}
-
-SECTION_HEADINGS = {
-    "abstract": "Abstract",
-    "summary": "Abstract",
-    "introduction": "Introduction",
-    "background": "Introduction",
-    "methods": "Methods",
-    "materials and methods": "Methods",
-    "results": "Results",
-    "discussion": "Discussion",
-    "conclusion": "Conclusion",
-    "conclusions": "Conclusion",
-}
-
-STOP_HEADINGS = {
-    "references",
-    "acknowledgements",
-    "acknowledgments",
-    "funding",
-    "author information",
-    "ethics declarations",
-    "supplementary information",
-    "additional information",
 }
 
 # DOI 域名 → 期刊名映射
@@ -68,7 +51,13 @@ def _extract_journal(entry: dict) -> str:
     summary = entry.get("summary", "")
     venue_match = re.search(r"Venue:\s*(.+)", summary)
     if venue_match:
-        return venue_match.group(1).strip()
+        venue = re.split(
+            r"(?:<br\s*/?>|</p>|\n|\s+Authors?:)",
+            venue_match.group(1),
+            maxsplit=1,
+            flags=re.IGNORECASE,
+        )[0]
+        return _strip_markup(venue)
 
     # 从 DOI 链接推断
     link = entry.get("link", "")
@@ -89,6 +78,11 @@ def _extract_journal(entry: dict) -> str:
             return term
 
     return ""
+
+
+def _strip_markup(text: str) -> str:
+    text = re.sub(r"<[^>]+>", " ", text)
+    return re.sub(r"\s+", " ", html.unescape(text)).strip()
 
 
 def _format_date(entry: dict) -> str:
@@ -170,8 +164,8 @@ async def _fetch_article_content(client: httpx.AsyncClient, article: dict) -> st
     return ""
 
 
-def extract_article_text(html: str, max_chars: int = MAX_CONTENT_CHARS) -> str:
-    soup = BeautifulSoup(html, "html.parser")
+def extract_article_text(html_text: str, max_chars: int = MAX_CONTENT_CHARS) -> str:
+    soup = BeautifulSoup(html_text, "lxml")
     # 移除无关元素
     for tag in soup(["script", "style", "nav", "header", "footer", "aside", "form", "button"]):
         tag.decompose()
@@ -183,7 +177,7 @@ def extract_article_text(html: str, max_chars: int = MAX_CONTENT_CHARS) -> str:
         return section_text[:max_chars]
 
     text = root.get_text(separator="\n", strip=True)
-    return _clean_lines(text)[:max_chars]
+    return clean_lines(text)[:max_chars]
 
 
 def _extract_section_text(root) -> str:
@@ -195,26 +189,17 @@ def _extract_section_text(root) -> str:
         if not text:
             continue
         if name.startswith("h"):
-            normalized = _normalize_heading(text)
+            normalized = normalize_heading(text)
             if normalized in STOP_HEADINGS:
                 active_heading = ""
-                break
+                continue
             active_heading = SECTION_HEADINGS.get(normalized, "")
             if active_heading:
                 chunks.append(f"## {active_heading}")
             continue
         if active_heading:
             chunks.append(text)
-    return _clean_lines("\n".join(chunks))
-
-
-def _normalize_heading(text: str) -> str:
-    return re.sub(r"[^a-z ]+", "", text.lower()).strip()
-
-
-def _clean_lines(text: str) -> str:
-    lines = [line.strip() for line in text.splitlines() if line.strip()]
-    return "\n".join(lines)
+    return clean_lines("\n".join(chunks))
 
 
 async def _fetch_all_content(articles: list[dict]) -> None:

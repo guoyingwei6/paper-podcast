@@ -3,6 +3,17 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
+def _env_int(name: str, default: int) -> int:
+    value = os.getenv(name, "")
+    if not value:
+        return default
+    try:
+        return int(value)
+    except ValueError as e:
+        raise ValueError(f"环境变量 {name} 必须是整数，当前值: {value!r}") from e
+
+
 # Anthropic API
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 ANTHROPIC_BASE_URL = os.getenv("ANTHROPIC_BASE_URL", "https://api.anthropic.com")
@@ -10,7 +21,7 @@ ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-5-20250929")
 
 # RSS
 RSS_URL = os.getenv("RSS_URL", "")
-ARTICLE_COUNT = int(os.getenv("ARTICLE_COUNT", "5"))
+ARTICLE_COUNT = _env_int("ARTICLE_COUNT", 5)
 
 # TTS
 AUDIO_SPEED = os.getenv("AUDIO_SPEED", "+10%")
