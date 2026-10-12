@@ -2291,5 +2291,117 @@ https://doi.org/10.1038/d41586-026-02119-x
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-10-12</title>
+      <description>本期播客围绕发育与衰老、微生物组与免疫、群体与家养动物遗传、植物与作物遗传，以及生态和测量方法等方向展开。内容涉及小鼠胚胎细胞谱系记录、人类心脏发育与21三体、线粒体基因组遗传、狗体型相关寿命压缩、疫苗接种后发热的肠道微生物机制、肠道菌代谢物与动脉粥样硬化，以及玉米、猪、牛、兔和犬等物种的性状、适应与健康研究。节目还讨论澳大利亚野火与土地利用变化、波利尼西亚人群奠基者效应、钍-229光学核钟、单细胞测序完整性估计和祖源特异性等位基因频率估计等交叉议题。
+
+本期讨论文章：
+
+Science, 2026-10-08
+A DNA Typewriter records the cell lineage history of a mouse, from zygote to late organogenesis
+一个DNA打字机记录了一只小鼠从受精卵到晚期器官发生的细胞谱系历史
+https://doi.org/10.1126/science.ael0508
+
+Nature, 2026-10-07
+Australia’s current wildfire crisis linked to colonial land-use change
+澳大利亚当前的野火危机与殖民土地利用变化有关
+https://doi.org/10.1038/s41586-026-11097-z
+
+Science, 2026-10-08
+Epigenetic aging and transposon dysregulation reflect size-related lifespan compression in dogs
+表观遗传衰老和转座子失调反映了狗中与体型相关的寿命压缩
+https://doi.org/10.1126/science.aeb2986
+
+Science, 2026-10-08
+The human gut microbiome primes fever after vaccination
+人类肠道微生物组在接种疫苗后启动发热
+https://doi.org/10.1126/science.aea7733
+
+Science, 2026-10-08
+The genetic basis for the production of toxic quinolizidine alkaloids in lupins
+羽扇豆中有毒喹诺里西啶生物碱产生的遗传基础
+https://doi.org/10.1126/science.aei5520
+
+Nature, 2026-10-07
+A gut microbial odd-chain fatty acid alleviates atherosclerosis in mice
+一种肠道微生物奇数链脂肪酸减轻小鼠的动脉粥样硬化
+https://doi.org/10.1038/s41586-026-11142-x
+
+Bioinformatics, 2026-10-09
+LoGicAl: Local ancestry and genotype calling uncertainty-aware ancestry-specific allele frequency estimation from admixed samples
+LoGicAl：来自混合样本的、局部祖源与基因型判定不确定性感知的祖源特异性等位基因频率估计
+https://doi.org/10.1093/bioinformatics/btag752
+
+Nature, 2026-10-07
+A thorium-229 optical nuclear clock with feedback loop
+一种带反馈回路的钍-229光学核钟
+https://doi.org/10.1038/s41586-026-11084-4
+
+Nature, 2026-10-07
+Dynamics of human cardiogenesis and its disruption in trisomy 21
+人类心脏发生的动力学及其在21三体中的破坏
+https://doi.org/10.1038/s41586-026-11125-y
+
+BMC Genomics, 2026-10-08
+Integrated GWAS and linkage mapping in a multi-parent population prioritizes candidate genes for kernel number per row in maize
+在一个多亲本群体中整合的GWAS与连锁作图优先确定玉米每行籽粒数的候选基因
+https://doi.org/10.1186/s12864-026-13436-w
+
+Nature, 2026-10-08
+Editorial Expression of Concern: Maternal gut bacteria promote neurodevelopmental abnormalities in mouse offspring
+编辑表达关注：母体肠道细菌促进小鼠后代的神经发育异常
+https://doi.org/10.1038/s41586-026-11070-w
+
+Nature Communications, 2026-10-08
+Estimating the completeness of large-scale single-cell sequencing projects
+估计大规模单细胞测序项目的完整性
+https://doi.org/10.1038/s41467-026-78221-5
+
+Nature Communications, 2026-10-08
+Pregnancy establishment in cattle without embryonic interferon tau
+牛中无胚胎干扰素 tau 的妊娠建立
+https://doi.org/10.1038/s41467-026-78446-4
+
+Molecular Biology and Evolution, 2026-10-07
+Integrative genotype-environment association and single-cell transcriptomic analyses identify candidate mechanisms of environmental adaptation in pigs
+整合基因型-环境关联和单细胞转录组分析识别猪环境适应的候选机制
+https://doi.org/10.1093/molbev/msag260
+
+Animals, 2026-10-09
+Integrated Volatilomics, Metabolomics, and Transcriptomics Implicate PLD–PA–LPAR Signaling in Rabbit Meat Flavor Divergence
+整合挥发组学、代谢组学和转录组学暗示 PLD–PA–LPAR 信号与兔肉风味差异有关
+https://doi.org/10.3390/ani16203162
+
+Animals, 2026-10-10
+Pediococcus acidilactici Long21 Alleviates Intestinal Sensitivity and Improves Gut Health in German Shepherd Dogs by Regulating Intestinal Metabolic Profiles
+乳酸片球菌 Long21 通过调节肠道代谢谱缓解德国牧羊犬的肠道敏感性并改善肠道健康
+https://doi.org/10.3390/ani16203181
+
+Nature Reviews Genetics, 2026-10-05
+Inheritance and selection of the mitochondrial genome
+线粒体基因组的遗传与选择
+https://doi.org/10.1038/s41576-026-01019-0
+
+Frontiers in Genetics, 2026-10-11
+Global trends and hotspots of genetic research on non-syndromic cleft lip with or without cleft palate: a bibliometric and bioinformatics analysis
+非综合征型唇裂伴或不伴腭裂遗传研究的全球趋势与热点：一项文献计量学和生物信息学分析
+https://doi.org/10.3389/fgene.2026.1907333
+
+Science, 2026-10-08
+Message in a bottleneck: Nested founder effects from French Polynesia to Rapa Nui and Hawaiʻi
+瓶颈中的信息：从法属波利尼西亚到拉帕努伊和夏威夷的嵌套奠基者效应
+https://doi.org/10.1126/science.aec7662
+
+Science, 2026-10-08
+Before the immunological Big Bang
+在免疫学大爆炸之前
+https://doi.org/10.1126/science.ael7318</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-10-12/podcast-2026-10-12.mp3" length="19354436" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-10-12</guid>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 +0800</pubDate>
+      <itunes:duration>51:06</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
