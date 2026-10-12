@@ -32,6 +32,15 @@ ANALYSIS_MAX_ATTEMPTS = 2
 
 # 批量标题翻译失败（截断、解析不到）时重试，避免整期节目缺失中文标题。
 TRANSLATE_MAX_ATTEMPTS = 3
+TRANSLATE_BATCH_SIZE = 5
+
+# 为模型推理和最终正文共同预留输出额度。
+MODEL_MAX_TOKENS = 16384
+
+
+class ModelOutputTruncatedError(ValueError):
+    """模型耗尽输出额度，返回内容不可用于发布。"""
+
 
 # 批量脚本不宜一次塞入太多文章；较小批次能降低输出被截断或漏项的概率。
 SCRIPT_BATCH_SIZE = 3
@@ -42,7 +51,7 @@ CHAT_MAX_ATTEMPTS = 3
 CHAT_RETRY_STATUS = {429, 500, 502, 503, 504}
 
 
-def _chat_raw(prompt: str, max_tokens: int = 4096) -> str:
+def _chat_raw(prompt: str, max_tokens: int = MODEL_MAX_TOKENS) -> str:
     """调用模型 API，仅过滤 think 标签；截断必须显式失败。"""
     payload = {
         "model": ANTHROPIC_MODEL,
@@ -96,7 +105,7 @@ def _chat_raw(prompt: str, max_tokens: int = 4096) -> str:
         stop_reason = data["choices"][0].get("finish_reason")
 
     if stop_reason == "length" or stop_reason == "max_tokens":
-        raise ValueError(
+        raise ModelOutputTruncatedError(
             f"模型响应被截断 (finish_reason={stop_reason}, max_tokens={max_tokens})"
         )
 
@@ -105,7 +114,7 @@ def _chat_raw(prompt: str, max_tokens: int = 4096) -> str:
     return text
 
 
-def _chat(prompt: str, max_tokens: int = 4096) -> str:
+def _chat(prompt: str, max_tokens: int = MODEL_MAX_TOKENS) -> str:
     """调用 API 并过滤非对话内容（用于生成播客脚本）。"""
     text = _chat_raw(prompt, max_tokens)
     # 有些蒸馏模型不输出 <think> 标签但会先输出规划文字，
@@ -127,7 +136,7 @@ def analyze_article(article: dict) -> PaperAnalysis:
         title=article["title"],
         content=article["content"],
     )
-    return parse_paper_analysis_json(_chat_raw(prompt, max_tokens=2048))
+    return parse_paper_analysis_json(_chat_raw(prompt))
 
 
 def summarize_article(article: dict) -> str:
@@ -347,7 +356,7 @@ def _generate_validated_script_batch(
                 f"  生成脚本片段（第 {batch_start + 1}-{batch_start + len(batch)} 篇）..."
             )
 
-        part = _chat(attempt_prompt, max_tokens=4096)
+        part = _chat(attempt_prompt)
         missing = find_missing_article_numbers(part, batch, batch_start)
         if not missing:
             return part
@@ -412,8 +421,13 @@ def generate_podcast_script(summaries: list[dict]) -> str:
 def translate_titles(articles: list[dict]) -> dict[str, str]:
     """批量翻译文章标题为中文，返回 {英文标题: 中文标题} 字典。"""
     titles = [a.get("title", "") for a in articles if a.get("title")]
-    if not titles:
-        return {}
+    translations: dict[str, str] = {}
+    for start in range(0, len(titles), TRANSLATE_BATCH_SIZE):
+        translations.update(_translate_title_batch(titles[start:start + TRANSLATE_BATCH_SIZE]))
+    return translations
+
+
+def _translate_title_batch(titles: list[str]) -> dict[str, str]:
     numbered = "\n".join(f"{i+1}. {t}" for i, t in enumerate(titles))
     prompt = (
         "请将以下论文标题逐条翻译为中文，保持编号格式，每行一条，只输出翻译结果，不要解释。"
@@ -422,8 +436,13 @@ def translate_titles(articles: list[dict]) -> dict[str, str]:
     )
     translations: dict[str, str] = {}
     for attempt in range(1, TRANSLATE_MAX_ATTEMPTS + 1):
-        # 文章较多时 2048 tokens 容易把输出截断，预留余量
-        result = _chat_raw(prompt, max_tokens=4096)
+        try:
+            result = _chat_raw(prompt)
+        except ModelOutputTruncatedError as e:
+            if attempt == TRANSLATE_MAX_ATTEMPTS:
+                raise
+            print(f"  [重试] 标题翻译被截断，第 {attempt + 1}/{TRANSLATE_MAX_ATTEMPTS} 次: {e}")
+            continue
 
         # 从第一个 "1." 开头的行开始解析，跳过可能的思考/前言段落
         list_match = re.search(r"(?m)^1[.、]", result)
@@ -482,7 +501,7 @@ def generate_episode_highlights(articles: list[dict]) -> str:
         "只输出最终段落文字，不要任何思考过程、列表或格式符号。\n\n"
         f"文章列表：\n{overview}"
     )
-    return _strip_highlights_thinking(_chat_raw(prompt, max_tokens=512))
+    return _strip_highlights_thinking(_chat_raw(prompt))
 
 
 def process_articles(articles: list[dict]) -> str:
