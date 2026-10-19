@@ -2403,5 +2403,117 @@ https://doi.org/10.1126/science.ael7318</description>
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-10-19</title>
+      <description>本期播客涵盖肿瘤基因组进化、微外显子剪接与自闭症相关遗传变异、肿瘤免疫调控等人类疾病机制，以及人工智能在棕色脂肪表型、哺乳动物空间分布和畜禽基因组分析中的应用。节目还涉及动物飞行成本、线粒体跨物种比较、鸟类早期生态、古DNA分析流程、畜禽生长性状GWAS与育种值评估、肠道微生物动态，并包含期刊更正和书评内容。
+
+本期讨论文章：
+
+Nature, 2026-10-15
+Divergent genomic evolution in astrocytomas and oligodendrogliomas
+星形细胞瘤和少突胶质细胞瘤中分歧的基因组进化
+https://doi.org/10.1038/s41586-026-11150-x
+
+Nature, 2026-10-15
+Artificial intelligence-enabled clinical phenotyping of human brown fat
+人工智能使能的人类棕色脂肪临床表型分型
+https://doi.org/10.1038/s41586-026-11162-7
+
+Nature, 2026-10-15
+A microexon regulatory code reveals autism-linked genetic variation
+一个微小外显子调控密码揭示自闭症关联的遗传变异
+https://doi.org/10.1038/s41586-026-11119-w
+
+Science, 2026-10-15
+Airflows redefine the cost of aerial transport in the wild
+气流重新定义野外空中运输的成本
+https://doi.org/10.1126/science.aee6550
+
+Animals, 2026-10-15
+Machine-Learning-Based Genomic Prioritization and Genome-Wide Association Analysis of Growth Traits in Central Anatolian Merino Sheep
+基于机器学习的基因组优先级排序与中安纳托利亚美利奴羊生长性状的全基因组关联分析
+https://doi.org/10.3390/ani16203243
+
+Nature Communications, 2026-10-15
+cPRIME enables endogenous mapping of genetic variant effects at RNA level
+cPRIME 使在 RNA 水平上对遗传变异效应进行内源性作图成为可能
+https://doi.org/10.1038/s41467-026-78344-9
+
+Nature, 2026-10-16
+Unprecedented atlas explores mitochondria across the tree of life
+前所未有的图谱探索跨越生命之树的线粒体
+https://doi.org/10.1038/d41586-026-03195-9
+
+Genetics Selection Evolution, 2026-10-16
+Genomic architecture of non-nominal offspring risk in a simulated composite cattle breed
+模拟复合牛品种中非名义后代风险的基因组架构
+https://doi.org/10.1186/s12711-026-01093-2
+
+Nature, 2026-10-15
+Jurassic flightless bird reveals early ecological diversity of avialans
+侏罗纪不会飞的鸟揭示了鸟翼类的早期生态多样性
+https://doi.org/10.1038/s41586-026-10972-z
+
+Animals, 2026-10-16
+Genome-Wide Association Study of Body Weight and Body Size Traits in Wenshang Barred Chickens at the Late Rearing Stage
+汶上横斑鸡饲养后期阶段体重和体大小性状的全基因组关联研究
+https://doi.org/10.3390/ani16203255
+
+Animals, 2026-10-15
+Dynamics of Gut Microbial Community and Function in Growing Male Raccoon Dogs
+生长中的雄性貉肠道微生物群落与功能的动态
+https://doi.org/10.3390/ani16203238
+
+Heredity, 2026-10-13
+Genomic models for accurate estimation of breeding values in Sitka spruce (Picea sitchensis Bong. Carr)
+用于准确估计西加云杉（Picea sitchensis Bong. Carr）育种值的基因组模型
+https://doi.org/10.1038/s41437-026-00894-x
+
+Nature Communications, 2026-10-16
+Explainable artificial intelligence reveals spatially divergent effects of global change on mammals
+可解释人工智能揭示全球变化对哺乳动物的空间分异效应
+https://doi.org/10.1038/s41467-026-78677-5
+
+BMC Genomics, 2026-10-16
+Machine learning-assisted genomic characterization of population differentiation between Chinese Kirghiz and Kyrgyzstan local sheep
+机器学习辅助的中国柯尔克孜羊与吉尔吉斯斯坦地方绵羊群体分化的基因组表征
+https://doi.org/10.1186/s12864-026-13459-3
+
+Science, 2026-10-15
+In Science Journals
+在《科学》期刊中
+https://doi.org/10.1126/science.aen1236
+
+Nature Communications, 2026-10-16
+ITLN1 suppresses colorectal cancer progression by orchestrating neutrophil maturation and spatial organization
+ITLN1 通过协调中性粒细胞成熟和空间组织来抑制结直肠癌进展
+https://doi.org/10.1038/s41467-026-78599-2
+
+Nature Genetics, 2026-10-16
+Publisher Correction: Gb3 encodes a unique kinase fusion protein conferring greenbug resistance in wheat
+出版商更正：Gb3 编码一种独特的激酶融合蛋白，赋予小麦绿虫抗性
+https://doi.org/10.1038/s41588-026-02835-0
+
+BMC Genomics, 2026-10-16
+Identification of regulatory elements and association analysis of genetic variants with growth traits of goat ADAMTS15 gene
+山羊 ADAMTS15 基因调控元件的鉴定及遗传变异与生长性状的关联分析
+https://doi.org/10.1186/s12864-026-13467-3
+
+Bioinformatics, 2026-10-15
+DNAharvester: A Nextflow Pipeline for Analysing Highly Degraded DNA from Ancient and Historical Specimens
+DNAharvester：一个用于分析来自古代和历史标本的高度降解 DNA 的 Nextflow 流程
+https://doi.org/10.1093/bioinformatics/btag782
+
+Science, 2026-10-15
+An elegy for the unsung world-builders The Last Animal Kyle Harper Princeton University Press, 2026. 496 pp.
+为无名世界建造者而作的挽歌：《最后的动物》，凯尔·哈珀，普林斯顿大学出版社，2026年，496页
+https://doi.org/10.1126/science.aek0152</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-10-19/podcast-2026-10-19.mp3" length="18107564" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-10-19</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 +0800</pubDate>
+      <itunes:duration>47:13</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
