@@ -2515,5 +2515,117 @@ https://doi.org/10.1126/science.aek0152</description>
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-10-26</title>
+      <description>本期播客涵盖古人类演化与群体遗传、复杂性状和疾病基因组学、统计遗传与多组学方法、农业动植物育种以及基因编辑和分子机器等研究方向。核心内容包括TWAS效应方向偏差与共调控混杂、多祖先GWAS条件联合分析、长读长小变异检测、多基因评分隐私风险、基因型—环境交互检测和单倍型精细定位等方法进展，也涉及家畜与作物的遗传多样性、经济性状定位和肝脏甘油三酯遗传结构等研究。节目还讨论了许家窑古人类分类、劳伦泰德冰盖晚全新世变化、小麦着丝粒重组、鸟类快速决策、先导编辑人体治疗和电流驱动分子转子等主题。
+
+本期讨论文章：
+
+Nature, 2026-10-21
+The proteome of Middle Pleistocene Xujiayao and common Denisovan morphology
+中更新世许家窑的蛋白质组与常见的丹尼索瓦人形态
+https://doi.org/10.1038/s41586-026-11132-z
+
+Nature Genetics, 2026-10-22
+High false sign rates in transcriptome-wide association studies
+转录组范围关联研究中高的假符号率
+https://doi.org/10.1038/s41588-026-02796-4
+
+Nature Genetics, 2026-10-22
+Co-regulation confounds direction of genetic effects in transcriptome-wide association studies
+共调控混杂转录组范围关联研究中遗传效应的方向
+https://doi.org/10.1038/s41588-026-02793-7
+
+Nature Reviews Genetics, 2026-10-20
+Small variant calling in the era of long-read sequencing
+长读长测序时代的小变异检测
+https://doi.org/10.1038/s41576-026-01020-7
+
+Nature Genetics, 2026-10-20
+Multiancestry conditional and joint analysis applied to GWAS summary statistics
+应用于GWAS汇总统计的多祖先条件与联合分析
+https://doi.org/10.1038/s41588-026-02799-1
+
+PLOS One, 2026-10-23
+Analysis of genetic diversity and phylogenetic evolution of cattle population in the Ili River Valley region, Xinjiang, based on mtDNA D-loop sequence
+基于mtDNA D-loop序列的新疆伊犁河谷地区牛群体遗传多样性和系统发育进化分析
+https://doi.org/10.1371/journal.pone.0359629
+
+Science, 2026-10-22
+Late Holocene reexpansion of the Laurentide Ice Sheet
+劳伦泰德冰盖的晚全新世再扩张
+https://doi.org/10.1126/science.aed3379
+
+Animals, 2026-10-22
+Genome-Wide Detection of Genetic Diversity and Genomic Structure in Hanwoo Cows
+韩牛母牛遗传多样性和基因组结构的全基因组检测
+https://doi.org/10.3390/ani16203320
+
+Nature Genetics, 2026-10-21
+Genome-wide analyses identify 60 loci associated with liver triglyceride content
+全基因组分析鉴定出60个与肝脏甘油三酯含量相关的位点
+https://doi.org/10.1038/s41588-026-02794-6
+
+Nature Communications, 2026-10-25
+Evaluating anonymized genome re-identification using polygenic predictions and its implications for data privacy
+评估使用多基因预测的匿名基因组重识别及其对数据隐私的影响
+https://doi.org/10.1038/s41467-026-78494-w
+
+bioinformatics, 2026-10-24
+Probabilistic uncertainty in virtual spatial transcriptomics from histology is largely redundant with the predicted mean
+来自组织学的虚拟空间转录组学中的概率不确定性在很大程度上与预测均值冗余
+https://doi.org/10.64898/2026.10.23.760875
+
+Animals, 2026-10-22
+Genome-Wide Association Study of Body Conformation and Carcass Composition Traits in Landrace Pigs
+兰德瑞斯猪体型与胴体组成性状的全基因组关联研究
+https://doi.org/10.3390/ani16203316
+
+Science, 2026-10-22
+Ultrarapid decision-making in an avian brain
+鸟类大脑中的超快速决策
+https://doi.org/10.1126/science.aed6459
+
+Frontiers in Genetics, 2026-10-22
+USDA-SoyWheOatBar-3K: a robust high-throughput genotyping platform to accelerate molecular breeding in small grains
+USDA-SoyWheOatBar-3K：一个稳健的高通量基因分型平台，用于加速小粒谷物的分子育种
+https://doi.org/10.3389/fgene.2026.1984445
+
+Animal Genetics, 2026-10-22
+Resequencing‐Based GWAS Highlights SNP and Indel Loci and lncRNA Candidates for Carcass Yield and Meat Quality in Yellow‐Feathered Broilers
+基于重测序的GWAS突显黄羽肉鸡胴体产量和肉品质的SNP与Indel位点及lncRNA候选
+https://doi.org/10.1002/age.70224
+
+Nature, 2026-10-22
+A first for CRISPR: powerful prime editing alters DNA directly in the human body
+CRISPR的首例：强大的先导编辑直接在人体内改变DNA
+https://doi.org/10.1038/d41586-026-03371-x
+
+bioinformatics, 2026-10-24
+Haplotype-based fine-mapping of variant associations for complex traits
+基于单倍型的复杂性状变异关联精细定位
+https://doi.org/10.64898/2026.10.19.760226
+
+Nature Genetics, 2026-10-22
+Near-complete assembly of wild emmer wheat unveils centromere reorganization during polyploid evolution
+野生二粒小麦的近乎完整组装揭示了多倍体演化过程中的着丝粒重组
+https://doi.org/10.1038/s41588-026-02808-3
+
+Nature, 2026-10-22
+Current-Driven Molecular Machine with Rotation-Enhanced Conductance
+具有旋转增强电导的电流驱动分子机器
+https://doi.org/10.1038/s41586-026-11312-x
+
+Nature Genetics, 2026-10-21
+Genome-wide detection of genotype–environment interactions at biobank scale with fastGxE
+使用fastGxE在生物样本库规模上对基因型–环境相互作用进行全基因组检测
+https://doi.org/10.1038/s41588-026-02809-2</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-10-26/podcast-2026-10-26.mp3" length="17775716" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-10-26</guid>
+      <pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate>
+      <itunes:duration>46:13</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
