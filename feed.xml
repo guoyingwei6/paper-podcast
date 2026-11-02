@@ -2627,5 +2627,117 @@ https://doi.org/10.1038/s41588-026-02809-2</description>
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-11-02</title>
+      <description>本期播客主要讨论基因组变异与调控研究，包括单细胞染色质可及性和免疫基因表达的遗传基础、结构变异与串联重复的影响、基因型插补参考面板、农业物种基因组分析，以及变异致病性预测和尼安德特人渗入等问题。同时涉及人类大脑皮层和小脑发育、早产影响、神经元体细胞拷贝数变异清除，以及鸟类鸣声模式、太阳罗盘导航和成体脊椎动物全身单细胞图谱等神经与行为研究。此外还关注淡水生物多样性和鸟类基因组侵蚀的保护遗传学，以及猪精液质量、牛毛色趋同演化和大麦顺式调控组等农业与进化遗传学议题。
+
+本期讨论文章：
+
+Science, 2026-10-29
+Pervasive patterns in bird songs resemble those in human speech and song and are independent of vocal learning
+鸟类歌曲中的普遍模式类似于人类言语和歌曲中的模式，并且独立于发声学习
+https://doi.org/10.1126/science.adr9983
+
+Nature, 2026-10-28
+Genetic variants shape single-cell chromatin accessibility and disease risk
+遗传变异塑造单细胞染色质可及性和疾病风险
+https://doi.org/10.1038/s41586-026-11173-4
+
+Journal of Animal Science and Biotechnology, 2026-11-01
+Integrating pangenome and imputation framework reveals structural variants affecting stature and milk composition traits in French dairy cattle
+整合泛基因组和插补框架揭示影响法国奶牛体高和乳成分性状的结构变异
+https://doi.org/10.1186/s40104-026-01510-y
+
+Nature Genetics, 2026-10-30
+A haplotype reference panel constructed from 490,319 UK Biobank genomes improves genotype imputation for global populations
+从490,319个UK Biobank基因组构建的单倍型参考面板改善了全球人群的基因型插补
+https://doi.org/10.1038/s41588-026-02819-0
+
+Nature, 2026-10-28
+Rare and common genetic variants shape single-cell immune gene expression
+罕见和常见遗传变异塑造单细胞免疫基因表达
+https://doi.org/10.1038/s41586-026-10721-2
+
+Science, 2026-10-29
+The global geography of threats to freshwater biodiversity
+淡水生物多样性威胁的全球地理分布
+https://doi.org/10.1126/science.aeb7910
+
+Animals, 2026-10-29
+Estimation of Genetic Parameters for Semen Quality Traits in Large White and Landrace Boars
+大白猪和长白猪公猪精液质量性状遗传参数的估计
+https://doi.org/10.3390/ani16213425
+
+Nature, 2026-10-28
+Perinatal elimination of genetically aberrant human cortical neurons
+遗传异常的人类皮层神经元的围产期消除
+https://doi.org/10.1038/s41586-026-11190-3
+
+Science, 2026-10-29
+Intrinsic gestational timing governs human cerebellar development after preterm birth
+内在妊娠时序支配早产出生后的人类小脑发育
+https://doi.org/10.1126/science.aeb9095
+
+Frontiers in Genetics, 2026-10-29
+The seeds of tomorrow: SEAD reference panel promotes genomics in Asian human populations
+明天的种子：SEAD参考面板促进亚洲人类群体的基因组学
+https://doi.org/10.3389/fgene.2026.1926569
+
+Nature, 2026-10-28
+Tandem repeat variation shapes immune cell type-specific gene expression
+串联重复变异塑造免疫细胞类型特异性基因表达
+https://doi.org/10.1038/s41586-026-10438-2
+
+Science, 2026-10-29
+Rapid longitudinal flights cause time shifts and Sun compass error
+快速纵向飞行导致时间偏移和太阳罗盘误差
+https://doi.org/10.1126/science.adz2542
+
+Science, 2026-10-29
+Genomic erosion across avifauna in a biodiversity hotspot sounds a conservation alarm
+生物多样性热点中鸟类区系的基因组侵蚀敲响保护警报
+https://doi.org/10.1126/science.aef3063
+
+Animals, 2026-10-29
+Genome-Wide Analysis Reveals Copy Number Variation-Mediated Adaptive Evolution in Chickens Under Diverse Environmental and Domestication Pressures
+全基因组分析揭示多样环境和驯化压力下鸡中拷贝数变异介导的适应性进化
+https://doi.org/10.3390/ani16213424
+
+Science, 2026-10-29
+Whole-body single-cell atlas of an adult vertebrate, Danionella cerebrum
+一种成体脊椎动物 Danionella cerebrum 的全身单细胞图谱
+https://doi.org/10.1126/science.aeg1125
+
+evolutionary biology, 2026-10-31
+MC1R residue 223 is a convergent target for coat-colour lightening in domestic and wild bovids
+MC1R 第223位残基是家养和野生牛科动物毛色变浅的趋同靶标
+https://doi.org/10.64898/2026.10.30.762879
+
+genomics, 2026-10-30
+Towards a complete diploid chicken genome
+迈向完整的二倍体鸡基因组
+https://doi.org/10.64898/2026.10.25.761615
+
+Nature Communications, 2026-10-31
+Neanderthal introgressed ancestry reveals human genomic regions enriched with recessive deleterious mutations
+尼安德特人渗入的祖先血统揭示了富集隐性有害突变的人类基因组区域
+https://doi.org/10.1038/s41467-026-78708-1
+
+Nature Communications, 2026-10-30
+Genomic heterogeneity inflates the performance of variant pathogenicity predictions
+基因组异质性夸大了变异致病性预测的性能
+https://doi.org/10.1038/s41467-026-78623-5
+
+genomics, 2026-10-30
+A composited genome approach to analyse cistrome diversity in barley
+一种分析大麦顺式调控组多样性的复合基因组方法
+https://doi.org/10.64898/2026.10.27.762185</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-11-02/podcast-2026-11-02.mp3" length="17760356" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-11-02</guid>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+      <itunes:duration>46:26</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
