@@ -2739,5 +2739,117 @@ https://doi.org/10.64898/2026.10.27.762185</description>
       <itunes:author>Paper Podcast</itunes:author>
       <itunes:explicit>false</itunes:explicit>
     </item>
+    <item>
+      <title>科研播客 - 2026-11-09</title>
+      <description>本期播客主要涵盖复杂性状与疾病的遗传调控研究，包括单细胞染色质可及性和基因表达、转录组QTL、结构变异与串联重复、基因型填充、DNA甲基化变异预测，以及人类免疫和神经发育中的基因组异常。内容还涉及动植物经济性状的基因组关联与育种应用，如奶牛、猪、羊、小麦的遗传参数、候选基因和分子标记开发，并讨论真菌基因组学进展。另有研究关注鸟类歌曲与人类语言歌曲的模式比较、基因型与环境互作对开花时间遗传结构的影响，以及全球淡水生物多样性威胁的空间格局。
+
+本期讨论文章：
+
+Science, 2026-10-29
+Pervasive patterns in bird songs resemble those in human speech and song and are independent of vocal learning
+鸟类歌曲中的普遍模式类似于人类言语和歌曲中的模式，并且独立于发声学习
+https://doi.org/10.1126/science.adr9983
+
+Nature, 2026-10-28
+Genetic variants shape single-cell chromatin accessibility and disease risk
+遗传变异塑造单细胞染色质可及性和疾病风险
+https://doi.org/10.1038/s41586-026-11173-4
+
+Journal of Animal Science and Biotechnology, 2026-11-01
+Integrating pangenome and imputation framework reveals structural variants affecting stature and milk composition traits in French dairy cattle
+整合泛基因组和插补框架揭示影响法国奶牛体高和乳成分性状的结构变异
+https://doi.org/10.1186/s40104-026-01510-y
+
+Nature, 2026-10-28
+Rare and common genetic variants shape single-cell immune gene expression
+稀有和常见遗传变异塑造单细胞免疫基因表达
+https://doi.org/10.1038/s41586-026-10721-2
+
+Nature Genetics, 2026-11-02
+A catalog of transcriptome genetic regulation in a consanguineous Middle Eastern biobank
+一个近亲中东生物样本库中转录组遗传调控的目录
+https://doi.org/10.1038/s41588-026-02785-7
+
+Nature, 2026-10-28
+Perinatal elimination of genetically aberrant human cortical neurons
+围产期消除遗传异常的人类皮层神经元
+https://doi.org/10.1038/s41586-026-11190-3
+
+Nature Genetics, 2026-10-30
+A haplotype reference panel constructed from 490,319 UK Biobank genomes improves genotype imputation for global populations
+由490,319个英国生物银行基因组构建的单倍型参考面板改善了全球人群的基因型填充
+https://doi.org/10.1038/s41588-026-02819-0
+
+Nature, 2026-10-28
+Tandem repeat variation shapes immune cell type-specific gene expression
+串联重复变异塑造免疫细胞类型特异性基因表达
+https://doi.org/10.1038/s41586-026-10438-2
+
+Science, 2026-10-29
+The global geography of threats to freshwater biodiversity
+淡水生物多样性威胁的全球地理
+https://doi.org/10.1126/science.aeb7910
+
+Nature Communications, 2026-11-02
+Building a pre-trained model for single-cell multi-omics analysis beyond highly variable feature selection
+构建一个超越高变特征选择的单细胞多组学分析预训练模型
+https://doi.org/10.1038/s41467-026-78933-8
+
+Animals, 2026-10-29
+Estimation of Genetic Parameters for Semen Quality Traits in Large White and Landrace Boars
+大白猪和长白猪公猪精液品质性状遗传参数的估计
+https://doi.org/10.3390/ani16213425
+
+BMC Genomics, 2026-11-03
+Development of a high-quality 90 K SNP array and its application in mining genes associated with wheat processing quality traits
+高质量90 K SNP芯片的开发及其在与小麦加工品质性状相关基因挖掘中的应用
+https://doi.org/10.1186/s12864-026-13531-y
+
+Nature Genetics, 2026-11-03
+Progress and disparities in fungal genomics in the long-read era
+长读长时代真菌基因组学的进展与差距
+https://doi.org/10.1038/s41588-026-02790-w
+
+genetics, 2026-11-03
+GxE and changes to the genetic architecture of flowering time in an overwintering environment
+GxE与越冬环境中开花时间遗传结构的变化
+https://doi.org/10.64898/2026.10.30.762947
+
+plant biology, 2026-11-03
+Dissecting the genetic basis of DUS characters in Pakistani wheat varieties
+解析巴基斯坦小麦品种DUS性状的遗传基础
+https://doi.org/10.64898/2026.11.01.763533
+
+BMC Genomics, 2026-11-02
+Genome-wide association analysis of cashmere traits in Inner Mongolia Arbas cashmere goats
+内蒙古阿尔巴斯绒山羊羊绒性状的全基因组关联分析
+https://doi.org/10.1186/s12864-026-13460-w
+
+Nature Genetics, 2026-11-03
+A framework for genome-wide characterization of DNA methylation and variant effect prediction
+一个用于DNA甲基化全基因组表征和变异效应预测的框架
+https://doi.org/10.1038/s41588-026-02807-4
+
+Journal of Animal Science and Biotechnology, 2026-11-04
+Integrated multi-omics analysis deciphers the molecular mechanisms underlying the characteristic volatile flavor of Meishan pork
+整合多组学分析破译梅山猪肉特征性挥发性风味的底层分子机制
+https://doi.org/10.1186/s40104-026-01515-7
+
+BMC Genomics, 2026-11-02
+Genome-wide association study identifies candidate genes for body size and establishes a core germplasm set in Duoma sheep
+全基因组关联研究鉴定体型候选基因并在多玛羊中建立核心种质集
+https://doi.org/10.1186/s12864-026-13488-y
+
+Science, 2026-10-29
+Intrinsic gestational timing governs human cerebellar development after preterm birth
+固有妊娠时序支配早产后人类小脑发育
+https://doi.org/10.1126/science.aeb9095</description>
+      <enclosure url="https://github.com/guoyingwei6/paper-podcast/releases/download/v2026-11-09/podcast-2026-11-09.mp3" length="18582380" type="audio/mpeg" />
+      <guid isPermaLink="false">podcast-2026-11-09</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 +0800</pubDate>
+      <itunes:duration>48:35</itunes:duration>
+      <itunes:author>Paper Podcast</itunes:author>
+      <itunes:explicit>false</itunes:explicit>
+    </item>
   </channel>
 </rss>
